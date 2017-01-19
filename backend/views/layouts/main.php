@@ -1,0 +1,111 @@
+<?php
+
+/* @var $this \yii\web\View */
+/* @var $content string */
+
+use backend\assets\EndAsset;
+use yii\helpers\Html;
+use yii\helpers\Url;
+// use backend\models\Menu;
+use yii\widgets\Breadcrumbs;
+use backend\models\Menu;
+
+EndAsset::register($this);
+$context = $this->context;
+$route = $context->action->getUniqueId();
+$allMenu = Menu::getMenus($route); // 获取后台栏目
+
+
+
+$this->beginPage();
+?>
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+
+<head>
+    <meta charset="<?= Yii::$app->language; ?>" />
+    <title><?= \Yii::$app->setting->get('siteName') ?> | <?= \Yii::$app->setting->get('siteTitle') ?></title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta content="<? Yii::$app->setting->get('siteKeyword') ?>"
+          name="description" />
+    <meta content="" name="author" />
+    <?php $this->head() ?>
+    <link rel="shortcut icon" href="<?=Yii::getAlias('@web/favicon.ico'); ?>" />
+<!-- END HEAD -->
+
+<body class="page-header-fixed page-sidebar-closed-hide-logo page-content-white">
+<?php $this->beginBody() ?>
+
+<div class="page-wrapper">
+    <!-- BEGIN HEADER -->
+    <?= $this->render('@app/views/layouts/public/header.php', ['allMenu' => $allMenu]); ?>
+    <!-- END HEADER -->
+
+
+    <!-- BEGIN HEADER & CONTENT DIVIDER -->
+    <div class="clearfix"> </div>
+    <!-- END HEADER & CONTENT DIVIDER -->
+    <!-- BEGIN CONTAINER -->
+    <div class="page-container">
+        <!-- BEGIN SIDEBAR -->
+        <div class="page-sidebar-wrapper">
+            <!-- BEGIN SIDEBAR -->
+            <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+            <!-- DOC: Change data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+            <?= $this->render('@app/views/layouts/public/sidebar.php', ['allMenu' => $allMenu]); ?>
+            <!-- END SIDEBAR -->
+        </div>
+        <!-- END SIDEBAR -->
+        <!-- BEGIN CONTENT -->
+        <div class="page-content-wrapper">
+            <!-- BEGIN CONTENT BODY -->
+            <div class="page-content">
+                <!-- BEGIN PAGE HEADER-->
+                <!-- BEGIN THEME PANEL -->
+                <?= $this->render('@app/views/layouts/public/theme_panel.php', ['data' => '']); ?>
+                <!-- END THEME PANEL -->
+                <!-- BEGIN PAGE BAR -->
+                <?= $this->render('@app/views/layouts/public/pagebar.php', ['data' => '']); ?>
+                <!-- END PAGE BAR -->
+
+                <!-- content staring -->
+                <?= $content ?>
+                <!-- content ending -->
+
+
+            </div>
+            <!-- END CONTENT BODY -->
+        </div>
+        <!-- END CONTENT -->
+        <!-- BEGIN QUICK SIDEBAR -->
+        <!-- 此处用worker php socket 去实现实时的消息推送 -->
+        <?= $this->render('@app/views/layouts/public/quick_sidebar.php', ['data' => '']) ?>
+        <!-- END QUICK SIDEBAR -->
+    </div>
+    <!-- END CONTAINER -->
+    <!-- BEGIN FOOTER -->
+    <?= $this->render('@app/views/layouts/public/footer.php', ['data' => '']) ?>
+    <!-- END FOOTER -->
+</div>
+<!-- BEGIN QUICK NAV -->
+<?= $this->render('@app/views/layouts/public/quick_nav.php', ['data' => '']) ?>
+<!-- END QUICK NAV -->
+<div class="quick-nav-overlay"></div>
+
+<!-- END THEME LAYOUT SCRIPTS -->
+<?php $this->endBody() ?>
+</body>
+
+<script type="text/javascript">
+    var route = "<?= $route ?>";
+</script>
+
+
+</html>
+<?php $this->endPage() ?>
