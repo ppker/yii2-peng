@@ -29,7 +29,7 @@ $this->beginPage();
 
 <head>
     <meta charset="<?= Yii::$app->language; ?>" />
-    <title><?= \Yii::$app->setting->get('siteName') ?> | <?= \Yii::$app->setting->get('siteTitle') ?></title>
+    <title><?= $this->title; ?> | <?= \Yii::$app->setting->get('siteName') ?> | <?= \Yii::$app->setting->get('siteTitle') ?></title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <meta content="<? Yii::$app->setting->get('siteKeyword') ?>"
@@ -73,7 +73,11 @@ $this->beginPage();
                 <!-- BEGIN PAGE BAR -->
                 <?= $this->render('@app/views/layouts/public/pagebar.php', ['breadcrumbs' => $breadcrumbs]); ?>
                 <!-- END PAGE BAR -->
-
+                <!-- BEGIN PAGE TITLE-->
+                <h1 class="page-title"><?= Html::encode($this->title); ?>
+                    <small><?= Html::encode(isset($this->params['title_sub'])? $this->params['title_sub']: '' ); ?></small>
+                </h1>
+                <!-- END PAGE TITLE-->
                 <!-- content staring -->
                 <?= $content ?>
                 <!-- content ending -->
