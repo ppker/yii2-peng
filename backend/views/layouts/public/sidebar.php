@@ -54,7 +54,7 @@
                                     <a href="<?= \yii\helpers\Url::toRoute($v['url']) ?>" nav="<?= $v['url'] ?>" class="nav-link ">
                                         <span class="title"><?= $v['title'] ?></span>
 
-                                        <span class="arrow"></span>
+                                        <!--<span class="arrow"></span>-->
                                     </a>
                                 </li>
                             <?php endforeach; ?>
