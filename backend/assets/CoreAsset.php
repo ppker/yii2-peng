@@ -32,6 +32,7 @@ class CoreAsset extends AssetBundle {
 
     ];
     public $js = [ // 全局js文件
+        'extend/core/nameSpace.js',
         'global/plugins/jquery.min.js',
         'global/plugins/bootstrap/js/bootstrap.min.js',
         'global/plugins/js.cookie.min.js', // cookie manager
