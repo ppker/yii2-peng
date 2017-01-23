@@ -13,19 +13,20 @@ class AppAsset extends AssetBundle
     public $baseUrl = '@web/metronic/assets';
     public $css = [
         'global/plugins/bootstrap-daterangepicker/daterangepicker.min.css',
-        'global/plugins/morris/morris.css',
-        'global/plugins/fullcalendar/fullcalendar.min.css',
-        'global/plugins/jqvmap/jqvmap/jqvmap.css',
+        'global/plugins/morris/morris.css', //  漂亮的时间系列曲线图 you can draw line, circle, bar and donut charts
+        'global/plugins/fullcalendar/fullcalendar.min.css', // 日历 事件 面板
+        'global/plugins/jqvmap/jqvmap/jqvmap.css', // 地图 | 地理位置数据交互插件
         'layouts/layout/css/layout.min.css',
         'layouts/layout/css/themes/darkblue.min.css',
-        'layouts/layout/css/custom.min.css',
+        'layouts/layout/css/custom.min.css', // 自定义css
 
     ];
     public $js = [
-        'global/plugins/moment.min.js',
-        'global/plugins/bootstrap-daterangepicker/daterangepicker.min.js',
+        'global/plugins/moment.min.js', // 时间格式
+        'global/plugins/bootstrap-daterangepicker/daterangepicker.min.js', // 日期插件
         'global/plugins/morris/morris.min.js',
         'global/plugins/morris/raphael-min.js',
+        'global/plugins/fullcalendar/fullcalendar.min.js', // 日历插件
     ];
     public $depends = [
         // 'yii\web\YiiAsset', // yii.js jQuery.js

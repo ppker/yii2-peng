@@ -22,9 +22,10 @@ class PluginAsset extends AssetBundle {
 
     ];
     public $js = [ // 全局js文件
-        'global/plugins/counterup/jquery.waypoints.min.js',
+        'global/plugins/counterup/jquery.waypoints.min.js', // 计数器？
         'global/plugins/counterup/jquery.counterup.min.js',
-        'global/plugins/amcharts/amcharts/amcharts.js',
+
+        'global/plugins/amcharts/amcharts/amcharts.js', // 很不错的一个图表库
         'global/plugins/amcharts/amcharts/serial.js',
         'global/plugins/amcharts/amcharts/pie.js',
         'global/plugins/amcharts/amcharts/radar.js',
@@ -34,14 +35,17 @@ class PluginAsset extends AssetBundle {
         'global/plugins/amcharts/ammap/ammap.js',
         'global/plugins/amcharts/ammap/maps/js/worldLow.js',
         'global/plugins/amcharts/amstockcharts/amstock.js',
-        'global/plugins/fullcalendar/fullcalendar.min.js',
-        'global/plugins/horizontal-timeline/horizontal-timeline.js',
-        'global/plugins/flot/jquery.flot.min.js',
+
+        // 'global/plugins/fullcalendar/fullcalendar.min.js', // 日历插件
+        'global/plugins/horizontal-timeline/horizontal-timeline.js', // 水平时间轴
+
+        'global/plugins/flot/jquery.flot.min.js', // jquery 的一个 float 画图组件
         'global/plugins/flot/jquery.flot.resize.min.js',
         'global/plugins/flot/jquery.flot.categories.min.js',
-        'global/plugins/jquery-easypiechart/jquery.easypiechart.min.js',
-        'global/plugins/jquery.sparkline.min.js',
-        'global/plugins/jqvmap/jqvmap/jquery.vmap.js',
+
+        'global/plugins/jquery-easypiechart/jquery.easypiechart.min.js', // 比较屌的饼图
+        'global/plugins/jquery.sparkline.min.js', // jQuery 线状图插件
+        'global/plugins/jqvmap/jqvmap/jquery.vmap.js', // USA 地图插件
         'global/plugins/jqvmap/jqvmap/maps/jquery.vmap.russia.js',
         'global/plugins/jqvmap/jqvmap/maps/jquery.vmap.world.js',
         'global/plugins/jqvmap/jqvmap/maps/jquery.vmap.europe.js',

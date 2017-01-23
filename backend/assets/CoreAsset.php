@@ -37,7 +37,7 @@ class CoreAsset extends AssetBundle {
         'global/plugins/js.cookie.min.js', // cookie manager
         'global/plugins/jquery-slimscroll/jquery.slimscroll.min.js', // nice slimcroll similar facebook
         'global/plugins/jquery.blockui.min.js', // ajax遮罩层ui
-        'global/plugins/bootstrap-switch/js/bootstrap-switch.min.js',
+        'global/plugins/bootstrap-switch/js/bootstrap-switch.min.js', // bootstrap下拉选择
 
     ];
     public $depends = [];
