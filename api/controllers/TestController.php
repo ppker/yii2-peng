@@ -2,7 +2,7 @@
 /**
  * Created by PhpStorm.
  * Author: ZhiPeng
- * Date: 2017/1/23
+ * Date: 2017/2/3
  * Project: Cat Visual
  */
 
@@ -11,7 +11,7 @@ use yii\rest\ActiveController;
 use yii\web\Response;
 use yii\filters\Cors;
 use yii;
-use api\controllers\BaseController;
+// use api\controllers\BaseController;
 
 class TestController extends ActiveController {
 
@@ -41,12 +41,11 @@ class TestController extends ActiveController {
         return Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
     }
 
-    public function actionIndex() {
+    public function actionValid() {
+
 
         return ['message' => 'successful', 'code' => 2];
     }
-
-
 
 
 

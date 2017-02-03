@@ -11,7 +11,11 @@ return [
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'api\controllers',
     'bootstrap' => ['log'],
-    'modules' => [],
+    'modules' => [
+        'v1' => [
+             'class' => 'api\modules\v1\Module'
+         ],
+    ],
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-api',
@@ -22,36 +26,60 @@ return [
             'identityCookie' => ['name' => '_identity-api', 'httpOnly' => true],
         ],
         'session' => [
-            // this is the name of the session cookie used for login on the backend
+            // this is the name of the session cookie used for login on the api
             'name' => 'advanced-api',
         ],
         'log' => [
-            'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [
                 [
                     'class' => 'yii\log\FileTarget',
-                    'levels' => ['error', 'warning'],
+                    'levels' => ['info', 'error', 'warning'],
+                    'logFile' => '@app/runtime/logs/api/api.log',
+                    'logVars' => [],
+                    'categories' => [
+                        'api',
+                    ]
                 ],
             ],
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-
+        'cache' => [
+            'class' => 'yii\caching\FileCache',
+            'cachePath' => '@runtime/cache',
+        ],
+        
         'urlManager' => [
             'enablePrettyUrl' => true,
             'enableStrictParsing' => true,
             'showScriptName' => false,
-            'suffix' => '',
             'rules' => [
+                /*['class' => 'yii\rest\UrlRule', 'controller' => 'v1/wechats',
+                    'extraPatterns' => [
+                        'GET,POST valid' => 'valid',
+                        'GET,POST accesstoken' => 'accesstoken',
+                        'GET serverip' => 'serverip',
+                        'POST userinfo' => 'userinfo',
+                        'POST pay' => 'pay',
+                        'POST notify' => 'notify',
+                        'POST config' => 'config',
+                    ],
+                ],*/
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'test',
                     'extraPatterns' => [
-                        'GET,POST inex' => 'index',
+                        'GET,POST valid' => 'valid'
                     ],
                 ],
             ],
         ],
-
+        /*'urlManager' => [
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
+            'rules' => [
+            ],
+        ],*/
+        
     ],
     'params' => $params,
 ];

@@ -13,6 +13,8 @@ use backend\models\Menu;
 EndAsset::register($this);
 $context = $this->context;
 $route = $context->action->getUniqueId();
+
+var_dump($route);die;
 $allMenu = Menu::getMenus($route); // 获取后台栏目
 
 $breadcrumbs = Menu::getBreadcrumbs($route); // 面包屑导航
