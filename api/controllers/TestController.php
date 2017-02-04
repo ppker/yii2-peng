@@ -20,15 +20,15 @@ class TestController extends ActiveController {
     public function behaviors() {
 
         $behaviors = parent::behaviors();
-        $behaviors['contentNegotiator']['formats']['text/html'] = Response::FORMAT_JSON;
+        $behaviors['contentNegotiator']['formats']['text/html'] = Response::FORMAT_JSON; // 设置支持的相应格式 默认 json xml
         $behaviors['corsFilter'] = [
             'class' => Cors::className(),
-            'cors' => [
+            'cors' => [ // 跨域资源共享机制 cors
                 'Origin' => ['*'],
                 'Access-Control-Request-Method' => ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'HEAD', 'OPTIONS'],
                 'Access-Control-Request-Headers' => ['*'],
-                'Access-Control-Allow-Credentials' => true,
-                'Access-Control-Max-Age' => 86400,
+                'Access-Control-Allow-Credentials' => true, // 允许证书 https
+                'Access-Control-Max-Age' => 86400, // 请求的有效时间
             ],
         ];
         return $behaviors;

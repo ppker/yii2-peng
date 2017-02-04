@@ -66,9 +66,9 @@ return [
                         'POST config' => 'config',
                     ],
                 ],*/
-                ['class' => 'yii\rest\UrlRule', 'controller' => 'test',
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'user',
                     'extraPatterns' => [
-                        'GET,POST valid' => 'valid'
+                        'GET,POST index' => 'index'
                     ],
                 ],
             ],

@@ -114,6 +114,7 @@ $this->beginPage();
 
 <script type="text/javascript">
     var route = "<?= $route ?>";
+    (window.PAGE_ACTION && $(window).ready(window.PAGE_ACTION().init));
 </script>
 
 
