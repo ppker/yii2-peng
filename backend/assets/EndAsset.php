@@ -3,7 +3,7 @@
 namespace backend\assets;
 
 use yii\web\AssetBundle;
-
+use yii;
 /**
  * Main backend application asset bundle.
  */
@@ -34,17 +34,17 @@ class EndAsset extends AssetBundle
     ];
 
     /**
-     * 拼装模板js文件路径
+     * 然后模板对应的js文件路径
      * @param string $route
      * @param $bath_path
      * @return bool|string
      */
-    public static function get_js($route = '', $bath_path) {
+    public static function get_js($route = '') {
 
         if ('' == $route) return $route;
         $js_path = explode('/', $route);
-        $whole_path = $bath_path . DIRECTORY_SEPARATOR . $js_path[0] . DIRECTORY_SEPARATOR . 'js' . DIRECTORY_SEPARATOR . $js_path[1] . '.js';
-        if (is_file($whole_path)) return '/backend/' . 'views/' . $js_path[0] . '/js/' . $js_path[1] . '.js';
+        $whole_path = '/static/js/views/' . $js_path[0] . '/' . $js_path[1] . '.js';
+        if (is_file(Yii::getAlias('@webroot' . $whole_path))) return '@web' . $whole_path;
         else return false;
     }
 

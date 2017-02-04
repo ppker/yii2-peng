@@ -16,6 +16,7 @@ $context = $this->context;
 $route = $context->action->getUniqueId();
 $js_file = EndAsset::get_js($route, dirname(__DIR__));
 
+// var_dump($js_file);die;
 if ($js_file) AppAsset::addScript($this, $js_file);
 
 $allMenu = Menu::getMenus($route); // 获取后台栏目

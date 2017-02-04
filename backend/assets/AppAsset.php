@@ -37,11 +37,11 @@ class AppAsset extends AssetBundle
 
     public static function addScript($view, $jsfile) {
 
-        $view->registerJsFile($jsfile, [AppAsset::className(), 'depends' => 'backend\assets\EndAsset']);
+        $view->registerJsFile($jsfile, [AppAsset::className(), 'depends' => 'backend\assets\AppAsset']);
     }
     public static function addCss($view, $cssfile) {
 
-        $view->registerCssFile($cssfile, [AppAsset::className(), 'depends' => 'backend\assets\EndAsset']);
+        $view->registerCssFile($cssfile, [AppAsset::className(), 'depends' => 'backend\assets\AppAsset']);
     }
 
 
