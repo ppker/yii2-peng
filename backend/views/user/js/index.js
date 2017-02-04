@@ -266,6 +266,7 @@ window.PAGE_ACTION = function() {
 
     return {
         init: function (){
+            alert('ssss');
             init_limit();
             ZP.utils.target_timedate();
             // cuishou_form();

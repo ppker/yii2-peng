@@ -33,5 +33,19 @@ class EndAsset extends AssetBundle
         'backend\assets\TableAsset'
     ];
 
+    /**
+     * 拼装模板js文件路径
+     * @param string $route
+     * @param $bath_path
+     * @return bool|string
+     */
+    public static function get_js($route = '', $bath_path) {
+
+        if ('' == $route) return $route;
+        $js_path = explode('/', $route);
+        $whole_path = $bath_path . DIRECTORY_SEPARATOR . $js_path[0] . DIRECTORY_SEPARATOR . 'js' . DIRECTORY_SEPARATOR . $js_path[1] . '.js';
+        if (is_file($whole_path)) return '/backend/' . 'views/' . $js_path[0] . '/js/' . $js_path[1] . '.js';
+        else return false;
+    }
 
 }

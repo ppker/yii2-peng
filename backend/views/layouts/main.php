@@ -4,6 +4,7 @@
 /* @var $content string */
 
 use backend\assets\EndAsset;
+use backend\assets\AppAsset;
 use yii\helpers\Html;
 use yii\helpers\Url;
 // use backend\models\Menu;
@@ -13,8 +14,10 @@ use backend\models\Menu;
 EndAsset::register($this);
 $context = $this->context;
 $route = $context->action->getUniqueId();
+$js_file = EndAsset::get_js($route, dirname(__DIR__));
 
-var_dump($route);die;
+if ($js_file) AppAsset::addScript($this, $js_file);
+
 $allMenu = Menu::getMenus($route); // 获取后台栏目
 
 $breadcrumbs = Menu::getBreadcrumbs($route); // 面包屑导航
