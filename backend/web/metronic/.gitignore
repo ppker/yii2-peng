@@ -1,3 +1,5 @@
-*
-!.gitignore
-!/assets/extend/core/api.js
+/assets/apps/*
+/assets/global/*
+/assets/layouts/*
+/assets/pages/*
+/assets/extend/plugins/*
