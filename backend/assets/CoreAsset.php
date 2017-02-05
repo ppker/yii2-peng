@@ -39,7 +39,7 @@ class CoreAsset extends AssetBundle {
         'global/plugins/jquery-slimscroll/jquery.slimscroll.min.js', // nice slimcroll similar facebook
         'global/plugins/jquery.blockui.min.js', // ajax遮罩层ui
         'global/plugins/bootstrap-switch/js/bootstrap-switch.min.js', // bootstrap下拉选择
-
+        'extend/plugins/Md5/md5.min.js', // md5加密
     ];
     public $depends = [];
 

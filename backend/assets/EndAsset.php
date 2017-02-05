@@ -12,7 +12,7 @@ class EndAsset extends AssetBundle
     public $basePath = '@webroot/metronic/assets';
     public $baseUrl = '@web/metronic/assets';
     public $css = [
-
+        'extend/css/site.css',
     ];
     public $js = [
         'global/scripts/app.min.js', // 框架app.js
@@ -21,12 +21,11 @@ class EndAsset extends AssetBundle
         'layouts/layout/scripts/demo.min.js', // demo js （页面逻辑）
         'layouts/global/scripts/quick-sidebar.min.js', // 快捷栏  就是我打算用socket聊天的那部分
         'layouts/global/scripts/quick-nav.min.js', // 就是右上角浮动的那个小圆圈圈
-        'global/scripts/common.js', // 用户自定义的js
         // 我扩展的js
         'extend/core/utils.js',
         'extend/core/api.js',
-        'extend/core/define.js'
-
+        'extend/core/define.js',
+        'global/scripts/common.js' // 用户自定义的js
     ];
     public $depends = [
         'backend\assets\PluginAsset',

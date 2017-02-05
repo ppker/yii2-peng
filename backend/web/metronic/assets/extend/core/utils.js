@@ -988,30 +988,39 @@
         }); 
         return formsData;
     };
-    
-//    /**导出*/
-//    exportInit = function(){
-//        $("#exportBtn").click(function(){
-//            var dataForms = {};
-//            dataForms.start_date = $("#start_date").val();
-//            dataForms.end_date = $("#end_date").val();
-//            dataForms.forms = 1;
-//            dataForms.export = 1;
-//            dataForms.group='year';
-//            ZP.api.groupOrder({
-//                data: dataForms,
-//                successCallBack:function(result){
-//                    var a = document.createElement("a");//创建一个元素节点
-//                    a.target = "_blank";				//在一个新的页面中打开一个超链接
-//                    a.innerHTML = ZP.msg.startDownload;
-//                    a.href = ZP.define.imgServer + result.data;
-//                    result.message += a.outerHTML;
-//                    $.messager.alert(result.message);
-//                },
-//                failCallBack: ZP.utils.failCallBack
-//            });
-//        });
-//    };
+
+    /**
+     * 页面的公共模块功能
+     */
+    self.init_page_module = function() {
+
+        var $table = $('#table');
+        var $checkAll = $("#checkAll");
+        $table.find("input.select").each(function(){
+            $(this).click(function(){
+                var selectLen = $table.find("input.select").length,
+                    checkedLen = $table.find("input.select:checked").length;
+                if(selectLen === checkedLen){
+                    $checkAll[0].checked = true;
+                }else{
+                    $checkAll[0].checked = false;
+                }
+            });
+        });
+
+        $checkAll.click(function(){
+            var value = false;
+
+            if($(this).is(":checked")){
+                value = true;
+            }
+            $table.find("input.select").each(function(){
+                this.checked = value;
+            });
+        });
+	};
+
+
     
     /*
      * 请求报表接口
