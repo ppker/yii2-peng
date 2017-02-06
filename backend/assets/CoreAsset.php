@@ -26,7 +26,7 @@ class CoreAsset extends AssetBundle {
         // bootstrap
         'global/plugins/bootstrap/css/bootstrap.min.css',
         'global/plugins/bootstrap-switch/css/bootstrap-switch.min.css',
-
+        'global/plugins/bootstrap-sweetalert/sweetalert.css',
         'global/css/components-rounded.min.css', // 圆角组件样式
         'global/css/plugins.min.css', // 第三方插件定制化样式（稍靠后）
 
@@ -40,6 +40,7 @@ class CoreAsset extends AssetBundle {
         'global/plugins/jquery.blockui.min.js', // ajax遮罩层ui
         'global/plugins/bootstrap-switch/js/bootstrap-switch.min.js', // bootstrap下拉选择
         'extend/plugins/Md5/md5.min.js', // md5加密
+        'global/plugins/bootstrap-sweetalert/sweetalert.min.js',
     ];
     public $depends = [];
 

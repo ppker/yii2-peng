@@ -6,8 +6,8 @@
 window.PAGE_ACTION = function() {
     "use strict";
 
-    var init_limit = null; // 默认条件页面
-
+    var init_limit = null, // 默认条件页面
+        btn_all_del = null; // 批量删除的按钮
 
 
     init_limit = function() {
@@ -28,7 +28,7 @@ window.PAGE_ACTION = function() {
                             "order": [[ 0, "asc" ]],
                             oLanguage: ZP.define.dataTableLan,
                             bStateSave: ZP.define.dataTableStateSave,
-                            "stripeClasses": [ 'strip1', 'strip2'],
+                            // "stripeClasses": [ 'strip1', 'strip2'],
                             "ordering": true,
                             // dom: 'Tfgtpi',
                             "scrollX": false,
@@ -61,6 +61,17 @@ window.PAGE_ACTION = function() {
             },
             failCallBack: ZP.utils.failCallBack
         });
+    };
+
+    btn_all_del = function () {
+        $("#btn_all_del").on('click', function() {
+            var select_ids = [];
+            $("#table").find("input.select:checked").each(function() {
+                var $tr = $(this).closest("tr");
+                select_ids.push($tr.attr("id"));
+            });
+
+        })
     };
 
 

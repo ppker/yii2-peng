@@ -53,8 +53,11 @@ class PluginAsset extends AssetBundle {
         'global/plugins/jqvmap/jqvmap/maps/jquery.vmap.usa.js',
         'global/plugins/jqvmap/jqvmap/data/jquery.vmap.sampledata.js',
 
+        'page/scripts/ui-sweetalert.min.js',
+
         'extend/plugins/handlebars/handlebars-v1.3.0.js',
         'extend/plugins/handlebars/extend.js',
+
     ];
     public $depends = [
         'backend\assets\AppAsset'

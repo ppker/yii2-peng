@@ -21,11 +21,11 @@ $this->params['title_sub'] = '管理用户账号信息';
                 </div>
                 <div class="actions">
                     <div class="btn-group btn-group-devided" data-toggle="buttons">
-                        <a class="btn blue btn-outline btn-circle" href="javascript:;" actionrule="add" actionid="">
+                        <a class="btn blue btn-outline btn-circle" href="javascript:;" actionrule="add">
                             <i class="fa fa-plus"></i>
                             <span class="hidden-xs"> 新增用户</span>
                         </a>
-                        <a class="btn red btn-outline btn-circle" href="javascript:;" actionrule="delete" actionid="">
+                        <a class="btn red btn-outline btn-circle" href="javascript:;" actionrule="delete" id="btn_all_del">
                             <i class="fa fa fa-remove"></i>
                             <span class="hidden-xs"> 删除用户</span>
                         </a>

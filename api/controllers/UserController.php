@@ -17,7 +17,7 @@ class UserController extends BaseController {
 
     public function actionIndex() {
 
-        $list = (new Query())->select('username, email, status, created_at')->from('user')->orderBy(['created_at' => SORT_DESC])->all();
+        $list = (new Query())->select('id, username, email, status, created_at')->from('user')->orderBy(['created_at' => SORT_DESC])->all();
         return parent::re_format($list);
     }
 
