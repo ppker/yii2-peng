@@ -50,4 +50,14 @@ return [
 
     ],
     'params' => $params,
+
+    /**
+     * 静态加载行为供全局使用
+     */
+    'as rbac' => [
+        'class' => 'backend\behaviors\RbacBehavior',
+        'allowActions' => [
+            'site/login', 'site/logout', 'debug/*', 'gii/*', // 不需要进行检测
+        ],
+    ],
 ];
