@@ -7,6 +7,7 @@ window.PAGE_ACTION = function() {
     "use strict";
 
     var init_limit = null, // 默认条件页面
+        btn_add = null,
         btn_all_del = null; // 批量删除的按钮
 
 
@@ -64,6 +65,11 @@ window.PAGE_ACTION = function() {
     };
 
 
+    btn_add = function() {
+        $("#btn_add").on('click', function() {
+
+        });
+    };
     return {
         init: function (){
             init_limit();

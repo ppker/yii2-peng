@@ -58,6 +58,9 @@ class PluginAsset extends AssetBundle {
         'extend/plugins/handlebars/handlebars-v1.3.0.js',
         'extend/plugins/handlebars/extend.js',
 
+        'global/plugins/jquery-validation/js/jquery.validate.min.js', // 表单验证插件
+        'global/plugins/jquery-validation/js/additional-methods.min.js', //
+        'pages/scripts/form-validation.min.js', //
     ];
     public $depends = [
         'backend\assets\AppAsset'
