@@ -1020,6 +1020,49 @@
         });
 	};
 
+	/**
+	 * 批量删除的按钮操作
+	 */
+	self.btn_all_del = function() {
+
+		$("#btn_all_del").on('click', function() {
+			var select_ids = [];
+			$("#table").find("input.select:checked").each(function() {
+				var $tr = $(this).closest("tr");
+				select_ids.push($tr.attr("id"));
+			});
+			// sweetalert
+            if (0 == select_ids.length) {
+                swal("警告！", "您还没有勾选任何选项!", "error");
+            } else {
+                swal({
+                        title: "你确定要删除么?",
+                        text: "删除之后将无法进行恢复",
+                        type: "warning",
+                        showCancelButton: true,
+                        CancelButtonClass: "info",
+                        confirmButtonClass: "btn-danger",
+                        // confirmButtonColor: "#DD6B55",
+                        confirmButtonText: "确定删除!",
+                        cancelButtonText: "取消删除",
+                        closeOnConfirm: false,
+                        closeOnCancel: false
+                    },
+                    function(isConfirm){
+                        if (isConfirm) {
+                            // ZP.api.
+                            swal("删除成功!", "你已经删除成功！", "success");
+                        } else {
+                            swal("取消成功", "你取消了删除操作", "error");
+                        }
+                    }
+                );
+            }
+
+		});
+	};
+
+
 
     
     /*

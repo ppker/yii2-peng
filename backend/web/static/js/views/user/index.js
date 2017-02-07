@@ -53,7 +53,7 @@ window.PAGE_ACTION = function() {
 
                         // 全选
                         ZP.utils.init_page_module();
-
+                        ZP.utils.btn_all_del();
                     });
 
 
@@ -61,17 +61,6 @@ window.PAGE_ACTION = function() {
             },
             failCallBack: ZP.utils.failCallBack
         });
-    };
-
-    btn_all_del = function () {
-        $("#btn_all_del").on('click', function() {
-            var select_ids = [];
-            $("#table").find("input.select:checked").each(function() {
-                var $tr = $(this).closest("tr");
-                select_ids.push($tr.attr("id"));
-            });
-
-        })
     };
 
 
