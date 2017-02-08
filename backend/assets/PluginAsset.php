@@ -60,7 +60,7 @@ class PluginAsset extends AssetBundle {
 
         'global/plugins/jquery-validation/js/jquery.validate.min.js', // 表单验证插件
         'global/plugins/jquery-validation/js/additional-methods.min.js', //
-        'pages/scripts/form-validation.min.js', //
+        // 'pages/scripts/form-validation.min.js', //
     ];
     public $depends = [
         'backend\assets\AppAsset'

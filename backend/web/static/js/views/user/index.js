@@ -8,6 +8,7 @@ window.PAGE_ACTION = function() {
 
     var init_limit = null, // 默认条件页面
         btn_add = null,
+        btn_submit = null,
         btn_all_del = null; // 批量删除的按钮
 
 
@@ -55,6 +56,8 @@ window.PAGE_ACTION = function() {
                         // 全选
                         ZP.utils.init_page_module();
                         ZP.utils.btn_all_del();
+                        btn_add(); // 弹出模态框
+                        btn_submit(); // 绑定提交的表单
                     });
 
 
@@ -67,9 +70,47 @@ window.PAGE_ACTION = function() {
 
     btn_add = function() {
         $("#btn_add").on('click', function() {
-
+            $("#addModal").modal('show');
         });
     };
+
+    btn_submit = function() {
+
+        var form = $('#addForm');
+        var error = $('.alert-danger', form);
+        var success = $('.alert-success', form);
+        var rule = {
+            rules: {
+                username: {
+                    minlength: 3,
+                    required: true
+                },
+                sex: {
+                    required: true,
+                },
+                password: {
+                    required: true,
+                    minlength: 6
+                },
+                status: {
+                    required: true,
+                },
+                signature: {
+                    minlength: 2
+                },
+                email: {
+                    required: true,
+                    email: true
+                },
+            },
+        };
+        form.validate($.extend(ZP.utils.form_validation, rule));
+    };
+
+
+
+
+
     return {
         init: function (){
             init_limit();

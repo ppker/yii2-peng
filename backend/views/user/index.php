@@ -82,7 +82,7 @@ $this->params['title_sub'] = '管理用户账号信息';
     </div>
 </div>
 
-
+<!--模态框-->
 <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -91,78 +91,104 @@ $this->params['title_sub'] = '管理用户账号信息';
                 <h4 class="modal-title">新增用户</h4>
             </div>
             <div class="modal-body">
-                <form id="addForm" role="addForm" data-toggle="validator" class="form-horizontal">
+                <form id="addForm" role="addForm" class="form-horizontal">
 
+                    <div class="form-body">
+                        <div class="alert alert-danger display-hide">
+                            <button class="close" data-close="alert"></button>表单选项有填写错误，请检查</div>
+                        <div class="alert alert-success display-hide">
+                            <button class="close" data-close="alert"></button>表单验证成功</div>
+                    </div>
 
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="user_login" class="control-label col-sm-4">账号</label>
+                            <label for="user_login" class="control-label col-sm-4">账号<span class="required"> * </span></label>
                             <div class="col-sm-8">
-                                <input type="text" value="" placeholder="请输入登录账号" class="form-control" name="user_login" required />
+                                <div class="input-icon right">
+                                    <i class="fa"></i>
+                                    <input type="text" value="" placeholder="请输入登录账号" class="form-control" name="username" required /> </div>
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label for="sex" class="control-label col-sm-4">性别<span class="required"> * </span></label>
+                            <div class="col-sm-8 text-center">
+
+                                <label class="mt-radio radio-inline">
+                                    <input type="radio" name="sex" value="0" checked />保密
+                                    <span></span>
+                                </label>
+                                <label class="mt-radio radio-inline">
+                                    <input type="radio" name="sex" value="1" />男
+                                    <span></span>
+                                </label>
+                                <label class="mt-radio radio-inline">
+                                    <input type="radio" name="sex" value="2" />女
+                                    <span></span>
+                                </label>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-6">
+
                         <!--<div class="form-group">
-                            <label for="user_pass" class="control-label col-sm-4">密码</label>
-                            <div class="col-sm-8">
-                                <input type="text" value="123456" class="form-control"  name="user_pass" />
-                            </div>
-                        </div>-->
-
-                        <div class="form-group">
-                            <label for="sex" class="control-label col-sm-4">性别</label>
-                            <div class="col-sm-8">
-                                <!--<lable class="radio-inline">
-                                    <input type="radio" value="0" class=""  name="sex"  checked required/>保密</lable>-->
-                                <lable class="radio-inline">
-                                    <input type="radio" value="1" class="" name="sex" checked required/>男</lable>
-                                <lable class="radio-inline">
-                                    <input type="radio" value="2" class="" name="sex" required/>女</lable>
-                            </div>
-                        </div>
-
-
-
-
-                        <div class="form-group">
-                            <label for="role_id" class="control-label col-sm-4">角色</label>
+                            <label for="role_id" class="control-label col-sm-4">角色<span class="required"> * </span></label>
                             <div class="col-sm-8">
                                 <select class="form-control"  name="role_id" id="role_id">
 
                                 </select>
 
                             </div>
-                        </div>
-
-                    </div>
-
-
-                    <div class="col-md-6">
-
-
-
+                        </div>-->
                         <div class="form-group">
-                            <label for="user_status" class="control-label col-sm-4">用户状态</label>
+                            <label for="user_pass" class="control-label col-sm-4">密码<span class="required"> * </span></label>
                             <div class="col-sm-8">
-                                <lable class="radio-inline">
-                                    <input type="radio" value="0" class=""  name="user_status" required/>禁用</lable>
-                                <lable class="radio-inline">
-                                    <input type="radio" value="1" class="" name="user_status" checked required/>正常</lable>
+                                <div class="input-icon right">
+                                    <i class="fa"></i>
+                                    <input type="password" value="" class="form-control"  name="password" required />
+                                </div>
 
                             </div>
                         </div>
-
                         <div class="form-group">
-                            <label for="user_nicename" class="control-label col-sm-4">化名</label>
-                            <div class="col-sm-8">
-                                <input type="text" value="米帅" class="form-control"  name="user_nicename" />
+                            <label for="user_status" class="control-label col-sm-5">用户状态<span class="required"> * </span></label>
+                            <div class="col-sm-7">
+                                <div class="col-sm-8">
+                                    <select class="form-control"  name="status" id="role_id">
+                                        <option value="10" selected>正常</option>
+                                        <option value="0">禁用</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
                     </div>
 
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="user_signature" class="control-label col-sm-2">个性签名</label>
+                            <div class="col-sm-10">
+                                <div class="input-icon right">
+                                    <i class="fa"></i>
+                                    <input type="text" value=""  placeholder="他太懒，什么也没留下~" class="form-control"  name="signature" /> </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="user_email" class="control-label col-sm-2">邮箱</label>
+                            <div class="col-sm-10">
+                                <div class="input-icon right">
+                                    <i class="fa"></i>
+                                    <input type="email" value=""  placeholder="email address" class="form-control"  name="email" /> </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="form-group">
-                        <div class="col-sm-12 text-center">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                            <button type="submit" class="btn btn-primary" id="btn-save">添加</button>
+                        <div class="col-sm-12 col-md-12 text-center">
+                            <button type="button" class="btn default" data-dismiss="modal">关闭</button>
+                            <button type="submit" class="btn green" id="btn-save">添加</button>
                         </div>
                     </div>
                 </form>
