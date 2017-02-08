@@ -9,6 +9,7 @@ window.PAGE_ACTION = function() {
     var init_limit = null, // 默认条件页面
         btn_add = null,
         btn_submit = null,
+        btn_submit_bak = null,
         btn_all_del = null; // 批量删除的按钮
 
 
@@ -75,6 +76,26 @@ window.PAGE_ACTION = function() {
     };
 
     btn_submit = function() {
+        var $form = null;
+        $form = $("form#addForm");
+        $form.submit(function(e){
+            //表单验证
+            if(ZP.utils.isPassForm($form)){
+                ZP.api.User_add({
+                    data: $form.serializeJson(),
+                    successCallBack: function(result){
+
+                        ZP.utils.alert_warning(result.message, true);
+                    },
+                    failCallBack: ZP.utils.failCallBack
+                });
+            }
+            e.preventDefault();
+        });
+    };
+
+
+    btn_submit_bak = function() {
 
         var form = $('#addForm');
         var error = $('.alert-danger', form);

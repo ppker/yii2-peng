@@ -19,14 +19,14 @@
 	    
 	    return ieTest;
 	};
-	
-	
+
+    /**
+	 * 进行表单的验证
+     */
 	self.isPassForm = function($form){
 		var validator = null;
-		
 		validator = $form.data('bs.validator');
 		validator.validate();
-		
 		return !(validator.isIncomplete() || validator.hasErrors());
 	};
 	
@@ -178,7 +178,8 @@
 	self.failCallBack = function(result){
 
 		ZP.utils.goLoadding_hide();
-		$.messager.alert(result.message);
+		self.alert_warning(result.message);
+		// $.messager.alert(result.message);
 	};
 
 	self.getUserInfo = function(){
@@ -1061,6 +1062,27 @@
 
 		});
 	};
+
+    self.alert_warning = function(message, type) {
+        swal({
+                title: "提示",
+                text: message,
+                type: "error",
+                confirmButtonClass: "btn-danger",
+                // confirmButtonColor: "#DD6B55",
+                confirmButtonText: "确定",
+                closeOnConfirm: true
+            },
+            function (isConfirm) {
+                if (!type) return;
+                if (isConfirm) {
+                    self.dumpReload();
+                } else {}
+            }
+        );
+    };
+
+
 
 	/**
 	 * 表单验证的配置

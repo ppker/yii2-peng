@@ -34,7 +34,9 @@ class CoreAsset extends AssetBundle {
     public $js = [ // 全局js文件
         'extend/core/nameSpace.js',
         'global/plugins/jquery.min.js',
+        'extend/plugins/jquery/jquery.extend.js', // 我扩展的jquery
         'global/plugins/bootstrap/js/bootstrap.min.js',
+        'extend/plugins/Bootstrap_validate/validator.js',
         'global/plugins/js.cookie.min.js', // cookie manager
         'global/plugins/jquery-slimscroll/jquery.slimscroll.min.js', // nice slimcroll similar facebook
         'global/plugins/jquery.blockui.min.js', // ajax遮罩层ui

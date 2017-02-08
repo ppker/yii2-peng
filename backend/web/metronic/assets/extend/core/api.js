@@ -78,6 +78,11 @@
         return ajax(options);
 	};
 
-
+	// 后台添加账号
+	self.User_add = function(options) {
+        options = options ? options : {};
+        options.url = "/api/web/users/user_add";
+        return ajax(options);
+	};
 
 })(ZP, jQuery);

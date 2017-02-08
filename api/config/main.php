@@ -68,7 +68,8 @@ return [
                 ],*/
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'user',
                     'extraPatterns' => [
-                        'GET,POST index' => 'index'
+                        'GET,POST index' => 'index',
+                        'POST user_add' => 'user_add', // 新增账号
                     ],
                 ],
             ],
