@@ -38,7 +38,6 @@
 
     this.$element.attr('novalidate', true); // disable automatic native validation
     this.toggleSubmit();
-
     this.$element.on('input.bs.validator change.bs.validator focusout.bs.validator', $.proxy(this.validateInput, this));
     this.$element.on('submit.bs.validator', $.proxy(this.onSubmit, this));
 

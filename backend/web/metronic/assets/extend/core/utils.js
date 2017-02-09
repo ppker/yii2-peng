@@ -27,6 +27,7 @@
 		var validator = null;
 		validator = $form.data('bs.validator');
 		validator.validate();
+		console.log('dddddd');
 		return !(validator.isIncomplete() || validator.hasErrors());
 	};
 	
@@ -177,7 +178,11 @@
 
 	self.failCallBack = function(result){
 
-		ZP.utils.goLoadding_hide();
+		// ZP.utils.goLoadding_hide(); // 暂注释掉
+
+        // 需要做判断modal框的显示状态，然后hide
+        /*if ($("#addModal").length > 0) $("#addModal").modal('hide');
+        if ($("#EditModal").length > 0) $("#EditModal").modal('hide');*/
 		self.alert_warning(result.message);
 		// $.messager.alert(result.message);
 	};
@@ -1063,6 +1068,11 @@
 		});
 	};
 
+    /**
+	 * 操作类alert的提示
+     * @param message
+     * @param type
+     */
     self.alert_warning = function(message, type) {
         swal({
                 title: "提示",
@@ -1081,8 +1091,6 @@
             }
         );
     };
-
-
 
 	/**
 	 * 表单验证的配置

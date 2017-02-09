@@ -28,14 +28,19 @@ class UserController extends BaseController {
 
 
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-
             $model->setPassword($model->password_hash);
             $model->generateAuthKey();
             if ($user = $model->save()) {
                 return ['success' => 1, 'message' => '添加成功', 'data' => []];
             }
+        } else {
+            $error_data = $model->getErrors();
+            if (!empty($error_data) && is_array($error_data)) {
+                return ['success' => 0, 'message' => current($error_data)[0], 'data' => []];
+            } else {
+                return ['success' => 0, 'message' => '填写的表单有不符合要求的内容，请检查', 'data' => []];
+            }
         }
-        return ['success' => 0, 'message' => '添加失败', 'data' => []];
     }
 
 }

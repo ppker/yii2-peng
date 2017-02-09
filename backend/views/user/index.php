@@ -163,7 +163,7 @@ $this->params['title_sub'] = '管理用户账号信息';
                         <div class="form-group">
                             <label for="user_email" class="control-label col-sm-2">邮箱</label>
                             <div class="col-sm-10">
-                                <input type="email" value=""  placeholder="email address" class="form-control"  name="email" pattern="^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$" data-error="邮箱格式错误" />
+                                <input type="email" value=""  placeholder="email address" class="form-control"  name="email" pattern="^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$" data-error="邮箱格式错误" required />
                             </div>
                         </div>
                     </div>

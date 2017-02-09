@@ -81,10 +81,10 @@ window.PAGE_ACTION = function() {
         $form.submit(function(e){
             //表单验证
             if(ZP.utils.isPassForm($form)){
+                $("#addModal").modal('hide');
                 ZP.api.User_add({
                     data: $form.serializeJson(),
                     successCallBack: function(result){
-
                         ZP.utils.alert_warning(result.message, true);
                     },
                     failCallBack: ZP.utils.failCallBack
@@ -95,7 +95,7 @@ window.PAGE_ACTION = function() {
     };
 
 
-    btn_submit_bak = function() {
+    btn_submit_bak = function() { // 暂时废弃
 
         var form = $('#addForm');
         var error = $('.alert-danger', form);
