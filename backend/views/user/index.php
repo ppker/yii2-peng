@@ -5,6 +5,7 @@
  * Date: 2017/1/20
  * Project: Cat Visual
  */
+use yii\widgets\ActiveForm;
 $this->title = '用户账号';
 $this->params['title_sub'] = '管理用户账号信息';
 ?>
@@ -92,7 +93,7 @@ $this->params['title_sub'] = '管理用户账号信息';
             </div>
             <div class="modal-body">
                 <form id="addForm" role="addForm" data-toggle="validator" class="form-horizontal">
-
+                    <input type="hidden" name="<?= Yii::$app->getRequest()->csrfParam; ?>" value="<?= Yii::$app->getRequest()->getCsrfToken(); ?>">
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="user_login" class="control-label col-sm-4">账号</label>
@@ -136,7 +137,7 @@ $this->params['title_sub'] = '管理用户账号信息';
                         <div class="form-group">
                             <label for="user_pass" class="control-label col-sm-4">密码</label>
                             <div class="col-sm-8">
-                                <input type="password" value="" class="form-control"  name="password" pattern="^[\w-]{6,16}" data-error="密码6到16位字母和数字组合" required />
+                                <input type="password" value="" class="form-control"  name="password_hash" pattern="^[\w-]{6,16}" data-error="密码6到16位字母和数字组合" required />
                             </div>
                         </div>
                         <div class="form-group">

@@ -9,9 +9,9 @@
 namespace backend\models;
 
 use Yii;
-use yii\db\ActiveRecord;
+use common\models\User;
 
-class UserForm extends ActiveRecord {
+class UserForm extends User {
 
     public static function tableName() {
         return '{{%user}}';
@@ -23,7 +23,7 @@ class UserForm extends ActiveRecord {
             ['username', 'trim'],
             ['username', 'required'],
             ['username', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This username has already been taken.'],
-            ['username', 'string', 'min' => 6, 'max' => 16],
+            ['username', 'string', 'min' => 3, 'max' => 16],
 
             ['email', 'trim'],
             ['email', 'required'],
@@ -31,8 +31,8 @@ class UserForm extends ActiveRecord {
             ['email', 'string', 'max' => 255],
             ['email', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This email address has already been taken.'],
 
-            ['password', 'required'],
-            ['password', 'string', 'min' => 6],
+            ['password_hash', 'required'],
+            ['password_hash', 'string', 'min' => 6],
         ];
     }
 
@@ -42,6 +42,9 @@ class UserForm extends ActiveRecord {
             'id' => 'Id',
             'username' => 'Username',
             'auth_key' => 'Auth Key',
+            'sex' => 'Sex',
+            'avatar' => 'Avatar',
+            'signature' => 'Signature',
             'password_hash' => 'Password Hash',
             'password_reset_token' => 'Password Reset Token',
             'email' => 'Email',
@@ -50,5 +53,18 @@ class UserForm extends ActiveRecord {
             'updated_at' => 'Updated At',
         ];
     }
+
+    /**
+     * 重载了load方法，因为我是手动构造的form表单
+     * @param array $data
+     * @param null $formName
+     * @return bool
+     */
+    public function load($data = [], $formName = null) {
+        if (empty($data)) return false;
+        $this->setAttributes($data);
+        return true;
+    }
+
 
 }

@@ -38,8 +38,9 @@ $this->beginPage();
     <title><?= $this->title; ?> | <?= \Yii::$app->setting->get('siteName') ?> | <?= \Yii::$app->setting->get('siteTitle') ?></title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1" name="viewport" />
-    <meta content="<? Yii::$app->setting->get('siteKeyword') ?>"
+    <meta content="<?= Yii::$app->setting->get('siteKeyword'); ?>"
           name="description" />
+    <?= Html::csrfMetaTags() ?>
     <meta content="" name="author" />
     <?php $this->head() ?>
     <link rel="shortcut icon" href="<?=Yii::getAlias('@web/favicon.ico'); ?>" />

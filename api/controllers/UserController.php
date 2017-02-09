@@ -26,21 +26,16 @@ class UserController extends BaseController {
 
         $model = new UserForm();
 
+
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
 
-            $model->setPassword($model->password);
+            $model->setPassword($model->password_hash);
             $model->generateAuthKey();
-
             if ($user = $model->save()) {
-
-                var_dump($user);die;
-                if (Yii::$app->getUser()->login($user)) {
-                    die('sss');
-                    return $this->goHome();
-                }
+                return ['success' => 1, 'message' => '添加成功', 'data' => []];
             }
         }
-        die('sssss');
+        return ['success' => 0, 'message' => '添加失败', 'data' => []];
     }
 
 }
