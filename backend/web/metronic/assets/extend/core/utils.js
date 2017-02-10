@@ -27,7 +27,6 @@
 		var validator = null;
 		validator = $form.data('bs.validator');
 		validator.validate();
-		console.log('dddddd');
 		return !(validator.isIncomplete() || validator.hasErrors());
 	};
 	

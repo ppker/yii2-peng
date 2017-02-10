@@ -5,6 +5,7 @@ use Yii;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use common\models\LoginForm;
+use common\models\User;
 
 /**
  * Site controller
@@ -25,7 +26,7 @@ class SiteController extends BaseController
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['logout', 'index'],
+                        'actions' => ['logout', 'index', 'check_user'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -152,7 +153,15 @@ class SiteController extends BaseController
         $auth->add($role);
     }
 
+    public function actionCheck_user() {
 
+        $username = Yii::$app->request->getQueryParam('username');
+        $user = User::find()->where(['username' => $username])->exists();
+        Yii::$app->response->statusCode = 200;
+        if ($user) {
+            return json_encode(['state' => 0]);
+        } else return json_encode(['state' => 1]);
+    }
 
 
 }

@@ -6,6 +6,8 @@
  * Project: Cat Visual
  */
 use yii\widgets\ActiveForm;
+use \yii\helpers\Url;
+
 $this->title = '用户账号';
 $this->params['title_sub'] = '管理用户账号信息';
 ?>
@@ -92,13 +94,14 @@ $this->params['title_sub'] = '管理用户账号信息';
                 <h4 class="modal-title">新增用户</h4>
             </div>
             <div class="modal-body">
-                <form id="addForm" role="addForm" data-toggle="validator" class="form-horizontal">
+                <form id="addForm" role="form" data-toggle="validator" class="form-horizontal">
                     <input type="hidden" name="<?= Yii::$app->getRequest()->csrfParam; ?>" value="<?= Yii::$app->getRequest()->getCsrfToken(); ?>">
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="user_login" class="control-label col-sm-4">账号</label>
                             <div class="col-sm-8">
-                                <input type="text" value="" placeholder="请输入登录账号" class="form-control" name="username" minlength="3" required />
+                                <input type="text" value="" placeholder="请输入登录账号" class="form-control" name="username" minlength="3" data-remote="<?= Url::toRoute(['site/check_user']) ?>" data-remote-error="用户名已被注册" required />
+                                <div class="help-block with-errors"></div>
                             </div>
                         </div>
                         <div class="form-group">
