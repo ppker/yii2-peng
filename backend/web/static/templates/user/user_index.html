@@ -3,7 +3,7 @@
     <th>
         <label class="mt-checkbox mt-checkbox-outline" style="padding-left:19px;"><input type="checkbox" class="select-on-check-all" id="checkAll"><span></span></label>全选
     </th>
-    <th>序号</th>
+
     <th>用户名</th>
     <th>邮箱</th>
     <th>状态</th>
@@ -16,10 +16,10 @@
 <tr id="{{id}}">
     <td>
         <label class="mt-checkbox mt-checkbox-outline" style="padding-left:19px;"><input type="checkbox" class="select"><span></span></label>
-    <td></td>
+
     <td>{{username}}</td>
     <td>{{email}}</td>
-    <td>{{status}}</td>
+    <td><span class="label label-sm label-success">{{status}}</span></td>
     <td>{{created_at}}</td>
     <td>
 
@@ -29,7 +29,7 @@
             </button>
             <ul class="dropdown-menu">
                 <li>
-                    <a href="javascript:;"> Action </a>
+                    <a href="javascript:;" actionrule="del" actionid="{{id}}" class="btn btn-sm green"> <i class="fa fa-remove"></i>&nbsp;<span>删除</span> </a>
                 </li>
                 <li>
                     <a href="javascript:;"> Another action

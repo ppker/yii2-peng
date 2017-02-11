@@ -70,6 +70,7 @@ return [
                     'extraPatterns' => [
                         'GET,POST index' => 'index',
                         'POST user_add' => 'user_add', // 新增账号
+                        'POST user_del' => 'user_del', // 删除账号 需关联权限
                     ],
                 ],
             ],

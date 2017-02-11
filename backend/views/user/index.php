@@ -29,7 +29,7 @@ $this->params['title_sub'] = '管理用户账号信息';
                             <span class="hidden-xs"> 新增用户</span>
                         </a>
                         <a class="btn red btn-outline btn-circle" href="javascript:;" actionrule="delete" id="btn_all_del">
-                            <i class="fa fa fa-remove"></i>
+                            <i class="fa fa-remove"></i>
                             <span class="hidden-xs"> 删除用户</span>
                         </a>
                     </div>

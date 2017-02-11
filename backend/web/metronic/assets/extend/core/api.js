@@ -85,4 +85,13 @@
         return ajax(options);
 	};
 
+	// 后台删除账号
+	self.User_del = function(options) {
+		options = options ? options : {};
+		options.url = "/api/web/users/user_del";
+		return ajax(options);
+	};
+
+
+
 })(ZP, jQuery);

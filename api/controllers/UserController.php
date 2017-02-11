@@ -16,9 +16,16 @@ use yii;
 class UserController extends BaseController {
 
 
+    protected $account_status = [0 => '禁用', 10 => '正常'];
+
     public function actionIndex() {
 
         $list = (new Query())->select('id, username, email, status, created_at')->from('user')->orderBy(['created_at' => SORT_DESC])->all();
+        if (!empty($list) && is_array($list)) {
+            foreach ($list as &$v) {
+                $v['status'] = $this->account_status[$v['status']];
+            }
+        }
         return parent::re_format($list);
     }
 
@@ -42,5 +49,18 @@ class UserController extends BaseController {
             }
         }
     }
+
+    public function actionUser_del () {
+
+        $id = Yii::$app->getRequest()->post('id');
+        if ($id) {
+            $model = new UserForm();
+            if ($user = $model->findOne($id)) {
+                if($user->delete()) return ['success' => 1, 'message' => '删除成功', 'data' => []];
+                else return ['success' => 0, 'message' => '删除失败', 'data' => []];
+            }
+        }
+    }
+
 
 }

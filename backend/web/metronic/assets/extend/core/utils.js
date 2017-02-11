@@ -1076,7 +1076,7 @@
         swal({
                 title: "提示",
                 text: message,
-                type: "error",
+                type: type ? "success" : "error",
                 confirmButtonClass: "btn-danger",
                 // confirmButtonColor: "#DD6B55",
                 confirmButtonText: "确定",
