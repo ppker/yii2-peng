@@ -54,8 +54,13 @@ class UserController extends BaseController {
         $id = Yii::$app->getRequest()->post('id');
         if ($id) {
             $model = new UserForm();
-            if ($user = $model->findOne($id)) {
+            if (!is_array($id) && $user = $model->findOne($id)) {
                 if($user->delete()) return ['success' => 1, 'message' => '删除成功', 'data' => []];
+                else return ['success' => 0, 'message' => '删除失败', 'data' => []];
+            } elseif (is_array($id)) {
+                $ids = implode(",", $id);
+                $re = $model->deleteAll("id in (" . $ids .")");
+                if ($re) return ['success' => 1, 'message' => '删除成功', 'data' => []];
                 else return ['success' => 0, 'message' => '删除失败', 'data' => []];
             }
         }

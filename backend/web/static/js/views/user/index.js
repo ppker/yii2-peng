@@ -10,7 +10,7 @@ window.PAGE_ACTION = function() {
         btn_add = null,
         btn_submit = null,
         btn_submit_bak = null,
-        btn_all_del = null, // 批量删除的按钮
+        // btn_all_del = null, // 批量删除的按钮
         btn_del = null; // 单个删除的按钮
 
     init_limit = function() {
@@ -109,9 +109,9 @@ window.PAGE_ACTION = function() {
                     failCallBack: ZP.utils.failCallBack
                 });
             }
-            e.preventDefault();
         });
     };
+
 
     btn_submit_bak = function() { // 暂时废弃
 

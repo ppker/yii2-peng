@@ -1005,10 +1005,22 @@
 
         var $table = $('#table');
         var $checkAll = $("#checkAll");
+        if (!$("#btn_all_del").hasClass("disabled")) {
+            $("#btn_all_del").addClass("disabled");
+        }
         $table.find("input.select").each(function(){
             $(this).click(function(){
                 var selectLen = $table.find("input.select").length,
                     checkedLen = $table.find("input.select:checked").length;
+                if (0 == checkedLen) {
+                    if (!$("#btn_all_del").hasClass("disabled")) {
+                        $("#btn_all_del").addClass("disabled");
+                    }
+                }else if (0 < checkedLen) {
+                    if ($("#btn_all_del").hasClass("disabled")) {
+                        $("#btn_all_del").removeClass("disabled");
+                    }
+                }
                 if(selectLen === checkedLen){
                     $checkAll[0].checked = true;
                 }else{
@@ -1059,7 +1071,13 @@
                     },
                     function(isConfirm){
                         if (isConfirm) {
-                            // ZP.api.
+                            ZP.api.User_del({
+                                data: {id: select_ids},
+                                successCallBack: function(result){
+                                    ZP.utils.alert_warning(result.message, true);
+                                },
+                                failCallBack: ZP.utils.failCallBack
+                            });
                             swal("删除成功!", "你已经删除成功！", "success");
                         } else {
                             swal("取消成功", "你取消了删除操作", "error");

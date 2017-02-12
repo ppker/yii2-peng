@@ -72,6 +72,21 @@ class SiteController extends BaseController
     {
 
         /*$auth = Yii::$app->authManager;
+        $go = $auth->createPermission("app-api/user/user_add");
+        $go->description = "创建了 app-api/user/user_add 的权限";
+        $auth->add($go);
+
+        $del = $auth->createPermission("app-api/user/user_del");
+        $del->description = "创建了 app-api/user/user_del 的权限";
+        $auth->add($del);
+
+        $admin = $auth->getRole('administer');
+        $auth->addChild($admin, $go);
+        $auth->addChild($admin, $del);
+        die('ssss');*/
+        
+
+        /*$auth = Yii::$app->authManager;
         $go = $auth->createPermission("site/go");
         $go->description = '创建了 site/go 的权限';
         $auth->add($go);
