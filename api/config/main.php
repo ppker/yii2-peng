@@ -24,6 +24,8 @@ return [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => true,
             'identityCookie' => ['name' => '_identity-api', 'httpOnly' => true],
+            'enableSession' => false,
+            'loginUrl' => null
         ],
         'session' => [
             // this is the name of the session cookie used for login on the api
@@ -69,9 +71,10 @@ return [
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'user',
                     'extraPatterns' => [
                         'GET,POST index' => 'index',
-                        'POST user_add' => 'user_add', // 新增账号
-                        'POST user_del' => 'user_del', // 删除账号 需关联权限
+                        'GET,POST user_add' => 'user_add', // 新增账号
+                        'GET,POST user_del' => 'user_del', // 删除账号 需关联权限
                     ],
+                    'pluralize' => false,
                 ],
             ],
         ],
@@ -83,5 +86,15 @@ return [
         ],*/
         
     ],
+
+
+    /**
+     * 静态加载行为供全局使用
+     */
+    'as rbac' => [
+        'class' => 'api\behaviors\RbacBehavior',
+        'allowActions' => [],
+    ],
+
     'params' => $params,
 ];

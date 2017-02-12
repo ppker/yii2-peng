@@ -451,6 +451,10 @@
 		}, n);
 	};
 
+
+	self.reload = function() {
+		window.location.reload();
+	}
 	// 触发时间日期控件 精确到天
 	self.target_timedate = function() {
 
@@ -1085,7 +1089,7 @@
             function (isConfirm) {
                 if (!type) return;
                 if (isConfirm) {
-                    self.dumpReload();
+                    self.reload();
                 } else {}
             }
         );

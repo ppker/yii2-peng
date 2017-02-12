@@ -26,7 +26,15 @@ class Menu extends \common\models\Menu {
      * @param $rule
      * @return bool
      */
-    public static function checkRule($rule) {
+    public static function checkRule($rule, $user = null) {
+
+        if (!empty($user)) { // 针对api的权限验证
+            // if (Yii::$app->params['adminId'] == $user->id || "" == $rule) return true;
+            $user_model = Yii::$app->user;
+            $user_model->setIdentity($user);
+            if (!$user_model->can($rule)) return false;
+            return true;
+        }
 
         if (Yii::$app->params['adminId'] == Yii::$app->user->id || "" == $rule) {
             return true;

@@ -115,6 +115,7 @@ $this->beginPage();
 
 <script type="text/javascript">
     var route = "<?= $route ?>";
+    var g_username = "<?= Yii::$app->session->get('username') ?>";
     (window.PAGE_ACTION && $(window).ready(window.PAGE_ACTION().init));
 </script>
 

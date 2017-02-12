@@ -10,11 +10,12 @@ namespace api\controllers;
 use yii\rest\ActiveController;
 use yii\web\Response;
 use yii\filters\Cors;
+use yii\filters\auth\QueryParamAuth;
 use yii;
 
 class BaseController extends ActiveController {
 
-    public $modelClass = '';
+    public $modelClass = 'common\models\User';
 
     public function behaviors() {
 
@@ -29,6 +30,9 @@ class BaseController extends ActiveController {
                 'Access-Control-Allow-Credentials' => true, // 允许证书 https
                 'Access-Control-Max-Age' => 86400, // 请求的有效时间
             ],
+        ];
+        $behaviors['authenticator'] = [
+            'class' => QueryParamAuth::className(),
         ];
         return $behaviors;
     }
@@ -73,5 +77,7 @@ class BaseController extends ActiveController {
             else return ['success' => 0, 'message' => '查询失败', 'data' => []];
         }
     }
+
+    public function checkAccess($action, $model = null, $params = []) {}
 
 }

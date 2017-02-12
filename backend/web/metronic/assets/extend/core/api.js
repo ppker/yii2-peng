@@ -33,8 +33,7 @@
 				dataType: options.dataType,
 				type: "post",
 				url: options.url,
-				data: options.data,
-				
+				data: $.extend(options.data, {"access-token": g_username}) , // api的验证字段
 				success: function(result, textStatus){
 					MAIN.define.isAjaxLock = false;
 
@@ -74,21 +73,21 @@
     // 用户账号信息
 	self.user_index = function(options) {
         options = options ? options : {};
-        options.url = "/api/web/users/index";
+        options.url = "/api/web/user/index";
         return ajax(options);
 	};
 
 	// 后台添加账号
 	self.User_add = function(options) {
         options = options ? options : {};
-        options.url = "/api/web/users/user_add";
+        options.url = "/api/web/user/user_add";
         return ajax(options);
 	};
 
 	// 后台删除账号
 	self.User_del = function(options) {
 		options = options ? options : {};
-		options.url = "/api/web/users/user_del";
+		options.url = "/api/web/user/user_del";
 		return ajax(options);
 	};
 

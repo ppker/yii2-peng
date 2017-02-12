@@ -33,7 +33,6 @@ class UserController extends BaseController {
 
         $model = new UserForm();
 
-
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             $model->setPassword($model->password_hash);
             $model->generateAuthKey();
