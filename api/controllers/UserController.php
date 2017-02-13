@@ -66,5 +66,15 @@ class UserController extends BaseController {
         }
     }
 
+    public function actionUser_get() {
+
+        $id = Yii::$app->getRequest()->post('id');
+        if ($id) {
+            $model = new UserForm();
+            $user = $model->find()->where(['id' => $id])->asArray()->one();
+            if (!empty($user)) return ['success' => 1, 'message' => '查询成功', 'data' => $user];
+            else return ['success' => 0, 'message' => '查询失败', 'data' => []];
+        }
+    }
 
 }

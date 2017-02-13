@@ -73,6 +73,7 @@ return [
                         'GET,POST index' => 'index',
                         'GET,POST user_add' => 'user_add', // 新增账号
                         'GET,POST user_del' => 'user_del', // 删除账号 需关联权限
+                        'GET,POST user_get' => 'user_get', // 获取用户信息
                     ],
                     'pluralize' => false,
                 ],

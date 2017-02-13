@@ -24,5 +24,4 @@ class UserController extends BaseController {
         return $this->render('index');
     }
 
-
 }

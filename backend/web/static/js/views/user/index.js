@@ -11,6 +11,7 @@ window.PAGE_ACTION = function() {
         btn_submit = null,
         btn_submit_bak = null,
         // btn_all_del = null, // 批量删除的按钮
+        btn_edit = null,
         btn_del = null; // 单个删除的按钮
 
     init_limit = function() {
@@ -53,13 +54,13 @@ window.PAGE_ACTION = function() {
                             var action = $(this).attr('data-action');
                             t.button(action).trigger();
                         });
-
                         // 全选
                         ZP.utils.init_page_module();
                         ZP.utils.btn_all_del();
                         btn_add(); // 弹出模态框
                         btn_submit(); // 绑定提交的表单
                         btn_del();
+                        btn_edit();
                     });
 
 
@@ -73,6 +74,30 @@ window.PAGE_ACTION = function() {
     btn_add = function() {
         $("#btn_add").on('click', function() {
             $("#addModal").modal('show');
+        });
+    };
+
+    btn_edit = function() {
+        $("table tr .btn-group li").on("click", "a[actionrule='edit']", function() {
+            var $id = $(this).attr("actionid");
+            if ($id) {
+                ZP.api.User_get({
+                    data: {id: $id},
+                    successCallBack: function(result){
+                        console.log(result.data);
+                        $("#addModal h4.modal-title").text('用户编辑');
+                        $("#addModal input[name='username']").val(result.data.username);
+                        $("#addModal select#role_id").val(result.data.status);
+                        var sex = result.data.sex;
+                        $("#addModal input[name='sex'][value=" + sex + "]").attr("checked", true);
+                        $("#addModal input[name='signature']").val(result.data.signature);
+                        $("#addModal input[name='email']").val(result.data.email);
+                        $("#addModal").modal('show');
+                        // ZP.utils.alert_warning(result.message, true);
+                    },
+                    failCallBack: ZP.utils.failCallBack
+                });
+            }
         });
     };
 
@@ -94,7 +119,6 @@ window.PAGE_ACTION = function() {
             e.preventDefault();
         });
     };
-
 
     btn_del = function() { // 单个删除按钮
 

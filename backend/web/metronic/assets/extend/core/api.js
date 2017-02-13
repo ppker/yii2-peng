@@ -91,6 +91,12 @@
 		return ajax(options);
 	};
 
+	// 获取用户数据
+	self.User_get = function(options) {
+        options = options ? options : {};
+        options.url = "/api/web/user/user_get";
+        return ajax(options);
+    };
 
 
 })(ZP, jQuery);
