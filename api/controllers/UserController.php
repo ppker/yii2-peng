@@ -85,4 +85,18 @@ class UserController extends BaseController {
         }
     }
 
+    public function actionUser_reset() {
+
+        $id = Yii::$app->request->post('id');
+        if ($id) {
+            $user = User::findOne($id);
+            $user->password = "123456";
+            if ($user->save()) {
+                return ['success' => 1, 'message' => '重置成功', 'data' => []];
+            } else return ['success' => 0, 'message' => '重置失败', 'data' => []];
+        }
+    }
+
+
+
 }

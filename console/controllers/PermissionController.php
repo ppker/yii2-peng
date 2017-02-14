@@ -16,6 +16,18 @@ class PermissionController extends BaseController {
 
         $auth = Yii::$app->authManager;
 
+        $index = $auth->createPermission("app-api/user/user_reset");
+        $index->description = "创建了{app-api/user/user_reset}的权限";
+        $auth->add($index);
+
+        $admin = $auth->getRole("administer");
+        $auth->addChild($admin, $index);
+        echo "ok\n";
+        return 0;
+
+
+
+
         $index = $auth->createPermission("app-api/user/user_get");
         $index->description = "创建了{app-api/user/user_get}的权限";
         $auth->add($index);

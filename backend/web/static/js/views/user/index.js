@@ -12,6 +12,7 @@ window.PAGE_ACTION = function() {
         btn_submit_bak = null,
         // btn_all_del = null, // 批量删除的按钮
         btn_edit = null,
+        btn_reset = null,
         btn_del = null; // 单个删除的按钮
 
     init_limit = function() {
@@ -61,6 +62,7 @@ window.PAGE_ACTION = function() {
                         btn_submit(); // 绑定提交的表单
                         btn_del();
                         btn_edit();
+                        btn_reset();
                     });
 
 
@@ -101,6 +103,23 @@ window.PAGE_ACTION = function() {
             }
         });
     };
+
+    btn_reset = function() { // 重置密码的操作
+        $("table tr .btn-group li").on("click", "a[actionrule='reset']", function() {
+            var $id = $(this).attr("actionid");
+            if ($id) {
+                ZP.api.User_reset({
+                    data: {id: $id},
+                    successCallBack: function(result){
+                        ZP.utils.alert_warning(result.message, true);
+                    },
+                    failCallBack: ZP.utils.failCallBack
+                });
+            }
+        });
+    };
+
+
 
     btn_submit = function() {
         var $form = null;

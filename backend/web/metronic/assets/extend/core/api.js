@@ -98,5 +98,13 @@
         return ajax(options);
     };
 
+	// User_reset
+    self.User_reset = function(options) {
+        options = options ? options : {};
+        options.url = "/api/web/user/user_reset";
+        return ajax(options);
+    };
+
+
 
 })(ZP, jQuery);
