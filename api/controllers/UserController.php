@@ -24,6 +24,7 @@ class UserController extends BaseController {
         if (!empty($list) && is_array($list)) {
             foreach ($list as &$v) {
                 $v['status'] = $this->account_status[$v['status']];
+                $v['created_at'] = date('Y-m-d H:i:s', $v['created_at']);
             }
         }
         return parent::re_format($list);

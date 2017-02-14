@@ -6,3 +6,6 @@
 .form-horizontal label.radio-inline{
     padding-top: 0;
 }
+.table tbody tr td{
+    vertical-align: middle;
+}
