@@ -32,6 +32,14 @@ class UserController extends BaseController {
     public function actionUser_add() {
 
         $model = new UserForm();
+        $post = Yii::$app->request->post();
+        if (isset($post['id']) && !empty($post['id'])) {
+            $user = $model->findOne($post['id']);
+            if ($user->load($post) && $user->save()) {
+                return ['success' => 1, 'message' => '更新成功', 'data' => []];
+            } else return ['success' => 0, 'message' => '更新失败', 'data' => []];
+        }
+
 
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             $model->setPassword($model->password_hash);

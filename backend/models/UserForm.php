@@ -29,9 +29,9 @@ class UserForm extends User {
             ['email', 'required'],
             ['email', 'email'],
             ['email', 'string', 'max' => 255],
-            ['email', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This email address has already been taken.'],
+            // ['email', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This email address has already been taken.'],
 
-            ['password_hash', 'required'],
+            // ['password_hash', 'required'],
             ['password_hash', 'string', 'min' => 6],
         ];
     }

@@ -86,8 +86,9 @@ window.PAGE_ACTION = function() {
                     successCallBack: function(result){
                         console.log(result.data);
                         $("#addModal h4.modal-title").text('用户编辑');
-                        $("#addModal input[name='username']").val(result.data.username);
+                        $("#addModal input[name='username']").val(result.data.username).after("<input type='hidden' name='id' value=" + $id + ">");
                         $("#addModal select#role_id").val(result.data.status);
+                        $("#addModal label[for='user_pass']").parent().remove();
                         var sex = result.data.sex;
                         $("#addModal input[name='sex'][value=" + sex + "]").attr("checked", true);
                         $("#addModal input[name='signature']").val(result.data.signature);
