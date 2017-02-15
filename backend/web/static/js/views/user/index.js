@@ -13,6 +13,7 @@ window.PAGE_ACTION = function() {
         // btn_all_del = null, // 批量删除的按钮
         btn_edit = null,
         btn_reset = null,
+        btn_auth = null,
         btn_del = null; // 单个删除的按钮
 
     init_limit = function() {
@@ -36,7 +37,7 @@ window.PAGE_ACTION = function() {
                             // "stripeClasses": [ 'strip1', 'strip2'],
                             "ordering": true,
                             // dom: 'Tfgtpi',
-                            "scrollX": false,
+                            scrollX: false,
                             ScrollCollapse: true,
                             buttons: [
                                 { extend: 'print', className: 'btn dark btn-outline' },
@@ -63,6 +64,7 @@ window.PAGE_ACTION = function() {
                         btn_del();
                         btn_edit();
                         btn_reset();
+                        btn_auth();
                     });
 
 
@@ -78,6 +80,16 @@ window.PAGE_ACTION = function() {
             $("#addModal").modal('show');
         });
     };
+
+    btn_auth = function() { // 用户授权
+        $("table tr .btn-group li").on("click", "a[actionrule='auth']", function() {
+            var $id = $(this).attr("actionid");
+            if ($id) {
+                window.location.href = "/backend/web/user/auth?uid=" + $id;
+            }
+        });
+    };
+
 
     btn_edit = function() {
         $("table tr .btn-group li").on("click", "a[actionrule='edit']", function() {
