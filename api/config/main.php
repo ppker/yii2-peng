@@ -75,6 +75,7 @@ return [
                         'GET,POST user_del' => 'user_del', // 删除账号 需关联权限
                         'GET,POST user_get' => 'user_get', // 获取用户信息
                         'GET,POST user_reset' => 'user_reset', // 重置密码
+                        'GET,POST user_auth' => 'user_auth', // 用户授权
                     ],
                     'pluralize' => false,
                 ],
@@ -95,7 +96,7 @@ return [
      */
     'as rbac' => [
         'class' => 'api\behaviors\RbacBehavior',
-        'allowActions' => [],
+        'allowActions' => ['app-api/site/error'],
     ],
 
     'params' => $params,

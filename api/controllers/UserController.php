@@ -11,6 +11,7 @@ namespace api\controllers;
 use common\models\User;
 use yii\db\Query;
 use backend\models\UserForm;
+use yii\helpers\ArrayHelper;
 use yii;
 
 class UserController extends BaseController {
@@ -98,6 +99,35 @@ class UserController extends BaseController {
         }
     }
 
+    /**
+     * 获取用户的授权
+     * @return array
+     */
+    public function actionUser_auth() {
+
+        $id  = Yii::$app->request->post('id');
+        if ($id) {
+            $auth = Yii::$app->authManager;
+            $roles = $auth->getRoles();
+            $arr_roles = ArrayHelper::toArray($roles, [
+                'yii\rbac\Role' => [
+                    'type',
+                    'name',
+                    'description',
+                    'ruleName',
+                    'data',
+                    'createdAt',
+                    'updatedAt'
+                ],
+            ]);
+            $group = array_keys($auth->getAssignments($id));
+            if (!empty($arr_roles) || !empty($group)) {
+                return ['success' => 1, 'message' => '查询成功', 'data' => ['all' => $arr_roles, 'now' => $group]];
+            }else {
+                return ['success' => 1, 'message' => '查询失败', 'data' => []];
+            }
+        }
+    }
 
 
 }

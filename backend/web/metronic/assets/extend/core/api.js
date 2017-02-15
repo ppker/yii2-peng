@@ -105,6 +105,11 @@
         return ajax(options);
     };
 
-
+    // User_auth
+    self.User_auth = function(options) {
+        options = options ? options : {};
+        options.url = "/api/web/user/user_auth";
+        return ajax(options);
+    };
 
 })(ZP, jQuery);

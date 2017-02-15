@@ -85,7 +85,23 @@ window.PAGE_ACTION = function() {
         $("table tr .btn-group li").on("click", "a[actionrule='auth']", function() {
             var $id = $(this).attr("actionid");
             if ($id) {
-                window.location.href = "/backend/web/user/auth?uid=" + $id;
+                ZP.api.User_auth({
+                    data: {id: $id},
+                    successCallBack: function(result){
+
+                        /*$("#addModal h4.modal-title").text('用户编辑');
+                        $("#addModal input[name='username']").val(result.data.username).after("<input type='hidden' name='id' value=" + $id + ">");
+                        $("#addModal select#role_id").val(result.data.status);
+                        $("#addModal label[for='user_pass']").parent().remove();
+                        var sex = result.data.sex;
+                        $("#addModal input[name='sex'][value=" + sex + "]").attr("checked", true);
+                        $("#addModal input[name='signature']").val(result.data.signature);
+                        $("#addModal input[name='email']").val(result.data.email);*/
+                        $("#ruleModal").modal('show');
+                        // ZP.utils.alert_warning(result.message, true);
+                    },
+                    failCallBack: ZP.utils.failCallBack
+                });
             }
         });
     };

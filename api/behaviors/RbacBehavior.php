@@ -18,7 +18,7 @@ use common\models\User;
 
 class RbacBehavior extends Behavior {
 
-    public $allowActions = ['app-api/site/error'];
+    public $allowActions = [];
     public function events() {
 
         return [
@@ -30,10 +30,13 @@ class RbacBehavior extends Behavior {
 
         $access_token = Yii::$app->request->post((new QueryParamAuth)->tokenParam);
         $user = User::findOne(['username' => $access_token]);
+
         if (!empty($access_token) && !empty($user)) {
             $event->isValid = true; // 继续执行
 
+
             $rule = $event->action->getUniqueId();
+
             $rule = Yii::$app->id . "/" . $rule;
             foreach ($this->allowActions as $allow) {
                 if ('*' == substr($allow, -1)) {

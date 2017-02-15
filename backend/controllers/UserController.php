@@ -24,9 +24,4 @@ class UserController extends BaseController {
         return $this->render('index');
     }
 
-    public function actionAuth($uid) {
-
-        return $this->render('auth');
-    }
-
 }

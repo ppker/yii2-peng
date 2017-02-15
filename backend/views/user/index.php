@@ -181,3 +181,37 @@ $this->params['title_sub'] = '管理用户账号信息';
         </div>
     </div>
 </div>
+
+
+
+
+<div class="modal fade" id="ruleModal" tabindex="-1" role="dialog" aria-labelledby="ruleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">用户授权</h4>
+            </div>
+            <div class="modal-body">
+                <form id="addForm" role="form" data-toggle="validator" class="form-horizontal">
+                    <input type="hidden" name="<?= Yii::$app->getRequest()->csrfParam; ?>" value="<?= Yii::$app->getRequest()->getCsrfToken(); ?>">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="user_param" class="control-label col-sm-2">用户组</label>
+                            <div class="mt-radio-list col-sm-2">
+                                <?php /*foreach ($roles as $role) : */?><!--
+                                    <label class="mt-radio mt-radio-outline">
+                                        <input type="radio" name="param" value="<?/*=$role->name*/?>" <?php /*echo in_array($role->name, $group) ?'checked':''; */?> />
+                                        <span></span>
+                                        <?/*=$role->name*/?> (<?/*=$role->description*/?>)
+                                    </label>
+                                --><?php /*endforeach */?>
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

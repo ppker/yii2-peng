@@ -25,7 +25,7 @@ class RbacBehavior extends Behavior {
     }
 
     public function rbacAction($event) {
-
+        
         $event->isValid = true; // 继续执行
         $rule = $event->action->getUniqueId();
         foreach ($this->allowActions as $allow) {
