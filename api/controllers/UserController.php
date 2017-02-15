@@ -106,9 +106,19 @@ class UserController extends BaseController {
     public function actionUser_auth() {
 
         $id  = Yii::$app->request->post('id');
+        $auth = Yii::$app->authManager;
+        $roles = $auth->getRoles();
+
+        if (($user_id = Yii::$app->request->post('user_id')) && ($param = Yii::$app->request->post('param'))) {
+            $auth->revokeAll($user_id);
+            $role = $auth->getRole($param);
+            $re = $auth->assign($role, $user_id);
+            if($re) {
+                return ['success' => 1, 'message' => '授权成功', 'data' => []];
+            }else ['success' => 0, 'message' => '授权失败', 'data' => []];
+        }
+
         if ($id) {
-            $auth = Yii::$app->authManager;
-            $roles = $auth->getRoles();
             $arr_roles = ArrayHelper::toArray($roles, [
                 'yii\rbac\Role' => [
                     'type',
@@ -121,6 +131,7 @@ class UserController extends BaseController {
                 ],
             ]);
             $group = array_keys($auth->getAssignments($id));
+
             if (!empty($arr_roles) || !empty($group)) {
                 return ['success' => 1, 'message' => '查询成功', 'data' => ['all' => $arr_roles, 'now' => $group]];
             }else {

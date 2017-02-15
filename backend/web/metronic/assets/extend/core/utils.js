@@ -1094,7 +1094,7 @@
      * @param message
      * @param type
      */
-    self.alert_warning = function(message, type) {
+    self.alert_warning = function(message, type, nogo) {
         swal({
                 title: "提示",
                 text: message,
@@ -1106,6 +1106,7 @@
             },
             function (isConfirm) {
                 if (!type) return;
+				if (nogo) return;
                 if (isConfirm) {
                     self.reload();
                 } else {}

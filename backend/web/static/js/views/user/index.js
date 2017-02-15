@@ -88,17 +88,36 @@ window.PAGE_ACTION = function() {
                 ZP.api.User_auth({
                     data: {id: $id},
                     successCallBack: function(result){
-
-                        /*$("#addModal h4.modal-title").text('用户编辑');
-                        $("#addModal input[name='username']").val(result.data.username).after("<input type='hidden' name='id' value=" + $id + ">");
-                        $("#addModal select#role_id").val(result.data.status);
-                        $("#addModal label[for='user_pass']").parent().remove();
-                        var sex = result.data.sex;
-                        $("#addModal input[name='sex'][value=" + sex + "]").attr("checked", true);
-                        $("#addModal input[name='signature']").val(result.data.signature);
-                        $("#addModal input[name='email']").val(result.data.email);*/
+                        $("#ruleModal div.mt-radio-list").empty();
+                        var $radio = '';
+                        if (ZP.utils.isObject(result.data)) {
+                            $.each(result.data.all, function(i, v) {
+                                if ($.inArray(v.name, [result.data.now[0]])> -1) {
+                                    $radio += '<label class="mt-radio mt-radio-outline"><input type="radio" name="param" value="' + v.name +  '" checked'  + '><span></span>' + v.name + '('+ v.description + ')' + '</label>';
+                                } else $radio += '<label class="mt-radio mt-radio-outline"><input type="radio" name="param" value="' + v.name + '"><span></span>' + v.name + '('+ v.description + ')' + '</label>';
+                            });
+                        }
+                        $("input#auth_user_id").val($id);
+                        $("#ruleModal div.mt-radio-list").append($radio);
                         $("#ruleModal").modal('show');
-                        // ZP.utils.alert_warning(result.message, true);
+
+                        // 对表单事件进行监听
+                        var $form = null;
+                        $form = $("form#authForm");
+                        $form.submit(function(e){
+                            //表单验证
+                            if(ZP.utils.isPassForm($form)){
+                                $("#ruleModal").modal('hide');
+                                ZP.api.User_auth({
+                                    data: $form.serializeJson(),
+                                    successCallBack: function(result){
+                                        ZP.utils.alert_warning(result.message, true, true);
+                                    },
+                                    failCallBack: ZP.utils.failCallBack
+                                });
+                            }
+                            e.preventDefault();
+                        });
                     },
                     failCallBack: ZP.utils.failCallBack
                 });
@@ -107,7 +126,7 @@ window.PAGE_ACTION = function() {
     };
 
 
-    btn_edit = function() {
+    btn_edit = function() { // 编辑操作
         $("table tr .btn-group li").on("click", "a[actionrule='edit']", function() {
             var $id = $(this).attr("actionid");
             if ($id) {

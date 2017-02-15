@@ -193,22 +193,21 @@ $this->params['title_sub'] = '管理用户账号信息';
                 <h4 class="modal-title">用户授权</h4>
             </div>
             <div class="modal-body">
-                <form id="addForm" role="form" data-toggle="validator" class="form-horizontal">
+                <form id="authForm" role="form" data-toggle="validator" class="form-horizontal">
                     <input type="hidden" name="<?= Yii::$app->getRequest()->csrfParam; ?>" value="<?= Yii::$app->getRequest()->getCsrfToken(); ?>">
-                    <div class="col-md-6">
+                    <input type="hidden" name="user_id" id="auth_user_id">
+                    <div class="col-md-12">
                         <div class="form-group">
-                            <label for="user_param" class="control-label col-sm-2">用户组</label>
-                            <div class="mt-radio-list col-sm-2">
-                                <?php /*foreach ($roles as $role) : */?><!--
-                                    <label class="mt-radio mt-radio-outline">
-                                        <input type="radio" name="param" value="<?/*=$role->name*/?>" <?php /*echo in_array($role->name, $group) ?'checked':''; */?> />
-                                        <span></span>
-                                        <?/*=$role->name*/?> (<?/*=$role->description*/?>)
-                                    </label>
-                                --><?php /*endforeach */?>
+                            <label for="user_param" class="control-label col-sm-3" style="padding-top: 0;">用户组</label>
+                            <div class="mt-radio-list col-sm-9">
                             </div>
                         </div>
-
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-12 col-md-12 text-center">
+                            <button type="button" class="btn default" data-dismiss="modal">关闭</button>
+                            <button type="submit" class="btn green" id="btn-auth-save">保存</button>
+                        </div>
                     </div>
                 </form>
             </div>
