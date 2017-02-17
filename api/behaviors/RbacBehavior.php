@@ -45,7 +45,6 @@ class RbacBehavior extends Behavior {
                     if ($rule == $allow) return true;
                 }
             }
-
             if (Menu::checkRule($rule, $user)){
                 return true;
             }

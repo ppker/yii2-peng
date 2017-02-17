@@ -69,14 +69,7 @@ return [
                     ],
                 ],*/
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'user',
-                    'extraPatterns' => [
-                        'GET,POST index' => 'index',
-                        'GET,POST user_add' => 'user_add', // 新增账号
-                        'GET,POST user_del' => 'user_del', // 删除账号 需关联权限
-                        'GET,POST user_get' => 'user_get', // 获取用户信息
-                        'GET,POST user_reset' => 'user_reset', // 重置密码
-                        'GET,POST user_auth' => 'user_auth', // 用户授权
-                    ],
+                    'extraPatterns' => isset($params['api_rule']) ? $params['api_rule'] : [],
                     'pluralize' => false,
                 ],
             ],

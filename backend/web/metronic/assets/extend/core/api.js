@@ -111,5 +111,32 @@
         options.url = "/api/web/user/user_auth";
         return ajax(options);
     };
+    /**
+	 * access_index
+     */
+    self.access_index = function(options) {
+        options = options ? options : {};
+        options.url = "/api/web/user/access_index";
+        return ajax(options);
+    };
+
+    /**
+     * access_add
+     */
+    self.access_add = function(options) {
+        options = options ? options : {};
+        options.url = "/api/web/user/access_add";
+        return ajax(options);
+    };
+
+    /**
+     * access_get
+     */
+    self.access_get = function(options) {
+        options = options ? options : {};
+        options.url = "/api/web/user/access_get";
+        return ajax(options);
+    };
+
 
 })(ZP, jQuery);

@@ -1041,6 +1041,17 @@
         });
 	};
 
+    /**
+	 * 基础的添加按钮
+     */
+    self.btn_add = function() {
+        $("#btn_add").on('click', function() {
+            $("#addModal").modal('show');
+        });
+	};
+
+
+
 	/**
 	 * 批量删除的按钮操作
 	 */

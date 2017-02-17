@@ -24,4 +24,10 @@ class UserController extends BaseController {
         return $this->render('index');
     }
 
+    public function actionAccess() {
+
+        return $this->render('access');
+    }
+
+
 }

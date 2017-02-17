@@ -135,10 +135,48 @@ class UserController extends BaseController {
             if (!empty($arr_roles) || !empty($group)) {
                 return ['success' => 1, 'message' => '查询成功', 'data' => ['all' => $arr_roles, 'now' => $group]];
             }else {
-                return ['success' => 1, 'message' => '查询失败', 'data' => []];
+                return ['success' => 0, 'message' => '查询失败', 'data' => []];
             }
         }
     }
 
+    public function actionAccess_index() {
+
+        $roles = Yii::$app->authManager->getRoles();
+        if (!empty($roles)) {
+            $roles = ArrayHelper::toArray($roles);
+            if (!empty($roles)) {
+                foreach ($roles as &$v) {
+                    $v['createdAt'] = date('Y-m-d H:i:s', $v['createdAt']);
+                    $v['updatedAt'] = date('Y-m-d H:i:s', $v['updatedAt']);
+                }
+            }
+            if (!empty($roles)) return ['success' => 1, 'message' => '查询成功', 'data' => array_values($roles)];
+            else return ['success' => 0, 'message' => '查询失败', 'data' => []];
+        }
+    }
+
+    public function actionAccess_add() {
+
+        $data = Yii::$app->request->post();
+        if (!empty($data)) {
+            $role = Yii::$app->authManager->createRole($data['name']);
+            $role->description = $data['description'];
+            if (Yii::$app->authManager->add($role)) {
+                return ['success' => 1, 'message' => '添加成功', 'data' => []];
+            } else return ['success' => 0, 'message' => '添加失败', 'data' => []];
+        }
+    }
+
+    public function actionAccess_get() {
+
+        $name = Yii::$app->request->post("id");
+        if (!empty($name)) {
+            $role = Yii::$app->authManager->getRole($name);
+            if ($role) {
+                return ['success' => 1, 'message' => '添加成功', 'data' => ArrayHelper::toArray($role)];
+            } else return ['success' => 0, 'message' => '添加失败', 'data' => []];
+        }
+    }
 
 }

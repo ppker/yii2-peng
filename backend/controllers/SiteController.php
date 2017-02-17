@@ -26,7 +26,7 @@ class SiteController extends BaseController
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['logout', 'index', 'check_user'],
+                        'actions' => ['logout', 'index', 'check_user', 'check_role'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -177,6 +177,16 @@ class SiteController extends BaseController
         $user = User::find()->where(['username' => $username])->exists();
         Yii::$app->response->statusCode = 200;
         if ($user) {
+            return json_encode(['state' => 0]);
+        } else return json_encode(['state' => 1]);
+    }
+
+    public function actionCheck_role() {
+
+        $name = Yii::$app->request->getQueryParam('name');
+        $role = Yii::$app->authManager->getRole($name);
+        Yii::$app->response->statusCode = 200;
+        if ($role) {
             return json_encode(['state' => 0]);
         } else return json_encode(['state' => 1]);
     }
