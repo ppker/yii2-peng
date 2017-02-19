@@ -97,6 +97,7 @@ $this->params['title_sub'] = '管理用户角色信息';
             <div class="modal-body">
                 <form id="addForm" role="form" data-toggle="validator" class="form-horizontal">
                     <input type="hidden" name="<?= Yii::$app->getRequest()->csrfParam; ?>" value="<?= Yii::$app->getRequest()->getCsrfToken(); ?>">
+                    <input type="hidden" name="old_name" value="">
                     <div class="col-md-12">
                         <div class="form-group">
                             <label for="" class="control-label col-sm-2">角色名</label>
@@ -158,3 +159,7 @@ $this->params['title_sub'] = '管理用户角色信息';
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+    var bind_data = JSON.parse('<?php echo json_encode($bind_data);?>');
+</script>

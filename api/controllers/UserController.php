@@ -12,6 +12,7 @@ use common\models\User;
 use yii\db\Query;
 use backend\models\UserForm;
 use yii\helpers\ArrayHelper;
+use yii\helpers\Url;
 use yii;
 
 class UserController extends BaseController {
@@ -160,6 +161,16 @@ class UserController extends BaseController {
 
         $data = Yii::$app->request->post();
         if (!empty($data)) {
+            $get_role = Yii::$app->authManager->getRole($data['old_name']);
+
+            if (!empty($get_role)) { // 进行修改
+                $get_role->name = $data['name'];
+                $get_role->description = $data['description'];
+                if ($re = Yii::$app->authManager->update($data['old_name'], $get_role)) {
+                    return ['success' => 1, 'message' => '修改成功', 'data' => []];
+                } else return ['success' => 0, 'message' => '修改失败', 'data' => []];
+            }
+
             $role = Yii::$app->authManager->createRole($data['name']);
             $role->description = $data['description'];
             if (Yii::$app->authManager->add($role)) {
@@ -174,9 +185,20 @@ class UserController extends BaseController {
         if (!empty($name)) {
             $role = Yii::$app->authManager->getRole($name);
             if ($role) {
-                return ['success' => 1, 'message' => '添加成功', 'data' => ArrayHelper::toArray($role)];
-            } else return ['success' => 0, 'message' => '添加失败', 'data' => []];
+                return ['success' => 1, 'message' => '查询成功', 'data' => ArrayHelper::toArray($role)];
+            } else return ['success' => 0, 'message' => '查询失败', 'data' => []];
         }
     }
+
+    public function actionAccess_del() {
+
+        $id = Yii::$app->request->post("id");
+        if (empty($id)) return ['success' => 0, 'message' => '操作失败，缺少参数', 'data' => []];
+        $role = Yii::$app->authManager->getRole($id);
+        if (Yii::$app->authManager->remove($role)) return ['success' => 1, 'message' => '删除成功', 'data' => []];
+        else return ['success' => 0, 'message' => '删除失败', 'data' => []];
+    }
+
+
 
 }

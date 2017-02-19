@@ -7,9 +7,10 @@ use backend\assets\EndAsset;
 use backend\assets\AppAsset;
 use yii\helpers\Html;
 use yii\helpers\Url;
-// use backend\models\Menu;
 use yii\widgets\Breadcrumbs;
 use backend\models\Menu;
+use common\widgets\Alert;
+use common\widgets\Toastr;
 
 EndAsset::register($this);
 $context = $this->context;
@@ -85,6 +86,7 @@ $this->beginPage();
                     <small><?= Html::encode(isset($this->params['title_sub'])? $this->params['title_sub']: '' ); ?></small>
                 </h1>
                 <!-- END PAGE TITLE-->
+                <?= Toastr::widget(); ?>
                 <!-- content staring -->
                 <?= $content ?>
                 <!-- content ending -->

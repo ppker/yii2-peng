@@ -597,7 +597,22 @@
 		});
 	};
 
-
+	self.webSuccess = function (data) {
+        toastr.options = {
+            closeButton: true,
+            positionClass: 'toast-top-left',
+            onclick: function () {},
+            showDuration: 0,
+            hideDuration: 0,
+            timeOut: data.time,
+            extendedTimeOut: 0,
+            showEasing: 'swing',
+            hideEasing: 'linear',
+            showMethod: 'fadeIn',
+            hideMethod: 'fadeOut',
+        };
+        toastr[data.type](data.message, data.title);
+    };
 
 
 

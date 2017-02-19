@@ -19,7 +19,7 @@ class PluginAsset extends AssetBundle {
     public $baseUrl = '@web/metronic/assets';
 
     public $css = [ // 全局css文件
-
+        'global/plugins/bootstrap-toastr/toastr.min.css'
     ];
     public $js = [ // 全局js文件
         'global/plugins/counterup/jquery.waypoints.min.js', // 计数器？
@@ -42,6 +42,8 @@ class PluginAsset extends AssetBundle {
         'global/plugins/flot/jquery.flot.min.js', // jquery 的一个 float 画图组件
         'global/plugins/flot/jquery.flot.resize.min.js',
         'global/plugins/flot/jquery.flot.categories.min.js',
+
+        'global/plugins/bootstrap-toastr/toastr.min.js', // toastr信息提示框
 
         'global/plugins/jquery-easypiechart/jquery.easypiechart.min.js', // 比较屌的饼图
         'global/plugins/jquery.sparkline.min.js', // jQuery 线状图插件

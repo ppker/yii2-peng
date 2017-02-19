@@ -16,5 +16,6 @@ return [
         'GET,POST access_index' => 'access_index', // 角色获取
         'GET,POST access_add' => 'access_add', // 角色添加
         'GET,POST access_get' => 'access_get', // 角色获取
+        'GET,POST access_del' => 'access_del', // 角色删除
     ],
 ];

@@ -7,12 +7,10 @@ window.PAGE_ACTION = function() {
     "use strict";
 
     var init_limit = null, // 默认条件页面
-        btn_add = null,
         btn_submit = null,
-        btn_submit_bak = null,
+
         // btn_all_del = null, // 批量删除的按钮
         btn_edit = null,
-        btn_reset = null,
         btn_auth = null,
         btn_del = null; // 单个删除的按钮
 
@@ -22,7 +20,6 @@ window.PAGE_ACTION = function() {
             successCallBack:function(result){
 
                 if(ZP.utils.isArray(result.data)){
-
                     ZP.utils.render("user/access_index.html", {
                         list: result.data
                     },function(html){
@@ -62,10 +59,7 @@ window.PAGE_ACTION = function() {
                         ZP.utils.btn_add();
                         btn_submit(); // 绑定提交的表单
                         btn_edit();
-                        return;
                         btn_del();
-                        btn_edit();
-                        btn_reset();
                         btn_auth();
                     });
 
@@ -76,46 +70,12 @@ window.PAGE_ACTION = function() {
         });
     };
 
-    btn_auth = function() { // 用户授权
+    btn_auth = function() { // 角色权限详情
         $("table tr .btn-group li").on("click", "a[actionrule='auth']", function() {
             var $id = $(this).attr("actionid");
             if ($id) {
-                ZP.api.User_auth({
-                    data: {id: $id},
-                    successCallBack: function(result){
-                        $("#ruleModal div.mt-radio-list").empty();
-                        var $radio = '';
-                        if (ZP.utils.isObject(result.data)) {
-                            $.each(result.data.all, function(i, v) {
-                                if ($.inArray(v.name, [result.data.now[0]])> -1) {
-                                    $radio += '<label class="mt-radio mt-radio-outline"><input type="radio" name="param" value="' + v.name +  '" checked'  + '><span></span>' + v.name + '('+ v.description + ')' + '</label>';
-                                } else $radio += '<label class="mt-radio mt-radio-outline"><input type="radio" name="param" value="' + v.name + '"><span></span>' + v.name + '('+ v.description + ')' + '</label>';
-                            });
-                        }
-                        $("input#auth_user_id").val($id);
-                        $("#ruleModal div.mt-radio-list").append($radio);
-                        $("#ruleModal").modal('show');
-
-                        // 对表单事件进行监听
-                        var $form = null;
-                        $form = $("form#authForm");
-                        $form.submit(function(e){
-                            //表单验证
-                            if(ZP.utils.isPassForm($form)){
-                                $("#ruleModal").modal('hide');
-                                ZP.api.User_auth({
-                                    data: $form.serializeJson(),
-                                    successCallBack: function(result){
-                                        ZP.utils.alert_warning(result.message, true, true);
-                                    },
-                                    failCallBack: ZP.utils.failCallBack
-                                });
-                            }
-                            e.preventDefault();
-                        });
-                    },
-                    failCallBack: ZP.utils.failCallBack
-                });
+                var $url = bind_data.to_url + $id;
+                window.location.href = $url;
             }
         });
     };
@@ -130,10 +90,11 @@ window.PAGE_ACTION = function() {
                     successCallBack: function(result){
 
                         $("#addModal h4.modal-title").text('角色编辑');
-                        $("#addModal input[name='name']").val(result.data.name);
+                        $("#addModal input[name='name']").val(result.data.name).removeAttr('data-remote data-remote-error');
+                        $("#addModal input[name='old_name']").val($id);
                         $("#addModal textarea[name='description']").val(result.data.description);
+
                         $("#addModal").modal('show');
-                        // ZP.utils.alert_warning(result.message, true);
                     },
                     failCallBack: ZP.utils.failCallBack
                 });
@@ -141,20 +102,6 @@ window.PAGE_ACTION = function() {
         });
     };
 
-    btn_reset = function() { // 重置密码的操作
-        $("table tr .btn-group li").on("click", "a[actionrule='reset']", function() {
-            var $id = $(this).attr("actionid");
-            if ($id) {
-                ZP.api.User_reset({
-                    data: {id: $id},
-                    successCallBack: function(result){
-                        ZP.utils.alert_warning(result.message, true);
-                    },
-                    failCallBack: ZP.utils.failCallBack
-                });
-            }
-        });
-    };
 
     btn_submit = function() {
         var $form = null;
@@ -180,7 +127,7 @@ window.PAGE_ACTION = function() {
         $("table tr .btn-group li").on("click", "a[actionrule='del']", function() {
             var $id = $(this).attr("actionid");
             if ($id) {
-                ZP.api.User_del({
+                ZP.api.access_del({
                     data: {id: $id},
                     successCallBack: function(result){
                         ZP.utils.alert_warning(result.message, true);
@@ -190,44 +137,6 @@ window.PAGE_ACTION = function() {
             }
         });
     };
-
-
-    btn_submit_bak = function() { // 暂时废弃
-
-        var form = $('#addForm');
-        var error = $('.alert-danger', form);
-        var success = $('.alert-success', form);
-        var rule = {
-            rules: {
-                username: {
-                    minlength: 3,
-                    required: true
-                },
-                sex: {
-                    required: true,
-                },
-                password: {
-                    required: true,
-                    minlength: 6
-                },
-                status: {
-                    required: true,
-                },
-                signature: {
-                    minlength: 2
-                },
-                email: {
-                    required: true,
-                    email: true
-                },
-            },
-        };
-        form.validate($.extend(ZP.utils.form_validation, rule));
-    };
-
-
-
-
 
     return {
         init: function (){

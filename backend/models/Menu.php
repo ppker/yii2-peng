@@ -115,5 +115,27 @@ class Menu extends \common\models\Menu {
         return $path;
     }
 
+    public static function returnNodes($tree = true) {
+
+        static $tree_nodes = [];
+        if ($tree && !empty($tree_nodes[intval($tree)])) {
+            return $tree_nodes[intval($tree)];
+        }
+        if ($tree) {
+            $list = (new \yii\db\Query)->select(['id', 'pid', 'title', 'url', 'hide'])
+                ->from(Menu::tableName())
+                ->orderBy(['sort' => SORT_ASC])->all();
+            $nodes = PublicModel::list_to_tree($list, $pk = 'id', $pid = 'pid', $child = 'child', $root = 0);
+        } else {
+            $modes = (new \yii\db\Query())
+                ->select(['title', 'url', 'tip', 'pid'])
+                ->from(Menu::tableName())
+                ->orderBy(['sort' => SORT_ASC])->all();
+        }
+        $tree_nodes[intval($tree)] = $nodes;
+        return $nodes;
+    }
+
+
 
 }
