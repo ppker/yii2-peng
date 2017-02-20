@@ -69,7 +69,11 @@ return [
                     ],
                 ],*/
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'user',
-                    'extraPatterns' => isset($params['api_rule']) ? $params['api_rule'] : [],
+                    'extraPatterns' => isset($params['api_rule_user']) ? $params['api_rule_user'] : [],
+                    'pluralize' => false,
+                ],
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'system',
+                    'extraPatterns' => isset($params['api_rule_system']) ? $params['api_rule_system'] : [],
                     'pluralize' => false,
                 ],
             ],

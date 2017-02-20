@@ -147,6 +147,23 @@
 		return ajax(options);
 	};
 
+    /**
+     * system_menu
+     */
+    self.system_menu = function(options) {
+        options = options ? options : {};
+        options.url = "/api/web/system/system_menu";
+        return ajax(options);
+    };
+
+    /**
+     * system_menu_add
+     */
+    self.system_menu_add = function(options) {
+        options = options ? options : {};
+        options.url = "/api/web/system/menu_add";
+        return ajax(options);
+    };
 
 
 

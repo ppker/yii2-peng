@@ -29,7 +29,7 @@ class UserController extends BaseController {
     public function actionAccess() {
 
         $url = Url::to(['user/access_set', 'role' => '']);
-        return $this->render('access', ['bind_data' => ['to_url' => $url]]);
+        return $this->render('access', ['bind_data' => ['to_url' => $url]]); // 绑定的jump url to js app
     }
 
     public function actionAccess_set($role) {

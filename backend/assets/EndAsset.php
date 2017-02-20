@@ -22,10 +22,10 @@ class EndAsset extends AssetBundle
         'layouts/global/scripts/quick-sidebar.min.js', // 快捷栏  就是我打算用socket聊天的那部分
         'layouts/global/scripts/quick-nav.min.js', // 就是右上角浮动的那个小圆圈圈
         // 我扩展的js
+        'extend/core/define.js',
         'extend/core/utils.js',
         '../../static/js/api.js',
         // 'extend/core/api.js',
-        'extend/core/define.js',
         'global/scripts/common.js' // 用户自定义的js
     ];
     public $depends = [

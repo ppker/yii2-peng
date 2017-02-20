@@ -13,7 +13,7 @@ use yii\db\Query;
 use backend\models\UserForm;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Url;
-use yii;
+use Yii;
 
 class UserController extends BaseController {
 
@@ -195,8 +195,10 @@ class UserController extends BaseController {
         $id = Yii::$app->request->post("id");
         if (empty($id)) return ['success' => 0, 'message' => '操作失败，缺少参数', 'data' => []];
         if (is_array($id)) {
+
+
             $ids = "'" . implode("','", $id) . "'";
-            $command = Yii::$app->db->createCommand("delete from `auth_item` where name in($ids) and type = 1");
+            $command = Yii::$app->db->createCommand("delte from `auth_item` where name in($ids) and type = 1");
             $re = $command->execute();
             if ($re) return ['success' => 1, 'message' => '删除成功', 'data' => []];
             else return ['success' => 0, 'message' => '删除失败', 'data' => []];

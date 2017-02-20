@@ -10,6 +10,7 @@ namespace backend\controllers;
 
 use Yii;
 use common\components\Controller;
+use yii\web\NotFoundHttpException;
 
 class BaseController extends Controller {
 

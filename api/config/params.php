@@ -6,7 +6,7 @@ return [
         'appid' => 'wx70a7adedc63835da',
         'appsecret' => '405b766d497f147c9063e91def45b1d3',
     ],
-    'api_rule' => [
+    'api_rule_user' => [
         'GET,POST index' => 'index',
         'GET,POST user_add' => 'user_add', // 新增账号
         'GET,POST user_del' => 'user_del', // 删除账号 需关联权限
@@ -17,5 +17,10 @@ return [
         'GET,POST access_add' => 'access_add', // 角色添加
         'GET,POST access_get' => 'access_get', // 角色获取
         'GET,POST access_del' => 'access_del', // 角色删除
+    ],
+
+    'api_rule_system' => [
+        'GET,POST system_menu' => 'system_menu', // menu_list
+        'GET,POST menu_add' => 'menu_add',
     ],
 ];

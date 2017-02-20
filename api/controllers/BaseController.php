@@ -11,7 +11,8 @@ use yii\rest\ActiveController;
 use yii\web\Response;
 use yii\filters\Cors;
 use yii\filters\auth\QueryParamAuth;
-use yii;
+use yii\db\Query;
+use Yii;
 
 class BaseController extends ActiveController {
 
@@ -70,11 +71,11 @@ class BaseController extends ActiveController {
      * @param string $type
      * @return array
      */
-    public static function re_format($data = [], $type = 'json') {
+    public static function re_format($data = [], $type = 'json', $message = ['查询成功', '查询失败']) {
 
         if ('json' == $type) {
-            if (!empty($data)) return ['success' => 1, 'message' => '查询成功', 'data' => $data];
-            else return ['success' => 0, 'message' => '查询失败', 'data' => []];
+            if (!empty($data)) return ['success' => 1, 'message' => $message[0], 'data' => $data];
+            else return ['success' => 0, 'message' => $message[1], 'data' => []];
         }
     }
 

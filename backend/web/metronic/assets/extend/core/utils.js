@@ -1065,9 +1065,99 @@
         });
 	};
 
+    self.default_dataTable_list = {
+        // dom: '<"html5buttons"B>lTfgitp',
+
+        "order": [[ 0, "asc" ]],
+        oLanguage: ZP.define.dataTableLan,
+        bStateSave: ZP.define.dataTableStateSave,
+        // "stripeClasses": [ 'strip1', 'strip2'],
+        "ordering": true,
+        // dom: 'Tfgtpi',
+        scrollX: false,
+        ScrollCollapse: true,
+        buttons: [
+            { extend: 'print', className: 'btn dark btn-outline' },
+            { extend: 'copy', className: 'btn red btn-outline' },
+            { extend: 'pdf', className: 'btn green btn-outline' },
+            { extend: 'excel', className: 'btn yellow btn-outline ' },
+            { extend: 'csv', className: 'btn purple btn-outline ' },
+            { extend: 'colvis', className: 'btn dark btn-outline', text: 'Columns'}
+        ],
+        responsive: true,
+        "lengthMenu": [10, 20, 50, 100],
+        destroy: true
+    };
+
+    /**
+     * 默认dataTable 的添加按钮
+     */
+    self.default_btn_add = function() {
+        $("#btn_add").on('click', function() {
+            $("#addModal").modal('show');
+        });
+    };
+
+    /**
+     * 默认dataTable 添加按钮的监听添加表单
+     */
+    self.default_btn_add_submit = function(url_add) {
+        var $form = null;
+        $form = $("form#addForm");
+        $form.submit(function(e){
+            //表单验证
+            if(ZP.utils.isPassForm($form)){
+                $("#addModal").modal('hide');
+                ZP.api[url_add]({
+                    data: $form.serializeJson(),
+                    successCallBack: function(result){
+                        ZP.utils.alert_warning(result.message, true);
+                    },
+                    failCallBack: ZP.utils.failCallBack
+                });
+            }
+            e.preventDefault();
+        });
+    };
 
 
-	/**
+    /**
+     * 默认的list封装
+     */
+    self.default_list = function (cfg_data) {
+        ZP.api[cfg_data.api_url]({
+            data: null,
+            successCallBack:function(result){
+
+                if(ZP.utils.isArray(result.data)){
+
+                    ZP.utils.render(cfg_data.template_path, {
+                        list: result.data
+                    },function(html){
+                        var table = $("#table");
+                        table.html(html);
+                        var t = table.DataTable(cfg_data.dataTable);
+
+                        $('#sample_3_tools > li > a.tool-action').on('click', function() {
+                            var action = $(this).attr('data-action');
+                            t.button(action).trigger();
+                        });
+                        // 全选
+                        self.init_page_module();
+                        if ('undefined' != typeof cfg_data.all_del_api) self.btn_all_del(cfg_data.all_del_api);
+                        self.default_btn_add(); // 默认add  modal
+                        if ('undefined' != typeof cfg_data.add_api) self.default_btn_add_submit(cfg_data.add_api);
+                    });
+                }
+            },
+            failCallBack: ZP.utils.failCallBack
+        });
+    };
+
+
+
+
+    /**
 	 * 批量删除的按钮操作
 	 */
 	self.btn_all_del = function(api_url) {

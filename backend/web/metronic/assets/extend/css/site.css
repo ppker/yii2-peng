@@ -9,3 +9,6 @@
 .table tbody tr td{
     vertical-align: middle;
 }
+ul.page-breadcrumb a:hover, ul.page-breadcrumb a:link, ul.page-breadcrumb a:visited{
+    text-decoration: none;
+}
