@@ -16,11 +16,12 @@ window.PAGE_ACTION = function() {
 
     init_limit = function() {
         ZP.utils.default_list({
-            'api_url': 'system_menu',
+            'api_url': 'system_menu', // list的api
             'template_path': 'system/menu_index.html',
             'dataTable': $.extend(true, {}, ZP.utils.default_dataTable_list, {}),
             'all_del_api': 'system_menu_del',
             'add_api': 'system_menu_add',
+            'init_form_api': {'api': 'init_form_api', 'id': 'pid_id'}, // 需要对表单进行数据初始化操作
         });
     };
 

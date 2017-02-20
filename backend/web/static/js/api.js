@@ -165,6 +165,16 @@
         return ajax(options);
     };
 
+	/**
+	 * init_form_api
+	 */
+	self.init_form_api = function(options) {
+		options = options ? options : {};
+		options.url = "/api/web/system/init_form_api";
+		return ajax(options);
+	};
+
+
 
 
 })(ZP, jQuery);

@@ -16,7 +16,7 @@ class Menu extends \common\models\Menu {
 
     public function rules() {
 
-        return ArrayHelper::merge(parent::rule(), [
+        return ArrayHelper::merge(parent::rules(), [
             [['title', 'url'], 'required']
         ]);
     }
@@ -136,6 +136,16 @@ class Menu extends \common\models\Menu {
         return $nodes;
     }
 
-
+    /**
+     * 重载了load方法，因为我是手动构造的form表单
+     * @param array $data
+     * @param null $formName
+     * @return bool
+     */
+    public function load($data = [], $formName = null) {
+        if (empty($data)) return false;
+        $this->setAttributes($data);
+        return true;
+    }
 
 }

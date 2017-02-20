@@ -18,11 +18,11 @@ class Menu extends ActiveRecord {
         return '{{%menu}}';
     }
 
-    public function rule() {
+    public function rules() {
 
         return [
             [['pid', 'sort', 'hide', 'status'], 'integer'],
-            [['title', 'group', 'string', 'max' => 50]],
+            [['title', 'group'], 'string', 'max' => 50],
             [['url'], 'string', 'max' => 255]
         ];
     }

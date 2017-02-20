@@ -798,6 +798,12 @@
 			option.selected = selectedValue == this.id ? true : false;
             $select.append(option);
         });
+
+        $('.bs-select').selectpicker({
+            iconBase: 'fa',
+            tickIcon: 'fa-check'
+        });
+
     };
     /**初始化顶部导航（top）*/
     self.topMenuInit = function(tabName){
@@ -1092,9 +1098,20 @@
     /**
      * 默认dataTable 的添加按钮
      */
-    self.default_btn_add = function() {
+    self.default_btn_add = function(cfg) {
         $("#btn_add").on('click', function() {
-            $("#addModal").modal('show');
+            if ("" != cfg) {
+                ZP.api[cfg.api]({
+                    data: null,
+                    successCallBack: function(result){
+                        self.selectInit(result.data, cfg.id);
+                        $("#addModal").modal('show');
+                    },
+                    failCallBack: ZP.utils.failCallBack
+                });
+            } else {
+                $("#addModal").modal('show');
+            }
         });
     };
 
@@ -1145,7 +1162,8 @@
                         // 全选
                         self.init_page_module();
                         if ('undefined' != typeof cfg_data.all_del_api) self.btn_all_del(cfg_data.all_del_api);
-                        self.default_btn_add(); // 默认add  modal
+                        if ('undefined' != typeof cfg_data.init_form_api) self.default_btn_add(cfg_data.init_form_api); // 默认add  modal
+                        else self.default_btn_add('');
                         if ('undefined' != typeof cfg_data.add_api) self.default_btn_add_submit(cfg_data.add_api);
                     });
                 }

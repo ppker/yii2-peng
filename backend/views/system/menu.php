@@ -101,7 +101,7 @@ $this->params['title_sub'] = '管理菜单信息';
                         <div class="form-group">
                             <label for="title" class="control-label col-sm-3">名称</label>
                             <div class="col-sm-9">
-                                <input type="text" value="" placeholder="请输入菜单名" class="form-control" name="title" minlength="3" required />
+                                <input type="text" value="" placeholder="请输入菜单名" class="form-control" name="title" minlength="1" required />
                             </div>
                         </div>
                         <div class="form-group">
@@ -155,7 +155,7 @@ $this->params['title_sub'] = '管理菜单信息';
                         <div class="form-group">
                             <label for="pid" class="control-label col-sm-4">上级菜单</label>
                             <div class="col-sm-8">
-                                <select class="form-control"  name="pid" id="pid_id" required>
+                                <select class="bs-select form-control" data-live-search="true"  name="pid" id="pid_id" data-size="8" required>
                                     
                                 </select>
                             </div>
