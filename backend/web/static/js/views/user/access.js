@@ -55,7 +55,7 @@ window.PAGE_ACTION = function() {
                         });
                         // 全选
                         ZP.utils.init_page_module();
-                        ZP.utils.btn_all_del();
+                        ZP.utils.btn_all_del('access_del');
                         ZP.utils.btn_add();
                         btn_submit(); // 绑定提交的表单
                         btn_edit();

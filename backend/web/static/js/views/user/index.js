@@ -58,7 +58,7 @@ window.PAGE_ACTION = function() {
                         });
                         // 全选
                         ZP.utils.init_page_module();
-                        ZP.utils.btn_all_del();
+                        ZP.utils.btn_all_del('User_del');
                         btn_add(); // 弹出模态框
                         btn_submit(); // 绑定提交的表单
                         btn_del();
@@ -73,7 +73,6 @@ window.PAGE_ACTION = function() {
             failCallBack: ZP.utils.failCallBack
         });
     };
-
 
     btn_add = function() {
         $("#btn_add").on('click', function() {

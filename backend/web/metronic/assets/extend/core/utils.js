@@ -1070,7 +1070,7 @@
 	/**
 	 * 批量删除的按钮操作
 	 */
-	self.btn_all_del = function() {
+	self.btn_all_del = function(api_url) {
 
 		$("#btn_all_del").on('click', function() {
 			var select_ids = [];
@@ -1097,7 +1097,7 @@
                     },
                     function(isConfirm){
                         if (isConfirm) {
-                            ZP.api.User_del({
+                            ZP.api[api_url]({
                                 data: {id: select_ids},
                                 successCallBack: function(result){
                                     ZP.utils.alert_warning(result.message, true);

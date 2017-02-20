@@ -12,6 +12,7 @@ use yii\helpers\Html;
 
 $this->title = '角色管理';
 $this->params['title_sub'] = '设置用户权限信息';
+$this->registerJs("var route_end = 'user/access';", \yii\web\View::POS_END);
 ?>
 
 
