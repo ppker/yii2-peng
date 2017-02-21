@@ -14,6 +14,7 @@ use backend\models\common\PublicModel;
 
 class Menu extends \common\models\Menu {
 
+    public static $end_menu_list = [];
     public function rules() {
 
         return ArrayHelper::merge(parent::rules(), [
@@ -95,6 +96,31 @@ class Menu extends \common\models\Menu {
         }
         return $menus;
     }
+
+    public static function get_node_list($id = 0, $level = '') {
+
+        // 获取所有的一级
+        if (0 != $id) $level .= "---";
+        $stair = static::find()->where(['pid' => $id])->orderBy('sort asc')->asArray()->all();
+        if (!empty($stair) && is_array($stair)) {
+            foreach ($stair as $key => $value) {
+                $value['title'] = $level . $value['title'];
+                array_push(self::$end_menu_list, $value);
+                $parentId = $value['id'];
+                $son = static::find()->where(['pid' => $parentId])->orderBy('sort asc')->asArray()->all();
+                if (!empty($son) && is_array($son)) {
+                    $son_level = $level . "---";
+                    foreach ($son as $k => $v) {
+                        $v['title'] = $son_level . $v['title'];
+                        array_push(self::$end_menu_list, $v);
+                        static::get_node_list($v['id'], $son_level);
+                    }
+                }
+            }
+        }
+    }
+
+
 
     public static function getBreadcrumbs($rule = 'index/index') {
 

@@ -20,7 +20,9 @@ class SystemController extends BaseController {
 
     public function actionSystem_menu() {
 
-        $list = (new Query())->select('*')->from('menu')->orderBy(['pid' => SORT_ASC, 'sort' => SORT_ASC])->all();
+        Menu::get_node_list(0);
+        $list = Menu::$end_menu_list;
+        // $list = (new Query())->select('*')->from('menu')->orderBy(['pid' => SORT_ASC, 'sort' => SORT_ASC])->all();
         if (!empty($list)) {
             foreach ($list as &$v) {
                 $v['hide'] = $this->hide[$v['hide']];
