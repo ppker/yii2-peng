@@ -7,12 +7,39 @@ window.PAGE_ACTION = function() {
     "use strict";
 
     var init_limit = null, // 默认条件页面
-        btn_add = null,
-        btn_submit = null,
         btn_edit = null,
         btn_reset = null,
         btn_auth = null,
         btn_del = null; // 单个删除的按钮
+
+    btn_edit = function() { // 编辑操作
+        $("table tr .btn-group li").on("click", "a[actionrule='edit']", function() {
+            var $id = $(this).attr("actionid");
+            if ($id) {
+                ZP.api.system_menu_get({
+                    data: {id: $id},
+                    successCallBack: function(result){
+
+                        $("#addModal h4.modal-title").text('菜单编辑');
+                        $("#addModal input[name='id']").val(result.data.id);
+                        $("#addModal input[name='title']").val(result.data.title);
+                        $("#addModal input[name='sort']").val(result.data.sort);
+                        var hide = result.data.hide;
+                        $("#addModal input[name='hide'][value=" + hide + "]").attr("checked", true);
+                        $("#addModal input[name='url']").val(result.data.url);
+                        $("#addModal input[name='group']").val(result.data.group);
+                        var status = result.data.status;
+                        $("#addModal input[name='status'][value=" + status + "]").attr("checked", true);
+                        var pid = result.data.pid;
+                        $("#addModal selected[name='pid'][value=" + pid + "]").attr("selected", true);
+                        $("#addModal").modal('show');
+                    },
+                    failCallBack: ZP.utils.failCallBack
+                });
+            }
+        });
+    };
+
 
     init_limit = function() {
         ZP.utils.default_list({
@@ -22,6 +49,7 @@ window.PAGE_ACTION = function() {
             'all_del_api': 'system_menu_del',
             'add_api': 'system_menu_add',
             'init_form_api': {'api': 'init_form_api', 'id': 'pid_id'}, // 需要对表单进行数据初始化操作
+            'btn_edit': btn_edit,
         });
     };
 
@@ -75,31 +103,6 @@ window.PAGE_ACTION = function() {
         });
     };
 
-
-    btn_edit = function() { // 编辑操作
-        $("table tr .btn-group li").on("click", "a[actionrule='edit']", function() {
-            var $id = $(this).attr("actionid");
-            if ($id) {
-                ZP.api.User_get({
-                    data: {id: $id},
-                    successCallBack: function(result){
-                        console.log(result.data);
-                        $("#addModal h4.modal-title").text('用户编辑');
-                        $("#addModal input[name='username']").val(result.data.username).after("<input type='hidden' name='id' value=" + $id + ">");
-                        $("#addModal select#role_id").val(result.data.status);
-                        $("#addModal label[for='user_pass']").parent().remove();
-                        var sex = result.data.sex;
-                        $("#addModal input[name='sex'][value=" + sex + "]").attr("checked", true);
-                        $("#addModal input[name='signature']").val(result.data.signature);
-                        $("#addModal input[name='email']").val(result.data.email);
-                        $("#addModal").modal('show');
-                        // ZP.utils.alert_warning(result.message, true);
-                    },
-                    failCallBack: ZP.utils.failCallBack
-                });
-            }
-        });
-    };
 
     btn_reset = function() { // 重置密码的操作
         $("table tr .btn-group li").on("click", "a[actionrule='reset']", function() {

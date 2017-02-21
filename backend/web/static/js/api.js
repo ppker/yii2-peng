@@ -171,9 +171,18 @@
 	self.init_form_api = function(options) {
 		options = options ? options : {};
 		options.url = "/api/web/system/init_form_api";
+        options.async = false;
 		return ajax(options);
 	};
 
+    /**
+     * system_menu_get
+     */
+    self.system_menu_get = function(options) {
+        options = options ? options : {};
+        options.url = "/api/web/system/menu_get";
+        return ajax(options);
+    };
 
 
 

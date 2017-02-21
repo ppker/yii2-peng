@@ -51,6 +51,14 @@ class SystemController extends BaseController {
         return parent::re_format($data);
     }
 
+    public function actionMenu_get() {
+
+        $id = Yii::$app->getRequest()->post('id');
+        if (empty($id)) return ['success' => 0, 'message' => '查询失败！', 'data' => []];
+        $data = (new Menu())->find()->where(['id' => (int)$id])->asArray()->one();
+        return parent::re_format($data);
+    }
+
 
 
 }

@@ -1096,22 +1096,25 @@
     };
 
     /**
+     * 填充 add model select init
+     * @param cfg
+     */
+    self.add_selectInit = function (cfg) {
+        ZP.api[cfg.api]({
+            data: null,
+            successCallBack: function(result){
+                self.selectInit(result.data, cfg.id);
+            },
+            failCallBack: ZP.utils.failCallBack
+        });
+    };
+
+    /**
      * 默认dataTable 的添加按钮
      */
-    self.default_btn_add = function(cfg) {
+    self.default_btn_add = function() {
         $("#btn_add").on('click', function() {
-            if ("" != cfg) {
-                ZP.api[cfg.api]({
-                    data: null,
-                    successCallBack: function(result){
-                        self.selectInit(result.data, cfg.id);
-                        $("#addModal").modal('show');
-                    },
-                    failCallBack: ZP.utils.failCallBack
-                });
-            } else {
-                $("#addModal").modal('show');
-            }
+            $("#addModal").modal('show');
         });
     };
 
@@ -1162,9 +1165,10 @@
                         // 全选
                         self.init_page_module();
                         if ('undefined' != typeof cfg_data.all_del_api) self.btn_all_del(cfg_data.all_del_api);
-                        if ('undefined' != typeof cfg_data.init_form_api) self.default_btn_add(cfg_data.init_form_api); // 默认add  modal
-                        else self.default_btn_add('');
+                        if ('undefined' != typeof cfg_data.init_form_api) self.add_selectInit(cfg_data.init_form_api); // 默认add  modal 的 selected init
+                        self.default_btn_add();
                         if ('undefined' != typeof cfg_data.add_api) self.default_btn_add_submit(cfg_data.add_api);
+                        if ('undefined' != typeof cfg_data.btn_edit && "" != cfg_data.btn_edit) cfg_data.btn_edit();
                     });
                 }
             },
