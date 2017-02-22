@@ -1169,6 +1169,7 @@
                         self.default_btn_add();
                         if ('undefined' != typeof cfg_data.add_api) self.default_btn_add_submit(cfg_data.add_api);
                         if ('undefined' != typeof cfg_data.btn_edit && "" != cfg_data.btn_edit) cfg_data.btn_edit();
+                        if ('undefined' != typeof cfg_data.btn_del && "" != cfg_data.btn_del) cfg_data.btn_del();
                     });
                 }
             },

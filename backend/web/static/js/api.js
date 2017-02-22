@@ -184,6 +184,16 @@
         return ajax(options);
     };
 
+    /**
+	 * system_menu_del
+     */
+    self.system_menu_del = function(options) {
+        options = options ? options : {};
+        options.url = "/api/web/system/menu_del";
+        return ajax(options);
+    };
+
+
 
 
 })(ZP, jQuery);

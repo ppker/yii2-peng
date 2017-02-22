@@ -24,5 +24,6 @@ return [
         'GET,POST menu_add' => 'menu_add',
         'GET,POST init_form_api' => 'init_form_api', // 获取网站菜单项的下拉菜单
         'GET,POST menu_get' => 'menu_get',
+        'GET,POST menu_del' => 'menu_del',
     ],
 ];

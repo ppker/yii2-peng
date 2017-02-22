@@ -35,15 +35,20 @@ class SystemController extends BaseController {
     public function actionMenu_add() {
 
         $data = Yii::$app->request->post();
-
+        $model = new Menu();
         if (empty($data['id'])) { // 新增
-            $model = new Menu();
             unset($data['id'], $data['_csrf-backend']);
             if ($model->load($data) && $model->save()) {
                 return ['success' => 1, 'message' => '添加成功！', 'data' => []];
             } else return ['success' => 0, 'message' => '添加失败！', 'data' => []];
         } else { // 修改
-            die('ssss');
+            $menu = Menu::findOne((int)$data['id']);
+            if (!empty($menu)) {
+                unset($data['id'], $data['backend']);
+                if ($menu->load($data) && $menu->update()) {
+                    return ['success' => 1, 'message' => '更新成功！', 'data' => []];
+                } else return ['success' => 0, 'message' => '更新失败！', 'data' => []];
+            }
         }
     }
 
@@ -61,6 +66,22 @@ class SystemController extends BaseController {
         return parent::re_format($data);
     }
 
+    public function actionMenu_del() {
 
+        $id = Yii::$app->getRequest()->post('id');
+        if (empty($id)) return ['success' => 0, 'message' => '缺少菜单ID参数！', 'data' => []];
+
+        if (is_array($id)) {
+            if (Menu::deleteAll(['in', 'id', $id])) {
+                return ['success' => 1, 'message' => '批量删除成功！', 'data' => []];
+            } else return ['success' => 0, 'message' => '批量删除失败！', 'data' => []];
+        }else {
+            if (Menu::findOne($id)->delete()) {
+                return ['success' => 1, 'message' => '删除成功！', 'data' => []];
+            } else return ['success' => 0, 'message' => '删除失败！', 'data' => []];
+        }
+
+
+    }
 
 }
