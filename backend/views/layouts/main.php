@@ -45,6 +45,7 @@ $this->beginPage();
     <meta content="" name="author" />
     <?php $this->head() ?>
     <link rel="shortcut icon" href="<?=Yii::getAlias('@web/favicon.ico'); ?>" />
+</head>
 <!-- END HEAD -->
 
 <body class="page-header-fixed page-sidebar-closed-hide-logo page-content-white">

@@ -17,11 +17,15 @@ class EndAsset extends AssetBundle{
 
     public $sourcePath = '@common/metronic/assets';
     public $css = [
-
+        "layouts/layout/css/themes/darkblue.min.css"
     ];
 
     public $js = [
         'global/scripts/app.min.js', // 框架app.js
+        'layouts/layout/scripts/layout.min.js',
+        'layouts/layout/scripts/demo.min.js',
+        'layouts/global/scripts/quick-sidebar.min.js',
+        'layouts/global/scripts/quick-nav.min.js'
     ];
     public $depends = [
         'frontend\assets\PluginAsset',
