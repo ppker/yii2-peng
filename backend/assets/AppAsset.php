@@ -9,8 +9,7 @@ use yii\web\AssetBundle;
  */
 class AppAsset extends AssetBundle
 {
-    public $basePath = '@webroot/metronic/assets';
-    public $baseUrl = '@web/metronic/assets';
+    public $sourcePath = "@common/metronic/assets";
     public $css = [
         'global/plugins/bootstrap-daterangepicker/daterangepicker.min.css',
         'global/plugins/morris/morris.css', //  漂亮的时间系列曲线图 you can draw line, circle, bar and donut charts

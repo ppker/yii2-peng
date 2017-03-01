@@ -15,7 +15,7 @@ use yii;
  */
 class PluginAsset extends AssetBundle{
 
-    public $sourcePath = '@backend/web/metronic/assets';
+    public $sourcePath = '@common/metronic/assets';
     public $css = [ // 全局css文件
         'global/plugins/bootstrap-select/css/bootstrap-select.min.css',
         'global/plugins/bootstrap-toastr/toastr.min.css',
@@ -24,11 +24,9 @@ class PluginAsset extends AssetBundle{
     public $js = [
         'global/plugins/bootstrap-toastr/toastr.min.js', // toastr信息提示框
         'global/plugins/bootstrap-select/js/bootstrap-select.min.js', // bs风格select
-        'extend/plugins/handlebars/handlebars-v1.3.0.js',
-        'extend/plugins/handlebars/extend.js',
     ];
     public $depends = [
-        'backend\assets\AppAsset',
+        'frontend\assets\AppAsset',
     ];
 
 }

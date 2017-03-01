@@ -972,7 +972,7 @@
                                 </div>
                                 <div class="clearfix"></div>
                                 <div class="mt-content border-grey-steel">
-                                    <img class="timeline-body-img pull-left" src="<?= Yii::getAlias('@web/static/images/blog/5.jpg'); ?>" >
+                                    <img class="timeline-body-img pull-left" src="<?= Yii::getAlias('@web/static/images/5.jpg'); ?>" >
                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis
                                         qui ut. laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut. </p>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis
@@ -997,7 +997,7 @@
                                 </div>
                                 <div class="clearfix"></div>
                                 <div class="mt-content border-grey-steel">
-                                    <img class="timeline-body-img pull-right" src="<?= Yii::getAlias('@web/static/images/blog/6.jpg'); ?>" alt="">
+                                    <img class="timeline-body-img pull-right" src="<?= Yii::getAlias('@web/static/images/6.jpg'); ?>" alt="">
                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis
                                         qui ut.</p>
                                     <a href="javascript:;" class="btn btn-circle green-sharp">Read More</a>
@@ -1344,7 +1344,7 @@
                                 </div>
                                 <div class="clearfix"></div>
                                 <div class="mt-content border-grey-steel">
-                                    <img class="timeline-body-img pull-left" src="<?= Yii::getAlias('@web/static/images/blog/5.jpg'); ?>" alt="">
+                                    <img class="timeline-body-img pull-left" src="<?= Yii::getAlias('@web/static/images/5.jpg'); ?>" alt="">
                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis
                                         qui ut. laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut. </p>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis
@@ -1369,7 +1369,7 @@
                                 </div>
                                 <div class="clearfix"></div>
                                 <div class="mt-content border-grey-steel">
-                                    <img class="timeline-body-img pull-right" src="<?= Yii::getAlias('@web/static/images/blog/6.jpg'); ?>" alt="">
+                                    <img class="timeline-body-img pull-right" src="<?= Yii::getAlias('@web/static/images/6.jpg'); ?>" alt="">
                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis
                                         qui ut.</p>
                                     <a href="javascript:;" class="btn btn-circle green-sharp">Read More</a>
@@ -3145,13 +3145,13 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="mt-widget-2">
-                            <div class="mt-head" style="background-image: url(<?= Yii::getAlias('@web/metronic/assets/pages/img/background/32.jpg'); ?>">
+                            <div class="mt-head" style="background-image: url(<?= Yii::getAlias('@web/static/images/32.jpg'); ?>">
                                 <div class="mt-head-label">
                                     <button type="button" class="btn btn-success">Manhattan</button>
                                 </div>
                                 <div class="mt-head-user">
                                     <div class="mt-head-user-img">
-                                        <img src="<?= Yii::getAlias('@web/metronic/assets/pages/img/avatars/team7.jpg') ?>"> </div>
+                                        <img src="<?= Yii::getAlias('@web/static/images/team7.jpg') ?>"> </div>
                                     <div class="mt-head-user-info">
                                         <span class="mt-user-name">Chris Jagers</span>
                                                         <span class="mt-user-time">
@@ -3183,13 +3183,13 @@
                     </div>
                     <div class="col-md-6">
                         <div class="mt-widget-2">
-                            <div class="mt-head" style="background-image: url(<?= Yii::getAlias('@web/metronic/assets/pages/img/background/43.jpg') ?>);">
+                            <div class="mt-head" style="background-image: url(<?= Yii::getAlias('@web/static/images/43.jpg') ?>);">
                                 <div class="mt-head-label">
                                     <button type="button" class="btn btn-danger">London</button>
                                 </div>
                                 <div class="mt-head-user">
                                     <div class="mt-head-user-img">
-                                        <img src="<?= Yii::getAlias('@web/metronic/assets/pages/img/avatars/team3.jpg') ?>"> </div>
+                                        <img src="<?= Yii::getAlias('@web/static/images/team3.jpg') ?>"> </div>
                                     <div class="mt-head-user-info">
                                         <span class="mt-user-name">Harry Harris</span>
                                                         <span class="mt-user-time">
@@ -3245,7 +3245,7 @@
                     <div class="col-md-4">
                         <div class="mt-widget-4">
                             <div class="mt-img-container">
-                                <img src="<?= Yii::getAlias('@web/metronic/assets/pages/img/background/34.jpg') ?>" /> </div>
+                                <img src="<?= Yii::getAlias('@web/static/images/34.jpg') ?>" /> </div>
                             <div class="mt-container bg-purple-opacity">
                                 <div class="mt-head-title"> Website Revamp & Deployment </div>
                                 <div class="mt-body-icons">
@@ -3268,7 +3268,7 @@
                     <div class="col-md-4">
                         <div class="mt-widget-4">
                             <div class="mt-img-container">
-                                <img src="<?= Yii::getAlias('@web/metronic/assets/pages/img/background/46.jpg') ?>" /> </div>
+                                <img src="<?= Yii::getAlias('@web/static/images/46.jpg') ?>" /> </div>
                             <div class="mt-container bg-green-opacity">
                                 <div class="mt-head-title"> CRM Development & Deployment </div>
                                 <div class="mt-body-icons">
@@ -3291,7 +3291,7 @@
                     <div class="col-md-4">
                         <div class="mt-widget-4">
                             <div class="mt-img-container">
-                                <img src="<?= Yii::getAlias('@web/metronic/assets/pages/img/background/37.jpg') ?>" /> </div>
+                                <img src="<?= Yii::getAlias('@web/static/images/37.jpg') ?>" /> </div>
                             <div class="mt-container bg-dark-opacity">
                                 <div class="mt-head-title"> Marketing Campaigns </div>
                                 <div class="mt-body-icons">

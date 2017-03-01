@@ -15,8 +15,7 @@ use yii\web\AssetBundle;
  */
 class IeAsset extends AssetBundle {
 
-    public $basePath = '@webroot/jango/assets';
-    public $baseUrl = '@web/jango/assets';
+    public $sourcePath = "@common/metronic/assets";
     public $css = [];
     public $js = [
         'ieAsset/js/respond.min.js', // 支持媒体查询 Respond.js让IE6-8支持CSS3 Media Query | bootstrap就引入了这个文件 （如果要实现跨域 配置稍繁琐 有闪屏现象体验感稍佳）

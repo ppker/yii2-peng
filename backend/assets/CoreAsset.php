@@ -15,8 +15,7 @@ use yii\web\AssetBundle;
  */
 class CoreAsset extends AssetBundle {
 
-    public $basePath = '@webroot/metronic/assets';
-    public $baseUrl = '@web/metronic/assets';
+    public $sourcePath = '@common/metronic/assets';
 
     public $css = [ // 全局css文件
         // 字体库

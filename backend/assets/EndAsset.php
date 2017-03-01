@@ -9,8 +9,7 @@ use yii;
  */
 class EndAsset extends AssetBundle
 {
-    public $basePath = '@webroot/metronic/assets';
-    public $baseUrl = '@web/metronic/assets';
+    public $sourcePath = "@common/metronic/assets";
     public $css = [
         'extend/css/site.css',
     ];

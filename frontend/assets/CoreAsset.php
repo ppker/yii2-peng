@@ -15,8 +15,7 @@ use yii\web\AssetBundle;
  */
 class CoreAsset extends AssetBundle {
 
-    public $basePath = '@webroot/jango/assets';
-    public $baseUrl = '@web/jango/assets';
+    public $sourcePath = "@common/metronic/assets";
 
     public $css = [ // 全局css文件
         // 字体库
@@ -30,16 +29,13 @@ class CoreAsset extends AssetBundle {
     ];
 
     public $js = [ // 全局js文件
-        'extend/core/nameSpace.js',
         'global/plugins/jquery.min.js',
-        'extend/plugins/jquery/jquery.extend.js', // 我扩展的jquery
         'global/plugins/bootstrap/js/bootstrap.min.js',
         'extend/plugins/Bootstrap_validate/validator.js',
         'global/plugins/js.cookie.min.js', // cookie manager
         'global/plugins/jquery-slimscroll/jquery.slimscroll.min.js', // nice slimcroll similar facebook
         'global/plugins/jquery.blockui.min.js', // ajax遮罩层ui
         'global/plugins/bootstrap-switch/js/bootstrap-switch.min.js', // bootstrap下拉选择
-        'extend/plugins/Md5/md5.min.js', // md5加密
         'global/plugins/bootstrap-sweetalert/sweetalert.min.js',
     ];
     public $depends = [];

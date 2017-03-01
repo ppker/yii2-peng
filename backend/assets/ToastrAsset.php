@@ -12,8 +12,7 @@ use yii\web\AssetBundle;
 
 class ToastrAsset extends AssetBundle {
 
-    public $basePath = '@webroot/metronic/assets';
-    public $baseUrl = '@web/metronic/assets';
+    public $sourcePath = "@common/metronic/assets";
 
     public $css = [ // 全局css文件
         'global/plugins/bootstrap-toastr/toastr.min.css'
