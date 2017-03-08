@@ -4,7 +4,7 @@
         <!-- BEGIN LOGO -->
         <div class="page-logo">
             <a href="<?= Yii::getAlias('@web') ?>">
-                <img src="<?= Yii::getAlias('@web/static/images/logo.png'); ?>" alt="logo" class="logo-default" /> </a>
+                <img src="<?= Yii::getAlias('@web/static/images/login/logo.png'); ?>" alt="logo" class="logo-default" /> </a>
             <div class="menu-toggler sidebar-toggler">
                 <span></span>
             </div>

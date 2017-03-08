@@ -11,8 +11,6 @@ class AppAsset extends AssetBundle
 {
     public $sourcePath = '@common/metronic/assets';
     public $css = [
-        "layouts/layout/css/layout.min.css",
-        "layouts/layout/css/custom.min.css"
     ];
     public $js = [
     ];

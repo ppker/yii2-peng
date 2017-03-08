@@ -27,7 +27,7 @@ class CoreAsset extends AssetBundle {
         'global/plugins/bootstrap-switch/css/bootstrap-switch.min.css',
         'global/plugins/bootstrap-sweetalert/sweetalert.css',
         'global/css/components-rounded.min.css', // 圆角组件样式
-        'global/css/plugins.min.css'
+        'global/css/plugins.min.css',
     ];
 
     public $js = [ // 全局js文件
@@ -35,7 +35,7 @@ class CoreAsset extends AssetBundle {
         'global/plugins/bootstrap/js/bootstrap.min.js',
         'extend/plugins/Bootstrap_validate/validator.js',
         'global/plugins/js.cookie.min.js', // cookie manager
-        // 'global/plugins/jquery-slimscroll/jquery.slimscroll.min.js', // nice slimcroll similar facebook
+        'global/plugins/jquery-slimscroll/jquery.slimscroll.min.js', // nice slimcroll similar facebook
         'global/plugins/jquery.blockui.min.js', // ajax遮罩层ui
         'global/plugins/bootstrap-switch/js/bootstrap-switch.min.js', // bootstrap下拉选择
         'global/plugins/bootstrap-sweetalert/sweetalert.min.js',

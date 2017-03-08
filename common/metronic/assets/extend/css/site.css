@@ -12,3 +12,8 @@
 ul.page-breadcrumb a:hover, ul.page-breadcrumb a:link, ul.page-breadcrumb a:visited{
     text-decoration: none;
 }
+
+.page-header.navbar .page-logo .logo-default {
+    height: 52px;
+    margin-top: 3px;
+}
