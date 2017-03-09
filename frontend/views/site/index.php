@@ -1,686 +1,256 @@
-<div class="page-content-inner">
-    <div class="mt-content-body">
-        <div class="row">
-            <div class="col-md-6 col-sm-6">
-                <div class="portlet light ">
-                    <div class="portlet-title">
-                        <div class="caption caption-md">
-                            <i class="icon-bar-chart font-dark hide"></i>
-                            <span class="caption-subject font-green-steel uppercase bold">Sales Summary</span>
-                            <span class="caption-helper hide">weekly stats...</span>
+<?php
+
+use yii\helpers\Html;
+$this->title = '点餐首页';
+$this->params['title_sub'] = '点餐';
+?>
+
+<div class="c-layout-page">
+    <section class="c-layout-revo-slider c-layout-revo-slider-4">
+        <div class="tp-banner-container c-theme" style="height: 620px">
+            <div class="tp-banner">
+                <ul>
+                    <!--BEGIN: SLIDE #1 -->
+                    <li data-transition="fade" data-slotamount="1" data-masterspeed="1000">
+                        <img alt="" src="<?= Yii::getAlias('@web/static/images/backgrounds/bg-43.jpg');?>" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat">
+                        <div class="caption customin customout tp-resizeme" data-x="center" data-y="center" data-hoffset="" data-voffset="-50" data-speed="500" data-start="1000" data-customin="x:0;y:0;z:0;rotationX:0.5;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-easing="Back.easeOut" data-splitin="none" data-splitout="none" data-elementdelay="0.1" data-endelementdelay="0.1" data-endspeed="600">
+                            <h3 class="c-block-bordered c-font-48 c-font-bold c-font-center c-font-uppercase c-font-white c-block">
+                                TAKE THE WEB BY<br>
+                                STORM WITH JANGO </h3>
                         </div>
-                        <div class="actions">
-                            <div class="btn-group btn-group-devided" data-toggle="buttons">
-                                <label class="btn btn-transparent btn-no-border blue-oleo btn-outline btn-circle btn-sm active">
-                                    <input type="radio" name="options" class="toggle" id="option1">Today</label>
-                                <label class="btn btn-transparent btn-no-border blue-oleo btn-outline btn-circle btn-sm">
-                                    <input type="radio" name="options" class="toggle" id="option2">Week</label>
-                                <label class="btn btn-transparent btn-no-border blue-oleo btn-outline btn-circle btn-sm">
-                                    <input type="radio" name="options" class="toggle" id="option2">Month</label>
-                            </div>
+                        <div class="caption lft tp-resizeme" data-x="center" data-y="center" data-voffset="110" data-speed="900" data-start="2000" data-easing="easeOutExpo">
+                            <a href="#" class="c-action-btn btn btn-lg c-btn-square c-theme-btn c-btn-bold c-btn-uppercase">Learn More</a>
                         </div>
-                    </div>
-                    <div class="portlet-body">
-                        <div class="row list-separated">
-                            <div class="col-md-3 col-sm-3 col-xs-6">
-                                <div class="font-grey-mint font-sm"> Total Sales </div>
-                                <div class="uppercase font-hg font-red-flamingo"> 13,760
-                                    <span class="font-lg font-grey-mint">$</span>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-sm-3 col-xs-6">
-                                <div class="font-grey-mint font-sm"> Revenue </div>
-                                <div class="uppercase font-hg theme-font"> 4,760
-                                    <span class="font-lg font-grey-mint">$</span>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-sm-3 col-xs-6">
-                                <div class="font-grey-mint font-sm"> Expenses </div>
-                                <div class="uppercase font-hg font-purple"> 11,760
-                                    <span class="font-lg font-grey-mint">$</span>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-sm-3 col-xs-6">
-                                <div class="font-grey-mint font-sm"> Growth </div>
-                                <div class="uppercase font-hg font-blue-sharp"> 9,760
-                                    <span class="font-lg font-grey-mint">$</span>
-                                </div>
-                            </div>
+                    </li>
+                    <!--END -->
+                    <!--BEGIN: SLIDE #2 -->
+                    <li data-transition="fade" data-slotamount="1" data-masterspeed="1000">
+                        <img alt="" src="<?= Yii::getAlias('@web/static/images/backgrounds/bg-20.jpg');?>" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat">
+                        <div class="caption customin customout tp-resizeme" data-x="center" data-y="center" data-hoffset="" data-voffset="-50" data-speed="500" data-start="1000" data-customin="x:0;y:0;z:0;rotationX:0.5;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-easing="Back.easeOut" data-splitin="none" data-splitout="none" data-elementdelay="0.1" data-endelementdelay="0.1" data-endspeed="600">
+                            <h3 class="c-block-bordered c-font-48 c-font-bold c-font-center c-font-uppercase c-font-white c-block">
+                                JANGO IS OPTIMIZED<br>
+                                TO EVERY DEVELOPMENT </h3>
                         </div>
-                        <ul class="list-separated list-inline-xs hide">
-                            <li>
-                                <div class="font-grey-mint font-sm"> Total Sales </div>
-                                <div class="uppercase font-hg font-red-flamingo"> 13,760
-                                    <span class="font-lg font-grey-mint">$</span>
-                                </div>
-                            </li>
-                            <li> </li>
-                            <li class="border">
-                                <div class="font-grey-mint font-sm"> Revenue </div>
-                                <div class="uppercase font-hg theme-font"> 4,760
-                                    <span class="font-lg font-grey-mint">$</span>
-                                </div>
-                            </li>
-                            <li class="divider"> </li>
-                            <li>
-                                <div class="font-grey-mint font-sm"> Expenses </div>
-                                <div class="uppercase font-hg font-purple"> 11,760
-                                    <span class="font-lg font-grey-mint">$</span>
-                                </div>
-                            </li>
-                            <li class="divider"> </li>
-                            <li>
-                                <div class="font-grey-mint font-sm"> Growth </div>
-                                <div class="uppercase font-hg font-blue-sharp"> 9,760
-                                    <span class="font-lg font-grey-mint">$</span>
-                                </div>
-                            </li>
-                        </ul>
-                        <div id="sales_statistics" class="portlet-body-morris-fit morris-chart" style="height: 267px"> </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-sm-6">
-                <div class="portlet light ">
-                    <div class="portlet-title">
-                        <div class="caption caption-md">
-                            <i class="icon-bar-chart font-dark hide"></i>
-                            <span class="caption-subject font-green-steel bold uppercase">Member Activity</span>
-                            <span class="caption-helper">weekly stats...</span>
+                        <div class="caption lft tp-resizeme" data-x="center" data-y="center" data-voffset="110" data-speed="900" data-start="2000" data-easing="easeOutExpo">
+                            <a href="#" class="c-action-btn btn btn-lg c-btn-square c-theme-btn c-btn-bold c-btn-uppercase">Learn More</a>
                         </div>
-                        <div class="actions">
-                            <div class="btn-group btn-group-devided" data-toggle="buttons">
-                                <label class="btn btn-transparent blue-oleo btn-no-border btn-outline btn-circle btn-sm active">
-                                    <input type="radio" name="options" class="toggle" id="option1">Today</label>
-                                <label class="btn btn-transparent blue-oleo btn-no-border btn-outline btn-circle btn-sm">
-                                    <input type="radio" name="options" class="toggle" id="option2">Week</label>
-                                <label class="btn btn-transparent blue-oleo btn-no-border btn-outline btn-circle btn-sm">
-                                    <input type="radio" name="options" class="toggle" id="option2">Month</label>
-                            </div>
+                    </li>
+                    <!--END -->
+                    <!--BEGIN: SLIDE #3 -->
+                    <li data-transition="fade" data-slotamount="1" data-masterspeed="700" data-delay="6000" data-thumb="">
+                        <!-- THE MAIN IMAGE IN THE FIRST SLIDE -->
+                        <img src="<?= Yii::getAlias('@web/static/images/revo_slide/blank.png');?>" alt="">
+                        <div class="caption fulllscreenvideo tp-videolayer" data-x="0" data-y="0" data-speed="600" data-start="1000" data-easing="Power4.easeOut" data-endspeed="500" data-endeasing="Power4.easeOut" data-autoplay="true" data-autoplayonlyfirsttime="false" data-nextslideatend="true" data-videowidth="100%" data-videoheight="100%" data-videopreload="meta" data-videomp4="<?= Yii::getAlias('@web/static/video/video-2.mp4');?>" data-videowebm="" data-videocontrols="none" data-forcecover="1" data-forcerewind="on" data-aspectratio="16:9" data-volume="mute" data-videoposter="<?= Yii::getAlias('@web/static/images/revo_slide/blank.png');?>">
                         </div>
-                    </div>
-                    <div class="portlet-body">
-                        <div class="row number-stats margin-bottom-30">
-                            <div class="col-md-6 col-sm-6 col-xs-6">
-                                <div class="stat-left">
-                                    <div class="stat-chart">
-                                        <!-- do not line break "sparkline_bar" div. sparkline chart has an issue when the container div has line break -->
-                                        <div id="sparkline_bar"></div>
-                                    </div>
-                                    <div class="stat-number">
-                                        <div class="title"> Total </div>
-                                        <div class="number"> 2460 </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-sm-6 col-xs-6">
-                                <div class="stat-right">
-                                    <div class="stat-chart">
-                                        <!-- do not line break "sparkline_bar" div. sparkline chart has an issue when the container div has line break -->
-                                        <div id="sparkline_bar2"></div>
-                                    </div>
-                                    <div class="stat-number">
-                                        <div class="title"> New </div>
-                                        <div class="number"> 719 </div>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="caption customin customout tp-resizeme" data-x="center" data-y="center" data-hoffset="" data-voffset="-30" data-speed="500" data-start="1000" data-customin="x:0;y:0;z:0;rotationX:0.5;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-easing="Back.easeOut" data-splitin="none" data-splitout="none" data-elementdelay="0.1" data-endelementdelay="0.1" data-endspeed="600">
+                            <h3 class="c-block-bordered-square c-font-55 c-font-bold c-font-center c-font-uppercase c-font-white c-block">
+                                Let us show you<br>
+                                Unlimited possibilities </h3>
                         </div>
-                        <div class="table-scrollable table-scrollable-borderless">
-                            <table class="table table-hover table-light">
-                                <thead>
-                                <tr class="uppercase">
-                                    <th colspan="2"> MEMBER </th>
-                                    <th> Earnings </th>
-                                    <th> CASES </th>
-                                    <th> CLOSED </th>
-                                    <th> RATE </th>
-                                </tr>
-                                </thead>
-                                <tr>
-                                    <td class="fit">
-                                        <img class="user-pic rounded" src="<?= Yii::getAlias('@web/static/images/avatar4.jpg'); ?>"> </td>
-                                    <td>
-                                        <a href="javascript:;" class="primary-link">Brain</a>
-                                    </td>
-                                    <td> $345 </td>
-                                    <td> 45 </td>
-                                    <td> 124 </td>
-                                    <td>
-                                        <span class="bold theme-font">80%</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="fit">
-                                        <img class="user-pic rounded" src="<?= Yii::getAlias('@web/static/images/avatar5.jpg'); ?>"> </td>
-                                    <td>
-                                        <a href="javascript:;" class="primary-link">Nick</a>
-                                    </td>
-                                    <td> $560 </td>
-                                    <td> 12 </td>
-                                    <td> 24 </td>
-                                    <td>
-                                        <span class="bold theme-font">67%</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="fit">
-                                        <img class="user-pic rounded" src="<?= Yii::getAlias('@web/static/images/avatar6.jpg'); ?>"> </td>
-                                    <td>
-                                        <a href="javascript:;" class="primary-link">Tim</a>
-                                    </td>
-                                    <td> $1,345 </td>
-                                    <td> 450 </td>
-                                    <td> 46 </td>
-                                    <td>
-                                        <span class="bold theme-font">98%</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="fit">
-                                        <img class="user-pic rounded" src="<?= Yii::getAlias('@web/static/images/avatar7.jpg'); ?>"> </td>
-                                    <td>
-                                        <a href="javascript:;" class="primary-link">Tom</a>
-                                    </td>
-                                    <td> $645 </td>
-                                    <td> 50 </td>
-                                    <td> 89 </td>
-                                    <td>
-                                        <span class="bold theme-font">58%</span>
-                                    </td>
-                                </tr>
-                            </table>
+                        <div class="caption lft tp-resizeme" data-x="center" data-y="center" data-voffset="130" data-speed="900" data-start="2000" data-easing="easeOutExpo">
+                            <a href="#" class="c-action-btn btn c-btn-square c-btn-border-2x c-btn-white c-btn-sbold c-btn-uppercase">Purchase</a>
                         </div>
-                    </div>
-                </div>
+                    </li>
+                    <!--END -->
+                </ul>
             </div>
         </div>
+    </section>
+</div>
+
+
+
+
+<div class="container" style="padding: 50px 0;">
+    <div class="page-content-inner">
+
         <div class="row">
-            <div class="col-md-6 col-sm-6">
-                <div class="portlet light tasks-widget ">
+            <div class="col-md-12">
+                <div class="portlet light portlet-fit ">
                     <div class="portlet-title">
                         <div class="caption">
-                            <i class="icon-share font-dark hide"></i>
-                            <span class="caption-subject font-green-steel bold uppercase">Tasks</span>
-                            <span class="caption-helper">tasks summary...</span>
-                        </div>
-                        <div class="actions">
-                            <div class="btn-group">
-                                <a class="btn blue-oleo btn-circle btn-sm" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true"> More
-                                    <i class="fa fa-angle-down"></i>
-                                </a>
-                                <ul class="dropdown-menu pull-right">
-                                    <li>
-                                        <a href="javascript:;"> All Project </a>
-                                    </li>
-                                    <li class="divider"> </li>
-                                    <li>
-                                        <a href="javascript:;"> AirAsia </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:;"> Cruise </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:;"> HSBC </a>
-                                    </li>
-                                    <li class="divider"> </li>
-                                    <li>
-                                        <a href="javascript:;"> Pending
-                                            <span class="badge badge-danger"> 4 </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:;"> Completed
-                                            <span class="badge badge-success"> 12 </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:;"> Overdue
-                                            <span class="badge badge-warning"> 9 </span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
+                            <i class=" icon-layers font-green"></i>
+                            <span class="caption-subject font-green bold uppercase">饭店列表</span>
                         </div>
                     </div>
                     <div class="portlet-body">
-                        <div class="task-content">
-                            <div class="scroller" style="height: 312px;" data-always-visible="1" data-rail-visible1="1">
-                                <!-- START TASK LIST -->
-                                <ul class="task-list">
-                                    <li>
-                                        <div class="task-checkbox">
-                                            <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                                <input type="checkbox" class="checkboxes" value="1" />
-                                                <span></span>
-                                            </label>
-                                        </div>
-                                        <div class="task-title">
-                                            <span class="task-title-sp"> Present 2013 Year IPO Statistics at Board Meeting </span>
-                                            <span class="label label-sm label-success">Company</span>
-                                                                                <span class="task-bell">
-                                                                                    <i class="fa fa-bell-o"></i>
-                                                                                </span>
-                                        </div>
-                                        <div class="task-config">
-                                            <div class="task-config-btn btn-group">
-                                                <a class="btn btn-sm default" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                                                    <i class="fa fa-cog"></i>
-                                                    <i class="fa fa-angle-down"></i>
-                                                </a>
-                                                <ul class="dropdown-menu pull-right">
+                        <div class="mt-element-card mt-element-overlay">
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                                    <div class="mt-card-item">
+                                        <div class="mt-card-avatar mt-overlay-1">
+                                            <img src="<?= Yii::getAlias('@web/static/images/team2.jpg');?>" />
+                                            <div class="mt-overlay">
+                                                <ul class="mt-info">
                                                     <li>
-                                                        <a href="javascript:;">
-                                                            <i class="fa fa-check"></i> Complete </a>
+                                                        <a class="btn default btn-outline" href="javascript:;">
+                                                            <i class="icon-magnifier"></i>
+                                                        </a>
                                                     </li>
                                                     <li>
-                                                        <a href="javascript:;">
-                                                            <i class="fa fa-pencil"></i> Edit </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:;">
-                                                            <i class="fa fa-trash-o"></i> Cancel </a>
+                                                        <a class="btn default btn-outline" href="javascript:;">
+                                                            <i class="icon-link"></i>
+                                                        </a>
                                                     </li>
                                                 </ul>
                                             </div>
                                         </div>
-                                    </li>
-                                    <li>
-                                        <div class="task-checkbox">
-                                            <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                                <input type="checkbox" class="checkboxes" value="1" />
-                                                <span></span>
-                                            </label>
-                                        </div>
-                                        <div class="task-title">
-                                            <span class="task-title-sp"> Hold An Interview for Marketing Manager Position </span>
-                                            <span class="label label-sm label-danger">Marketing</span>
-                                        </div>
-                                        <div class="task-config">
-                                            <div class="task-config-btn btn-group">
-                                                <a class="btn btn-sm default" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                                                    <i class="fa fa-cog"></i>
-                                                    <i class="fa fa-angle-down"></i>
-                                                </a>
-                                                <ul class="dropdown-menu pull-right">
+                                        <div class="mt-card-content">
+                                            <h3 class="mt-card-name">Mark Anthony</h3>
+                                            <p class="mt-card-desc font-grey-mint">Managing Director</p>
+                                            <div class="mt-card-social">
+                                                <ul>
                                                     <li>
                                                         <a href="javascript:;">
-                                                            <i class="fa fa-check"></i> Complete </a>
+                                                            <i class="icon-social-facebook"></i>
+                                                        </a>
                                                     </li>
                                                     <li>
                                                         <a href="javascript:;">
-                                                            <i class="fa fa-pencil"></i> Edit </a>
+                                                            <i class="icon-social-twitter"></i>
+                                                        </a>
                                                     </li>
                                                     <li>
                                                         <a href="javascript:;">
-                                                            <i class="fa fa-trash-o"></i> Cancel </a>
+                                                            <i class="icon-social-dribbble"></i>
+                                                        </a>
                                                     </li>
                                                 </ul>
                                             </div>
                                         </div>
-                                    </li>
-                                    <li>
-                                        <div class="task-checkbox">
-                                            <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                                <input type="checkbox" class="checkboxes" value="1" />
-                                                <span></span>
-                                            </label>
-                                        </div>
-                                        <div class="task-title">
-                                            <span class="task-title-sp"> AirAsia Intranet System Project Internal Meeting </span>
-                                            <span class="label label-sm label-success">AirAsia</span>
-                                                                                <span class="task-bell">
-                                                                                    <i class="fa fa-bell-o"></i>
-                                                                                </span>
-                                        </div>
-                                        <div class="task-config">
-                                            <div class="task-config-btn btn-group">
-                                                <a class="btn btn-sm default" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                                                    <i class="fa fa-cog"></i>
-                                                    <i class="fa fa-angle-down"></i>
-                                                </a>
-                                                <ul class="dropdown-menu pull-right">
-                                                    <li>
-                                                        <a href="javascript:;">
-                                                            <i class="fa fa-check"></i> Complete </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:;">
-                                                            <i class="fa fa-pencil"></i> Edit </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:;">
-                                                            <i class="fa fa-trash-o"></i> Cancel </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="task-checkbox">
-                                            <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                                <input type="checkbox" class="checkboxes" value="1" />
-                                                <span></span>
-                                            </label>
-                                        </div>
-                                        <div class="task-title">
-                                            <span class="task-title-sp"> Technical Management Meeting </span>
-                                            <span class="label label-sm label-warning">Company</span>
-                                        </div>
-                                        <div class="task-config">
-                                            <div class="task-config-btn btn-group">
-                                                <a class="btn btn-sm default" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                                                    <i class="fa fa-cog"></i>
-                                                    <i class="fa fa-angle-down"></i>
-                                                </a>
-                                                <ul class="dropdown-menu pull-right">
-                                                    <li>
-                                                        <a href="javascript:;">
-                                                            <i class="fa fa-check"></i> Complete </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:;">
-                                                            <i class="fa fa-pencil"></i> Edit </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:;">
-                                                            <i class="fa fa-trash-o"></i> Cancel </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="task-checkbox">
-                                            <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                                <input type="checkbox" class="checkboxes" value="1" />
-                                                <span></span>
-                                            </label>
-                                        </div>
-                                        <div class="task-title">
-                                            <span class="task-title-sp"> Kick-off Company CRM Mobile App Development </span>
-                                            <span class="label label-sm label-info">Internal Products</span>
-                                        </div>
-                                        <div class="task-config">
-                                            <div class="task-config-btn btn-group">
-                                                <a class="btn btn-sm default" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                                                    <i class="fa fa-cog"></i>
-                                                    <i class="fa fa-angle-down"></i>
-                                                </a>
-                                                <ul class="dropdown-menu pull-right">
-                                                    <li>
-                                                        <a href="javascript:;">
-                                                            <i class="fa fa-check"></i> Complete </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:;">
-                                                            <i class="fa fa-pencil"></i> Edit </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:;">
-                                                            <i class="fa fa-trash-o"></i> Cancel </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="task-checkbox">
-                                            <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                                <input type="checkbox" class="checkboxes" value="1" />
-                                                <span></span>
-                                            </label>
-                                        </div>
-                                        <div class="task-title">
-                                            <span class="task-title-sp"> Prepare Commercial Offer For SmartVision Website Rewamp </span>
-                                            <span class="label label-sm label-danger">SmartVision</span>
-                                        </div>
-                                        <div class="task-config">
-                                            <div class="task-config-btn btn-group">
-                                                <a class="btn btn-sm default" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                                                    <i class="fa fa-cog"></i>
-                                                    <i class="fa fa-angle-down"></i>
-                                                </a>
-                                                <ul class="dropdown-menu pull-right">
-                                                    <li>
-                                                        <a href="javascript:;">
-                                                            <i class="fa fa-check"></i> Complete </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:;">
-                                                            <i class="fa fa-pencil"></i> Edit </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:;">
-                                                            <i class="fa fa-trash-o"></i> Cancel </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="task-checkbox">
-                                            <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                                <input type="checkbox" class="checkboxes" value="1" />
-                                                <span></span>
-                                            </label>
-                                        </div>
-                                        <div class="task-title">
-                                            <span class="task-title-sp"> Sign-Off The Comercial Agreement With AutoSmart </span>
-                                            <span class="label label-sm label-default">AutoSmart</span>
-                                                                                <span class="task-bell">
-                                                                                    <i class="fa fa-bell-o"></i>
-                                                                                </span>
-                                        </div>
-                                        <div class="task-config">
-                                            <div class="task-config-btn btn-group dropup">
-                                                <a class="btn btn-sm default" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                                                    <i class="fa fa-cog"></i>
-                                                    <i class="fa fa-angle-down"></i>
-                                                </a>
-                                                <ul class="dropdown-menu pull-right">
-                                                    <li>
-                                                        <a href="javascript:;">
-                                                            <i class="fa fa-check"></i> Complete </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:;">
-                                                            <i class="fa fa-pencil"></i> Edit </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:;">
-                                                            <i class="fa fa-trash-o"></i> Cancel </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="task-checkbox">
-                                            <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                                <input type="checkbox" class="checkboxes" value="1" />
-                                                <span></span>
-                                            </label>
-                                        </div>
-                                        <div class="task-title">
-                                            <span class="task-title-sp"> Company Staff Meeting </span>
-                                            <span class="label label-sm label-success">Cruise</span>
-                                                                                <span class="task-bell">
-                                                                                    <i class="fa fa-bell-o"></i>
-                                                                                </span>
-                                        </div>
-                                        <div class="task-config">
-                                            <div class="task-config-btn btn-group dropup">
-                                                <a class="btn btn-sm default" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                                                    <i class="fa fa-cog"></i>
-                                                    <i class="fa fa-angle-down"></i>
-                                                </a>
-                                                <ul class="dropdown-menu pull-right">
-                                                    <li>
-                                                        <a href="javascript:;">
-                                                            <i class="fa fa-check"></i> Complete </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:;">
-                                                            <i class="fa fa-pencil"></i> Edit </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:;">
-                                                            <i class="fa fa-trash-o"></i> Cancel </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="last-line">
-                                        <div class="task-checkbox">
-                                            <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                                <input type="checkbox" class="checkboxes" value="1" />
-                                                <span></span>
-                                            </label>
-                                        </div>
-                                        <div class="task-title">
-                                            <span class="task-title-sp"> KeenThemes Investment Discussion </span>
-                                            <span class="label label-sm label-warning">KeenThemes </span>
-                                        </div>
-                                        <div class="task-config">
-                                            <div class="task-config-btn btn-group dropup">
-                                                <a class="btn btn-sm default" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                                                    <i class="fa fa-cog"></i>
-                                                    <i class="fa fa-angle-down"></i>
-                                                </a>
-                                                <ul class="dropdown-menu pull-right">
-                                                    <li>
-                                                        <a href="javascript:;">
-                                                            <i class="fa fa-check"></i> Complete </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:;">
-                                                            <i class="fa fa-pencil"></i> Edit </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:;">
-                                                            <i class="fa fa-trash-o"></i> Cancel </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                                <!-- END START TASK LIST -->
-                            </div>
-                        </div>
-                        <div class="task-footer">
-                            <div class="btn-arrow-link pull-right">
-                                <a href="javascript:;">See All Records</a>
-                                <i class="icon-arrow-right"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-sm-6">
-                <div class="portlet light ">
-                    <div class="portlet-title">
-                        <div class="caption caption-md">
-                            <i class="icon-bar-chart font-dark hide"></i>
-                            <span class="caption-subject font-green-steel bold uppercase">Customer Support</span>
-                            <span class="caption-helper">45 pending</span>
-                        </div>
-                        <div class="inputs">
-                            <div class="portlet-input input-inline input-small ">
-                                <div class="input-icon right">
-                                    <i class="icon-magnifier"></i>
-                                    <input type="text" class="form-control form-control-solid input-circle" placeholder="search..."> </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portlet-body">
-                        <div class="scroller" style="height: 338px;" data-always-visible="1" data-rail-visible1="0" data-handle-color="#D7DCE2">
-                            <div class="general-item-list">
-                                <div class="item">
-                                    <div class="item-head">
-                                        <div class="item-details">
-                                            <img class="item-pic rounded" src="<?= Yii::getAlias('@web/static/images/avatar4.jpg'); ?>">
-                                            <a href="" class="item-name primary-link">Nick Larson</a>
-                                            <span class="item-label">3 hrs ago</span>
-                                        </div>
-                                                                            <span class="item-status">
-                                                                                <span class="badge badge-empty badge-success"></span> Open</span>
                                     </div>
-                                    <div class="item-body"> Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </div>
                                 </div>
-                                <div class="item">
-                                    <div class="item-head">
-                                        <div class="item-details">
-                                            <img class="item-pic rounded" src="<?= Yii::getAlias('@web/static/images/avatar3.jpg'); ?>">
-                                            <a href="" class="item-name primary-link">Mark</a>
-                                            <span class="item-label">5 hrs ago</span>
+                                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                                    <div class="mt-card-item">
+                                        <div class="mt-card-avatar mt-overlay-1 mt-scroll-down">
+                                            <img src="<?= Yii::getAlias('@web/static/images/team2.jpg');?>" />
+                                            <div class="mt-overlay mt-top">
+                                                <ul class="mt-info">
+                                                    <li>
+                                                        <a class="btn default btn-outline" href="javascript:;">
+                                                            <i class="icon-magnifier"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="btn default btn-outline" href="javascript:;">
+                                                            <i class="icon-link"></i>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
                                         </div>
-                                                                            <span class="item-status">
-                                                                                <span class="badge badge-empty badge-warning"></span> Pending</span>
+                                        <div class="mt-card-content">
+                                            <h3 class="mt-card-name">Denzel Wash</h3>
+                                            <p class="mt-card-desc font-grey-mint">Finance Director</p>
+                                            <div class="mt-card-social">
+                                                <ul>
+                                                    <li>
+                                                        <a href="javascript:;">
+                                                            <i class="icon-social-facebook"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:;">
+                                                            <i class="icon-social-twitter"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:;">
+                                                            <i class="icon-social-dribbble"></i>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="item-body"> Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat tincidunt ut laoreet. </div>
                                 </div>
-                                <div class="item">
-                                    <div class="item-head">
-                                        <div class="item-details">
-                                            <img class="item-pic rounded" src="<?= Yii::getAlias('@web/static/images/avatar6.jpg'); ?>">
-                                            <a href="" class="item-name primary-link">Nick Larson</a>
-                                            <span class="item-label">8 hrs ago</span>
+                                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                                    <div class="mt-card-item">
+                                        <div class="mt-card-avatar mt-overlay-1 mt-scroll-up">
+                                            <img src="<?= Yii::getAlias('@web/static/images/team3.jpg');?>" />
+                                            <div class="mt-overlay">
+                                                <ul class="mt-info">
+                                                    <li>
+                                                        <a class="btn default btn-outline" href="javascript:;">
+                                                            <i class="icon-magnifier"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="btn default btn-outline" href="javascript:;">
+                                                            <i class="icon-link"></i>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
                                         </div>
-                                                                            <span class="item-status">
-                                                                                <span class="badge badge-empty badge-primary"></span> Closed</span>
+                                        <div class="mt-card-content">
+                                            <h3 class="mt-card-name">David Goodman</h3>
+                                            <p class="mt-card-desc font-grey-mint">Creative Director</p>
+                                            <div class="mt-card-social">
+                                                <ul>
+                                                    <li>
+                                                        <a href="javascript:;">
+                                                            <i class="icon-social-facebook"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:;">
+                                                            <i class="icon-social-twitter"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:;">
+                                                            <i class="icon-social-dribbble"></i>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="item-body"> Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh. </div>
                                 </div>
-                                <div class="item">
-                                    <div class="item-head">
-                                        <div class="item-details">
-                                            <img class="item-pic rounded" src="<?= Yii::getAlias('@web/static/images/avatar7.jpg'); ?>">
-                                            <a href="" class="item-name primary-link">Nick Larson</a>
-                                            <span class="item-label">12 hrs ago</span>
+                                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                                    <div class="mt-card-item">
+                                        <div class="mt-card-avatar mt-overlay-1 mt-scroll-left">
+                                            <img src="<?= Yii::getAlias('@web/static/images/team4.jpg');?>" />
+                                            <div class="mt-overlay">
+                                                <ul class="mt-info">
+                                                    <li>
+                                                        <a class="btn default btn-outline" href="javascript:;">
+                                                            <i class="icon-magnifier"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="btn default btn-outline" href="javascript:;">
+                                                            <i class="icon-link"></i>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
                                         </div>
-                                                                            <span class="item-status">
-                                                                                <span class="badge badge-empty badge-danger"></span> Pending</span>
-                                    </div>
-                                    <div class="item-body"> Consectetuer adipiscing elit Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </div>
-                                </div>
-                                <div class="item">
-                                    <div class="item-head">
-                                        <div class="item-details">
-                                            <img class="item-pic rounded" src="<?= Yii::getAlias('@web/static/images/avatar9.jpg'); ?>">
-                                            <a href="" class="item-name primary-link">Richard Stone</a>
-                                            <span class="item-label">2 days ago</span>
+                                        <div class="mt-card-content">
+                                            <h3 class="mt-card-name">Lucy Ling</h3>
+                                            <p class="mt-card-desc font-grey-mint">HR Director</p>
+                                            <div class="mt-card-social">
+                                                <ul>
+                                                    <li>
+                                                        <a href="javascript:;">
+                                                            <i class="icon-social-facebook"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:;">
+                                                            <i class="icon-social-twitter"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:;">
+                                                            <i class="icon-social-dribbble"></i>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
                                         </div>
-                                                                            <span class="item-status">
-                                                                                <span class="badge badge-empty badge-danger"></span> Open</span>
                                     </div>
-                                    <div class="item-body"> Lorem ipsum dolor sit amet, consectetuer adipiscing elit, ut laoreet dolore magna aliquam erat volutpat. </div>
-                                </div>
-                                <div class="item">
-                                    <div class="item-head">
-                                        <div class="item-details">
-                                            <img class="item-pic rounded" src="<?= Yii::getAlias('@web/static/images/avatar8.jpg'); ?>">
-                                            <a href="" class="item-name primary-link">Dan</a>
-                                            <span class="item-label">3 days ago</span>
-                                        </div>
-                                                                            <span class="item-status">
-                                                                                <span class="badge badge-empty badge-warning"></span> Pending</span>
-                                    </div>
-                                    <div class="item-body"> Lorem ipsum dolor sit amet, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </div>
-                                </div>
-                                <div class="item">
-                                    <div class="item-head">
-                                        <div class="item-details">
-                                            <img class="item-pic rounded" src="<?= Yii::getAlias('@web/static/images/avatar2.jpg'); ?>">
-                                            <a href="" class="item-name primary-link">Larry</a>
-                                            <span class="item-label">4 hrs ago</span>
-                                        </div>
-                                                                            <span class="item-status">
-                                                                                <span class="badge badge-empty badge-success"></span> Open</span>
-                                    </div>
-                                    <div class="item-body"> Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </div>
                                 </div>
                             </div>
                         </div>
@@ -688,614 +258,44 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-6 col-sm-6">
-                <!-- BEGIN REGIONAL STATS PORTLET-->
-                <div class="portlet light ">
-                    <div class="portlet-title">
-                        <div class="caption">
-                            <i class="icon-share font-dark hide"></i>
-                            <span class="caption-subject font-green-steel bold uppercase">Regional Stats</span>
-                        </div>
-                        <div class="actions">
-                            <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
-                                <i class="icon-cloud-upload"></i>
-                            </a>
-                            <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
-                                <i class="icon-wrench"></i>
-                            </a>
-                            <a class="btn btn-circle btn-icon-only btn-default fullscreen" data-container="false" data-placement="bottom" href="javascript:;"> </a>
-                            <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
-                                <i class="icon-trash"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="portlet-body">
-                        <div id="region_statistics_loading">
-                            <img src="<?= Yii::getAlias('@web/static/images/loading.gif'); ?>" alt="loading" /> </div>
-                        <div id="region_statistics_content" class="display-none">
-                            <div class="btn-toolbar margin-bottom-10">
-                                <div class="btn-group btn-group-circle" data-toggle="buttons">
-                                    <a href="" class="btn grey-salsa btn-sm active"> Users </a>
-                                    <a href="" class="btn grey-salsa btn-sm"> Orders </a>
-                                </div>
-                                <div class="btn-group pull-right">
-                                    <a href="" class="btn btn-circle grey-salsa btn-sm dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true"> Select Region
-                                        <span class="fa fa-angle-down"> </span>
-                                    </a>
-                                    <ul class="dropdown-menu pull-right">
-                                        <li>
-                                            <a href="javascript:;" id="regional_stat_world"> World </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:;" id="regional_stat_usa"> USA </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:;" id="regional_stat_europe"> Europe </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:;" id="regional_stat_russia"> Russia </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:;" id="regional_stat_germany"> Germany </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div id="vmap_world" class="vmaps display-none"> </div>
-                            <div id="vmap_usa" class="vmaps display-none"> </div>
-                            <div id="vmap_europe" class="vmaps display-none"> </div>
-                            <div id="vmap_russia" class="vmaps display-none"> </div>
-                            <div id="vmap_germany" class="vmaps display-none"> </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- END REGIONAL STATS PORTLET-->
-            </div>
-            <div class="col-md-6 col-sm-6">
-                <!-- BEGIN PORTLET-->
-                <div class="portlet light ">
-                    <div class="portlet-title tabbable-line">
-                        <div class="caption">
-                            <i class="icon-globe font-dark hide"></i>
-                            <span class="caption-subject font-green-steel bold uppercase">Feeds</span>
-                        </div>
-                        <ul class="nav nav-tabs">
-                            <li class="active">
-                                <a href="#tab_1_1" class="active" data-toggle="tab"> System </a>
-                            </li>
-                            <li>
-                                <a href="#tab_1_2" data-toggle="tab"> Activities </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="portlet-body">
-                        <!--BEGIN TABS-->
-                        <div class="tab-content">
-                            <div class="tab-pane active" id="tab_1_1">
-                                <div class="scroller" style="height: 339px;" data-always-visible="1" data-rail-visible="0">
-                                    <ul class="feeds">
-                                        <li>
-                                            <div class="col1">
-                                                <div class="cont">
-                                                    <div class="cont-col1">
-                                                        <div class="label label-sm label-success">
-                                                            <i class="fa fa-bell-o"></i>
-                                                        </div>
-                                                    </div>
-                                                    <div class="cont-col2">
-                                                        <div class="desc"> You have 4 pending tasks.
-                                                                                                <span class="label label-sm label-info"> Take action
-                                                                                                    <i class="fa fa-share"></i>
-                                                                                                </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col2">
-                                                <div class="date"> Just now </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:;">
-                                                <div class="col1">
-                                                    <div class="cont">
-                                                        <div class="cont-col1">
-                                                            <div class="label label-sm label-success">
-                                                                <i class="fa fa-bell-o"></i>
-                                                            </div>
-                                                        </div>
-                                                        <div class="cont-col2">
-                                                            <div class="desc"> New version v1.4 just lunched! </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col2">
-                                                    <div class="date"> 20 mins </div>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <div class="col1">
-                                                <div class="cont">
-                                                    <div class="cont-col1">
-                                                        <div class="label label-sm label-danger">
-                                                            <i class="fa fa-bolt"></i>
-                                                        </div>
-                                                    </div>
-                                                    <div class="cont-col2">
-                                                        <div class="desc"> Database server #12 overloaded. Please fix the issue. </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col2">
-                                                <div class="date"> 24 mins </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="col1">
-                                                <div class="cont">
-                                                    <div class="cont-col1">
-                                                        <div class="label label-sm label-info">
-                                                            <i class="fa fa-bullhorn"></i>
-                                                        </div>
-                                                    </div>
-                                                    <div class="cont-col2">
-                                                        <div class="desc"> New order received. Please take care of it. </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col2">
-                                                <div class="date"> 30 mins </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="col1">
-                                                <div class="cont">
-                                                    <div class="cont-col1">
-                                                        <div class="label label-sm label-success">
-                                                            <i class="fa fa-bullhorn"></i>
-                                                        </div>
-                                                    </div>
-                                                    <div class="cont-col2">
-                                                        <div class="desc"> New order received. Please take care of it. </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col2">
-                                                <div class="date"> 40 mins </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="col1">
-                                                <div class="cont">
-                                                    <div class="cont-col1">
-                                                        <div class="label label-sm label-warning">
-                                                            <i class="fa fa-plus"></i>
-                                                        </div>
-                                                    </div>
-                                                    <div class="cont-col2">
-                                                        <div class="desc"> New user registered. </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col2">
-                                                <div class="date"> 1.5 hours </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="col1">
-                                                <div class="cont">
-                                                    <div class="cont-col1">
-                                                        <div class="label label-sm label-success">
-                                                            <i class="fa fa-bell-o"></i>
-                                                        </div>
-                                                    </div>
-                                                    <div class="cont-col2">
-                                                        <div class="desc"> Web server hardware needs to be upgraded.
-                                                            <span class="label label-sm label-default "> Overdue </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col2">
-                                                <div class="date"> 2 hours </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="col1">
-                                                <div class="cont">
-                                                    <div class="cont-col1">
-                                                        <div class="label label-sm label-default">
-                                                            <i class="fa fa-bullhorn"></i>
-                                                        </div>
-                                                    </div>
-                                                    <div class="cont-col2">
-                                                        <div class="desc"> New order received. Please take care of it. </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col2">
-                                                <div class="date"> 3 hours </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="col1">
-                                                <div class="cont">
-                                                    <div class="cont-col1">
-                                                        <div class="label label-sm label-warning">
-                                                            <i class="fa fa-bullhorn"></i>
-                                                        </div>
-                                                    </div>
-                                                    <div class="cont-col2">
-                                                        <div class="desc"> New order received. Please take care of it. </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col2">
-                                                <div class="date"> 5 hours </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="col1">
-                                                <div class="cont">
-                                                    <div class="cont-col1">
-                                                        <div class="label label-sm label-info">
-                                                            <i class="fa fa-bullhorn"></i>
-                                                        </div>
-                                                    </div>
-                                                    <div class="cont-col2">
-                                                        <div class="desc"> New order received. Please take care of it. </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col2">
-                                                <div class="date"> 18 hours </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="col1">
-                                                <div class="cont">
-                                                    <div class="cont-col1">
-                                                        <div class="label label-sm label-default">
-                                                            <i class="fa fa-bullhorn"></i>
-                                                        </div>
-                                                    </div>
-                                                    <div class="cont-col2">
-                                                        <div class="desc"> New order received. Please take care of it. </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col2">
-                                                <div class="date"> 21 hours </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="col1">
-                                                <div class="cont">
-                                                    <div class="cont-col1">
-                                                        <div class="label label-sm label-info">
-                                                            <i class="fa fa-bullhorn"></i>
-                                                        </div>
-                                                    </div>
-                                                    <div class="cont-col2">
-                                                        <div class="desc"> New order received. Please take care of it. </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col2">
-                                                <div class="date"> 22 hours </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="col1">
-                                                <div class="cont">
-                                                    <div class="cont-col1">
-                                                        <div class="label label-sm label-default">
-                                                            <i class="fa fa-bullhorn"></i>
-                                                        </div>
-                                                    </div>
-                                                    <div class="cont-col2">
-                                                        <div class="desc"> New order received. Please take care of it. </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col2">
-                                                <div class="date"> 21 hours </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="col1">
-                                                <div class="cont">
-                                                    <div class="cont-col1">
-                                                        <div class="label label-sm label-info">
-                                                            <i class="fa fa-bullhorn"></i>
-                                                        </div>
-                                                    </div>
-                                                    <div class="cont-col2">
-                                                        <div class="desc"> New order received. Please take care of it. </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col2">
-                                                <div class="date"> 22 hours </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="col1">
-                                                <div class="cont">
-                                                    <div class="cont-col1">
-                                                        <div class="label label-sm label-default">
-                                                            <i class="fa fa-bullhorn"></i>
-                                                        </div>
-                                                    </div>
-                                                    <div class="cont-col2">
-                                                        <div class="desc"> New order received. Please take care of it. </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col2">
-                                                <div class="date"> 21 hours </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="col1">
-                                                <div class="cont">
-                                                    <div class="cont-col1">
-                                                        <div class="label label-sm label-info">
-                                                            <i class="fa fa-bullhorn"></i>
-                                                        </div>
-                                                    </div>
-                                                    <div class="cont-col2">
-                                                        <div class="desc"> New order received. Please take care of it. </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col2">
-                                                <div class="date"> 22 hours </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="col1">
-                                                <div class="cont">
-                                                    <div class="cont-col1">
-                                                        <div class="label label-sm label-default">
-                                                            <i class="fa fa-bullhorn"></i>
-                                                        </div>
-                                                    </div>
-                                                    <div class="cont-col2">
-                                                        <div class="desc"> New order received. Please take care of it. </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col2">
-                                                <div class="date"> 21 hours </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="col1">
-                                                <div class="cont">
-                                                    <div class="cont-col1">
-                                                        <div class="label label-sm label-info">
-                                                            <i class="fa fa-bullhorn"></i>
-                                                        </div>
-                                                    </div>
-                                                    <div class="cont-col2">
-                                                        <div class="desc"> New order received. Please take care of it. </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col2">
-                                                <div class="date"> 22 hours </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="tab-pane" id="tab_1_2">
-                                <div class="scroller" style="height: 290px;" data-always-visible="1" data-rail-visible1="1">
-                                    <ul class="feeds">
-                                        <li>
-                                            <a href="javascript:;">
-                                                <div class="col1">
-                                                    <div class="cont">
-                                                        <div class="cont-col1">
-                                                            <div class="label label-sm label-success">
-                                                                <i class="fa fa-bell-o"></i>
-                                                            </div>
-                                                        </div>
-                                                        <div class="cont-col2">
-                                                            <div class="desc"> New user registered </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col2">
-                                                    <div class="date"> Just now </div>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:;">
-                                                <div class="col1">
-                                                    <div class="cont">
-                                                        <div class="cont-col1">
-                                                            <div class="label label-sm label-success">
-                                                                <i class="fa fa-bell-o"></i>
-                                                            </div>
-                                                        </div>
-                                                        <div class="cont-col2">
-                                                            <div class="desc"> New order received </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col2">
-                                                    <div class="date"> 10 mins </div>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <div class="col1">
-                                                <div class="cont">
-                                                    <div class="cont-col1">
-                                                        <div class="label label-sm label-danger">
-                                                            <i class="fa fa-bolt"></i>
-                                                        </div>
-                                                    </div>
-                                                    <div class="cont-col2">
-                                                        <div class="desc"> Order #24DOP4 has been rejected.
-                                                                                                <span class="label label-sm label-danger "> Take action
-                                                                                                    <i class="fa fa-share"></i>
-                                                                                                </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col2">
-                                                <div class="date"> 24 mins </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:;">
-                                                <div class="col1">
-                                                    <div class="cont">
-                                                        <div class="cont-col1">
-                                                            <div class="label label-sm label-success">
-                                                                <i class="fa fa-bell-o"></i>
-                                                            </div>
-                                                        </div>
-                                                        <div class="cont-col2">
-                                                            <div class="desc"> New user registered </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col2">
-                                                    <div class="date"> Just now </div>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:;">
-                                                <div class="col1">
-                                                    <div class="cont">
-                                                        <div class="cont-col1">
-                                                            <div class="label label-sm label-success">
-                                                                <i class="fa fa-bell-o"></i>
-                                                            </div>
-                                                        </div>
-                                                        <div class="cont-col2">
-                                                            <div class="desc"> New user registered </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col2">
-                                                    <div class="date"> Just now </div>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:;">
-                                                <div class="col1">
-                                                    <div class="cont">
-                                                        <div class="cont-col1">
-                                                            <div class="label label-sm label-success">
-                                                                <i class="fa fa-bell-o"></i>
-                                                            </div>
-                                                        </div>
-                                                        <div class="cont-col2">
-                                                            <div class="desc"> New user registered </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col2">
-                                                    <div class="date"> Just now </div>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:;">
-                                                <div class="col1">
-                                                    <div class="cont">
-                                                        <div class="cont-col1">
-                                                            <div class="label label-sm label-success">
-                                                                <i class="fa fa-bell-o"></i>
-                                                            </div>
-                                                        </div>
-                                                        <div class="cont-col2">
-                                                            <div class="desc"> New user registered </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col2">
-                                                    <div class="date"> Just now </div>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:;">
-                                                <div class="col1">
-                                                    <div class="cont">
-                                                        <div class="cont-col1">
-                                                            <div class="label label-sm label-success">
-                                                                <i class="fa fa-bell-o"></i>
-                                                            </div>
-                                                        </div>
-                                                        <div class="cont-col2">
-                                                            <div class="desc"> New user registered </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col2">
-                                                    <div class="date"> Just now </div>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:;">
-                                                <div class="col1">
-                                                    <div class="cont">
-                                                        <div class="cont-col1">
-                                                            <div class="label label-sm label-success">
-                                                                <i class="fa fa-bell-o"></i>
-                                                            </div>
-                                                        </div>
-                                                        <div class="cont-col2">
-                                                            <div class="desc"> New user registered </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col2">
-                                                    <div class="date"> Just now </div>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:;">
-                                                <div class="col1">
-                                                    <div class="cont">
-                                                        <div class="cont-col1">
-                                                            <div class="label label-sm label-success">
-                                                                <i class="fa fa-bell-o"></i>
-                                                            </div>
-                                                        </div>
-                                                        <div class="cont-col2">
-                                                            <div class="desc"> New user registered </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col2">
-                                                    <div class="date"> Just now </div>
-                                                </div>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <!--END TABS-->
-                    </div>
-                </div>
-                <!-- END PORTLET-->
-            </div>
-        </div>
+
+
     </div>
 </div>
+
+<?php $this->beginBlock('index'); ?>
+$(document).ready(function() {
+    App.init(); // init core
+
+    // init main slider
+    var slider = $('.c-layout-revo-slider .tp-banner');
+    var cont = $('.c-layout-revo-slider .tp-banner-container');
+    var api = slider.show().revolution({
+        delay: 15000,
+        startwidth:1170,
+        startheight: (App.getViewPort().width < App.getBreakpoint('md') ? 1024 : 620),
+        navigationType: "hide",
+        navigationArrows: "solo",
+        touchenabled: "on",
+        onHoverStop: "on",
+        keyboardNavigation: "off",
+        navigationStyle: "circle",
+        navigationHAlign: "center",
+        navigationVAlign: "center",
+        fullScreenAlignForce:"off",
+        shadow: 0,
+        fullWidth: "on",
+        fullScreen: "off",
+        spinner: "spinner2",
+        forceFullWidth: "on",
+        hideTimerBar:"on",
+        hideThumbsOnMobile: "on",
+        hideNavDelayOnMobile: 1500,
+        hideBulletsOnMobile: "on",
+        hideArrowsOnMobile: "on",
+        hideThumbsUnderResolution: 0,
+        videoJsPath: "rs-plugin/videojs/",
+    });
+});
+<?php $this->endBlock(); ?>
+<?php $this->registerJs($this->blocks['index'], \yii\web\View::POS_END); ?>

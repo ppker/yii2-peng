@@ -70,15 +70,13 @@ $this->beginPage();
                             </ul>
                             <!-- END PAGE BREADCRUMBS -->
                             <!-- BEGIN PAGE CONTENT INNER -->
-
-                            <?= $content ?>
+                        </div>
+                        <?= $content ?>
 
                             <!-- END PAGE CONTENT INNER -->
 
 
 
-
-                        </div>
                     </div>
                     <!-- END PAGE CONTENT BODY -->
                     <!-- END CONTENT BODY -->

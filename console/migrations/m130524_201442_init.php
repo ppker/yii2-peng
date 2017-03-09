@@ -31,3 +31,24 @@ class m130524_201442_init extends Migration
         $this->dropTable('{{%user}}');
     }
 }
+
+/*
+create table if not exists `restaurant` (
+`id` int(11) unsigned not null auto_increment,
+	`name` varchar(60) not null default '' comment '饭店名称',
+	`address` varchar(255) not null default '' comment '饭店地址',
+	`phone` varchar(10) not null default '' comment '订餐电话',
+	`star` int(2) unsigned not null default '0' comment '饭店几颗星',
+	`zan` int(11) unsigned not null default '0' comment '饭店点赞数',
+	`hate` int(11) unsigned not null default '0' comment '饭店批评数',
+	`photo` varchar(80) not null default "" comment '饭店封面图片',
+	`open_time` timestamp NULL comment '饭店开张时间',
+	`close_time` timestamp NULL comment '饭店打烊时间',
+	`mark` varchar(255) not null default "" comment '饭店介绍',
+	`created_at` int(11) unsigned NOT NULL,
+	`updated_at` int(11) unsigned NOT NULL,
+	PRIMARY KEY (`id`),
+	UNIQUE KEY `name` (`name`),
+	KEY `zan` (`zan`),
+	KEY `star` (`star`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;*/

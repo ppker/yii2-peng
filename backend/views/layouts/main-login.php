@@ -39,16 +39,14 @@ $this->beginPage();
 <div class="user-login-5">
     <div class="row bs-reset">
         <div class="col-md-6 bs-reset mt-login-5-bsfix">
-            <div class="login-bg" style="background-image:url(/static/images/login/bg1.jpg)">
+            <div class="login-bg" style="background-image:url(<?= Yii::getAlias('@web/static/images/login/bg1.jpg');?>)">
                 <img class="login-logo" src="<?= Yii::getAlias("@web/static/images/login/logo.png") ?>" /> </div>
         </div>
         <div class="col-md-6 login-container bs-reset mt-login-5-bsfix">
             <div class="login-content">
                 <h1>Yii2-Peng 后台登录</h1>
                 <p>欢迎登录我的系统 Yii2-Peng</p>
-
                 <?= $content ?>
-
             </div>
             <div class="login-footer">
                 <div class="row bs-reset">

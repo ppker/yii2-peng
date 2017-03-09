@@ -14,3 +14,6 @@ div.footer-block p {
 div.page-footer-end {
     padding: 12px 0;
 }
+.tp-banner-container .fulllscreenvideo.tp-videolayer {
+    left: 0px !important;
+}
