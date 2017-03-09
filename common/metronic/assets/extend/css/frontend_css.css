@@ -1,3 +1,16 @@
 .page-header .page-header-top .page-logo .logo-default {
     margin-top: 7px;
 }
+.footer-block .label-block {
+    margin-top: 16px;
+}
+.footer-block .label-block span {
+    line-height: 30px;
+}
+
+div.footer-block p {
+    padding-top: 4px;
+}
+div.page-footer-end {
+    padding: 12px 0;
+}
