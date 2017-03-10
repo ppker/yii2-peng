@@ -26,4 +26,9 @@ return [
         'GET,POST menu_get' => 'menu_get',
         'GET,POST menu_del' => 'menu_del',
     ],
+
+    'api_rule_cook' => [
+        'GET,POST index' => 'index',
+    ],
+
 ];

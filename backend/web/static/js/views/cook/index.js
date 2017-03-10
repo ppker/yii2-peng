@@ -19,20 +19,19 @@ window.PAGE_ACTION = function() {
         btn_del = null; // 单个删除的按钮
 
     init_limit = function() {
-        ZP.api.user_index({
+        ZP.api.cook_index({
             data: null,
             successCallBack:function(result){
 
                 if(ZP.utils.isArray(result.data)){
 
-                    ZP.utils.render("user/user_index.html", {
+                    ZP.utils.render("cook/cook_index.html", {
                         list: result.data
                     },function(html){
                         var table = $("#table");
                         table.html(html);
                         var t = table.DataTable({
                             // dom: '<"html5buttons"B>lTfgitp',
-
                             "order": [[ 0, "asc" ]],
                             oLanguage: ZP.define.dataTableLan,
                             bStateSave: ZP.define.dataTableStateSave,

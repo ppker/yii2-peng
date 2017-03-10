@@ -10,6 +10,9 @@ use yii\helpers\Url;
 
 $this->title = '用户账号';
 $this->params['title_sub'] = '管理用户账号信息';
+
+// 加载页面级资源
+\backend\assets\UploadAsset::register($this);
 ?>
 
 <div class="row">
@@ -84,85 +87,116 @@ $this->params['title_sub'] = '管理用户账号信息';
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                <h4 class="modal-title">新增用户</h4>
+                <h4 class="modal-title">新增餐厅</h4>
             </div>
             <div class="modal-body">
                 <form id="addForm" role="form" data-toggle="validator" class="form-horizontal">
                     <input type="hidden" name="<?= Yii::$app->getRequest()->csrfParam; ?>" value="<?= Yii::$app->getRequest()->getCsrfToken(); ?>">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="user_login" class="control-label col-sm-4">账号</label>
+                            <label for="name" class="control-label col-sm-4">餐厅名称</label>
                             <div class="col-sm-8">
-                                <input type="text" value="" placeholder="请输入登录账号" class="form-control" name="username" minlength="3" data-remote="<?= Url::toRoute(['site/check_user']) ?>" data-remote-error="用户名已被注册" required />
+                                <input type="text" value="" placeholder="请输入餐厅名称" class="form-control" name="name" minlength="3" data-remote="<?= Url::toRoute(['site/check_hotel']) ?>" data-remote-error="餐厅名称已被注册" required />
                                 <div class="help-block with-errors"></div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="sex" class="control-label col-sm-4">性别</label>
-                            <div class="col-sm-8 text-center">
-
-                                <label class="mt-radio radio-inline">
-                                    <input type="radio" name="sex" value="0" checked />保密
-                                    <span></span>
-                                </label>
-                                <label class="mt-radio radio-inline">
-                                    <input type="radio" name="sex" value="1" />男
-                                    <span></span>
-                                </label>
-                                <label class="mt-radio radio-inline">
-                                    <input type="radio" name="sex" value="2" />女
-                                    <span></span>
-                                </label>
-
+                            <label for="phone" class="control-label col-sm-4">餐厅电话</label>
+                            <div class="col-sm-8">
+                                <input type="text" value="" placeholder="请输入餐厅电话" class="form-control" name="phone" minlength="6" required />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="open_time" class="control-label col-sm-4">开门时间</label>
+                            <div class="col-sm-8">
+                                <input type="text" value="" placeholder="比如：08:30" class="form-control" name="opentime" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="close_time" class="control-label col-sm-4">打烊时间</label>
+                            <div class="col-sm-8">
+                                <input type="text" value="" placeholder="比如：02:00" class="form-control" name="close_time" />
                             </div>
                         </div>
 
+                        <div class="form-group">
+                            <label for="status" class="control-label col-sm-4">餐厅状态</label>
+                            <div class="col-sm-8">
+                                <select class="form-control"  name="status" id="hotel_status" required>
+                                    <option value="1" selected>营业</option>
+                                    <option value="0">停业整改</option>
+                                </select>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="col-md-6">
 
-                        <!--<div class="form-group">
-                            <label for="role_id" class="control-label col-sm-4">角色<span class="required"> * </span></label>
-                            <div class="col-sm-8">
-                                <select class="form-control"  name="role_id" id="role_id">
-
-                                </select>
-
-                            </div>
-                        </div>-->
                         <div class="form-group">
-                            <label for="user_pass" class="control-label col-sm-4">密码</label>
+                            <label for="address" class="control-label col-sm-4">餐厅地址</label>
                             <div class="col-sm-8">
-                                <input type="password" value="" class="form-control"  name="password_hash" pattern="^[\w-]{6,16}" data-error="密码6到16位字母和数字组合" required />
+                                <input type="text" value="" placeholder="请输入餐厅地址" class="form-control"  name="address" />
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="user_status" class="control-label col-sm-4">用户状态</label>
+                            <label for="star" class="control-label col-sm-4">推荐星数</label>
                             <div class="col-sm-8">
-                                <select class="form-control"  name="status" id="role_id" required>
-                                    <option value="10" selected>正常</option>
-                                    <option value="0">禁用</option>
-                                </select>
+                                <input type="text" value="" placeholder="默认0，可不填" class="form-control"  name="star" pattern="^[\d]{1}" data-error="0-9的数字" />
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label for="zan" class="control-label col-sm-4">点赞次数</label>
+                            <div class="col-sm-8">
+                                <input type="text" value="" placeholder="默认0，可不填" class="form-control"  name="zan" pattern="^[\d]+" data-error="必须是数字" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="hate" class="control-label col-sm-4">反对次数</label>
+                            <div class="col-sm-8">
+                                <input type="text" value="" placeholder="默认0，可不填" class="form-control"  name="hate" pattern="^[\d]+" data-error="必须是数字" />
+                            </div>
+                        </div>
+
                     </div>
 
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label for="user_signature" class="control-label col-sm-2">个性签名</label>
+                            <label for="mark" class="control-label col-sm-2">备注</label>
                             <div class="col-sm-10">
-                                <input type="text" value=""  placeholder="他太懒，什么也没留下~" class="form-control"  name="signature" />
+                                <textarea name="mark" class="form-control" placeholder="餐厅简介" rows="5"></textarea>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label for="user_email" class="control-label col-sm-2">邮箱</label>
-                            <div class="col-sm-10">
-                                <input type="email" value=""  placeholder="email address" class="form-control"  name="email" pattern="^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$" data-error="邮箱格式错误" required />
+                    <!--上传照片-->
+
+                    <form id="image_upload" action="<?= Url::to('/api/web/file/upload'); ?>" method="POST" enctype="multipart/form-data">
+
+                        <div class="row fileupload-buttonbar">
+                            <div class="col-lg-7">
+                                <span class="btn green fileinput-button">
+                                    <i class="fa fa-plus"></i>
+                                    <span> 添加文件... </span>
+                                    <input type="file" name="files[]" multiple=""> </span>
+
+                                <span class="fileupload-process"> </span>
+                            </div>
+                            <!-- The global progress information -->
+                            <div class="col-lg-5 fileupload-progress fade">
+                                <!-- The global progress bar -->
+                                <div class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                                    <div class="progress-bar progress-bar-success" style="width:0%;"> </div>
+                                </div>
+                                <!-- The extended global progress information -->
+                                <div class="progress-extended"> &nbsp; </div>
                             </div>
                         </div>
-                    </div>
+                        <!-- The table listing the files available for upload/download -->
+                        <table role="presentation" class="table table-striped clearfix">
+                            <tbody class="files"> </tbody>
+                        </table>
+                    </form>
+
+
                     <div class="form-group">
                         <div class="col-sm-12 col-md-12 text-center">
                             <button type="button" class="btn default" data-dismiss="modal">关闭</button>

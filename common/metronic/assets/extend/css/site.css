@@ -17,3 +17,8 @@ ul.page-breadcrumb a:hover, ul.page-breadcrumb a:link, ul.page-breadcrumb a:visi
     height: 52px;
     margin-top: 3px;
 }
+
+/*
+#table th, #table td {
+    white-space: nowrap;
+}*/

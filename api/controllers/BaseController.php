@@ -16,6 +16,9 @@ use Yii;
 
 class BaseController extends ActiveController {
 
+    const OK_STATUS = 1;
+    const NO_STATUS = 0;
+
     public $modelClass = 'common\models\User';
 
     public function behaviors() {

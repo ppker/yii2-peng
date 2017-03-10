@@ -193,6 +193,14 @@
         return ajax(options);
     };
 
+    /**
+	 * cook_index
+     */
+    self.cook_index = function(options) {
+        options = options ? options : {};
+        options.url = "/api/web/cook/index";
+        return ajax(options);
+    };
 
 
 

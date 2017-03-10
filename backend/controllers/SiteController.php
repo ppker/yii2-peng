@@ -181,6 +181,10 @@ class SiteController extends BaseController
         } else return json_encode(['state' => 1]);
     }
 
+
+
+
+
     public function actionCheck_role() {
 
         $name = Yii::$app->request->getQueryParam('name');
