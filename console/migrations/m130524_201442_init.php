@@ -45,10 +45,32 @@ create table if not exists `restaurant` (
 	`open_time` timestamp NULL comment '饭店开张时间',
 	`close_time` timestamp NULL comment '饭店打烊时间',
 	`mark` varchar(255) not null default "" comment '饭店介绍',
+    `status` tinyint(2) unsigned not null default '1' comment '状态 0 => 营业, 1 => 整改',
 	`created_at` int(11) unsigned NOT NULL,
 	`updated_at` int(11) unsigned NOT NULL,
 	PRIMARY KEY (`id`),
 	UNIQUE KEY `name` (`name`),
 	KEY `zan` (`zan`),
 	KEY `star` (`star`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;*/
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 comment '饭店表';*/
+
+
+
+/*create table if not exists `cookbook` (
+`id` int(11) unsigned not null auto_increment,
+	`res_id` int(11) unsigned not null comment '所属饭店id',
+	`name` varchar(50) not null default "" comment '菜名',
+	`price` int(10) unsigned not null default '0' comment '价格',
+	`mark` varchar(255) not null default "" comment '菜肴简介',
+	`zan` int(11) unsigned not null default '0' comment '点赞次数',
+	`hate` int(11) unsigned not null default '0' comment '反对次数',
+	`photo` varchar(255) not null default "" comment '菜肴照片',
+	`star` int(6) unsigned not null default "0" comment '推荐指数几颗星',
+	`status` tinyint(2) unsigned not null default '1' comment '状态 0 => 在售, 1 => 下架',
+	`created_at` int(11) unsigned NOT NULL,
+	`updated_at` int(11) unsigned NOT NULL,
+	PRIMARY KEY (`id`),
+	UNIQUE KEY `name` (`name`),
+	KEY `res_id` (`res_id`),
+	KEY `price` (`price`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 comment '菜肴表';*/
