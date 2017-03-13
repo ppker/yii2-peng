@@ -9,6 +9,7 @@ window.PAGE_ACTION = function() {
     "use strict";
 
     var init_limit = null, // 默认条件页面
+        img_upload = null, // 图片上传
         btn_add = null,
         btn_submit = null,
         btn_submit_bak = null,
@@ -66,6 +67,7 @@ window.PAGE_ACTION = function() {
                         btn_edit();
                         btn_reset();
                         btn_auth();
+                        img_upload();
                     });
 
 
@@ -203,38 +205,19 @@ window.PAGE_ACTION = function() {
         });
     };
 
+    img_upload = function () { // 图片上传
 
-    btn_submit_bak = function() { // 暂时废弃
+        $('#fileupload').fileupload({
+            disableImageResize: false,
+            autoUpload: false,
+            disableImageResize: /Android(?!.*Chrome)|Opera/.test(window.navigator.userAgent),
+            maxFileSize: 5000000,
+            acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
+            // Uncomment the following to send cross-domain cookies:
+            //xhrFields: {withCredentials: true},
+        });
 
-        var form = $('#addForm');
-        var error = $('.alert-danger', form);
-        var success = $('.alert-success', form);
-        var rule = {
-            rules: {
-                username: {
-                    minlength: 3,
-                    required: true
-                },
-                sex: {
-                    required: true,
-                },
-                password: {
-                    required: true,
-                    minlength: 6
-                },
-                status: {
-                    required: true,
-                },
-                signature: {
-                    minlength: 2
-                },
-                email: {
-                    required: true,
-                    email: true
-                },
-            },
-        };
-        form.validate($.extend(ZP.utils.form_validation, rule));
+
     };
 
 
