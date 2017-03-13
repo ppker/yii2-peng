@@ -208,16 +208,42 @@ window.PAGE_ACTION = function() {
     img_upload = function () { // 图片上传
 
         $('#fileupload').fileupload({
+            url: "/backend/web/upload/upload",
             disableImageResize: false,
             autoUpload: false,
+            maxNumberOfFiles: 1,
             disableImageResize: /Android(?!.*Chrome)|Opera/.test(window.navigator.userAgent),
             maxFileSize: 5000000,
             acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
             // Uncomment the following to send cross-domain cookies:
             //xhrFields: {withCredentials: true},
+            always: function (e, data) {
+                $(this).removeClass('fileupload-processing');
+            }
         });
 
+        // Enable iframe cross-domain access via redirect option:
+        $('#fileupload').fileupload(
+            'option',
+            'redirect',
+            window.location.href.replace(
+                /\/[^\/]*$/,
+                '/cors/result.html?%s'
+            )
+        );
 
+        // Upload server status check for browsers with CORS support:
+        if ($.support.cors) {
+            $.ajax({
+                type: 'HEAD'
+            }).fail(function () {
+                $('<div class="alert alert-danger"/>')
+                    .text('Upload server currently unavailable - ' +
+                        new Date())
+                    .appendTo('#fileupload');
+            });
+        }
+        $(this).addClass('fileupload-processing');
     };
 
 
