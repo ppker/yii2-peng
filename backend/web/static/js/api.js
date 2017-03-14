@@ -202,6 +202,15 @@
         return ajax(options);
     };
 
+    /**
+	 * image_del
+     */
+    self.cook_index = function(options) {
+        options = options ? options : {};
+        options.url = "/api/web/cook/image_del";
+        return ajax(options);
+    };
+
 
 
 })(ZP, jQuery);

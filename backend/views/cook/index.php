@@ -165,11 +165,11 @@ $this->params['title_sub'] = '管理用户账号信息';
                             <div class="col-sm-10">
                                 <textarea name="mark" class="form-control" placeholder="餐厅简介" rows="5"></textarea>
                             </div>
+                            <input type="hidden" name="hotel_photo" id="h_hotel_photo" value="">
                         </div>
 
                     </div>
                     <!--上传照片-->
-
                     <div id="fileupload">
                         <label for="mark" class="control-label col-sm-2">上传照片</label>
                         <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
@@ -179,7 +179,7 @@ $this->params['title_sub'] = '管理用户账号信息';
                                 <span class="btn green fileinput-button">
                                 <i class="fa fa-plus"></i>
                                 <span> 添加图片... </span>
-                                <input type="file" name="imageFile"> </span>
+                                <input type="file" name="UploadForm[imageFile]"> </span>
                                 <!-- The global file processing state -->
                                 <span class="fileupload-process"> </span>
                             </div>
@@ -194,10 +194,11 @@ $this->params['title_sub'] = '管理用户账号信息';
                             </div>
                         </div>
                         <!-- The table listing the files available for upload/download -->
-                        <table role="presentation" class="table table-striped clearfix">
+                        <table role="presentation" class="table table-striped clearfix table-image">
                             <tbody class="files"> </tbody>
                         </table>
                     </div>
+
 
                     <!--上传图片结束-->
 
@@ -208,6 +209,7 @@ $this->params['title_sub'] = '管理用户账号信息';
                         </div>
                     </div>
                 </form>
+
 
 
                 <!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
@@ -234,10 +236,16 @@ $this->params['title_sub'] = '管理用户账号信息';
                                     <button class="btn red cancel">
                                         <i class="fa fa-ban"></i>
                                         <span>Cancel</span>
-                                    </button> {% } %} </td>
+                                    </button> {% } %}
+                                    <button class="btn green b-delete">
+                                        <i class="fa fa-delete"></i>
+                                        <span>delete</span>
+                                    </button>
+
+                                    </td>
                             </tr> {% } %} </script>
                 <!-- The template to display files available for download -->
-                <script id="template-download" type="text/x-tmpl"> {% for (var i=0, file; file=o.files[i]; i++) { %}
+                <script id="template-download" type="text/x-tmpl">{% for (var i=0, file; file=o.files[i]; i++) { %}
                             <tr class="template-download fade">
                                 <td>
                                     <span class="preview"> {% if (file.thumbnailUrl) { %}
@@ -254,6 +262,7 @@ $this->params['title_sub'] = '管理用户账号信息';
                                 <td>
                                     <span class="size">{%=o.formatFileSize(file.size)%}</span>
                                 </td>
+
                                 <td> {% if (file.deleteUrl) { %}
                                     <button class="btn red delete btn-sm" data-type="{%=file.deleteType%}" data-url="{%=file.deleteUrl%}" {% if (file.deleteWithCredentials) { %} data-xhr-fields='{"withCredentials":true}' {% } %}>
                                         <i class="fa fa-trash-o"></i>

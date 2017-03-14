@@ -30,4 +30,13 @@ class CookController extends BaseController {
         return parent::re_format($list);
     }
 
+    public function actionImage_del() {
+
+        $file = Yii::$app->request->post('file');
+        var_dump($file);die;
+    }
+
+
+
+
 }

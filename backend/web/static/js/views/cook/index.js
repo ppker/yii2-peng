@@ -17,6 +17,7 @@ window.PAGE_ACTION = function() {
         btn_edit = null,
         btn_reset = null,
         btn_auth = null,
+        image_del = null,
         btn_del = null; // 单个删除的按钮
 
     init_limit = function() {
@@ -205,22 +206,46 @@ window.PAGE_ACTION = function() {
         });
     };
 
+    image_del = function () { // 删除图片
+
+        $("table.table-image").on('click', "button.b-delete", function(e) {
+            var imgpath = $("input#h_hotel_photo").val();
+            $("input#h_hotel_photo").val("");
+            ZP.api.image_del({
+                data: {file: imgpath},
+                successCallBack: function(result){
+                    alert('afdf');
+                },
+                failCallBack: ZP.utils.failCallBack
+            });
+            e.preventDefault();
+        });
+    };
+
+
+
     img_upload = function () { // 图片上传
 
         $('#fileupload').fileupload({
-            url: "/backend/web/upload/upload",
-            //disableImageResize: false,
-            dataType: 'json',
-            autoUpload: false,
             maxNumberOfFiles: 1,
+            // disableImageResize: false,
+            autoUpload: false,
             disableImageResize: /Android(?!.*Chrome)|Opera/.test(window.navigator.userAgent),
             maxFileSize: 5000000,
             acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
+            url: '/backend/web/upload/upload',
             // Uncomment the following to send cross-domain cookies:
             //xhrFields: {withCredentials: true},
+            done: function (e, data) {
+                $("input#h_hotel_photo").val(data.result.data);
+            },
             always: function (e, data) {
-                $(this).removeClass('fileupload-processing');
+                $("#fileupload").removeClass('fileupload-processing');
+            },
+            send: function (e, data) {
+                $('#fileupload').addClass('fileupload-processing');
             }
+
         });
 
         // Enable iframe cross-domain access via redirect option:
@@ -244,7 +269,8 @@ window.PAGE_ACTION = function() {
                     .appendTo('#fileupload');
             });
         }
-        $(this).addClass('fileupload-processing');
+        image_del();
+
     };
 
 
