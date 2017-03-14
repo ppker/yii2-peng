@@ -210,11 +210,12 @@ window.PAGE_ACTION = function() {
 
         $("table.table-image").on('click', "button.b-delete", function(e) {
             var imgpath = $("input#h_hotel_photo").val();
-            $("input#h_hotel_photo").val("");
+            var $this = $(this);
             ZP.api.image_del({
                 data: {file: imgpath},
                 successCallBack: function(result){
-                    alert('afdf');
+                    $("input#h_hotel_photo").val("");
+                    $this.parent().parent().remove();
                 },
                 failCallBack: ZP.utils.failCallBack
             });
@@ -238,6 +239,7 @@ window.PAGE_ACTION = function() {
             //xhrFields: {withCredentials: true},
             done: function (e, data) {
                 $("input#h_hotel_photo").val(data.result.data);
+                $("button.b-delete").removeAttr("disabled");
             },
             always: function (e, data) {
                 $("#fileupload").removeClass('fileupload-processing');

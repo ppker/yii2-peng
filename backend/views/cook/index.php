@@ -237,7 +237,7 @@ $this->params['title_sub'] = '管理用户账号信息';
                                         <i class="fa fa-ban"></i>
                                         <span>Cancel</span>
                                     </button> {% } %}
-                                    <button class="btn green b-delete">
+                                    <button class="btn green b-delete" disabled>
                                         <i class="fa fa-delete"></i>
                                         <span>delete</span>
                                     </button>

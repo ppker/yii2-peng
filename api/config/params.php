@@ -29,6 +29,7 @@ return [
 
     'api_rule_cook' => [
         'GET,POST index' => 'index',
+        'GET,POST image_del' => 'image_del',
     ],
 
 ];

@@ -205,7 +205,7 @@
     /**
 	 * image_del
      */
-    self.cook_index = function(options) {
+    self.image_del = function(options) {
         options = options ? options : {};
         options.url = "/api/web/cook/image_del";
         return ajax(options);

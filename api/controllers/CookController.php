@@ -30,10 +30,22 @@ class CookController extends BaseController {
         return parent::re_format($list);
     }
 
+    /**
+     * 删除文件
+     * @return array
+     */
     public function actionImage_del() {
 
         $file = Yii::$app->request->post('file');
-        var_dump($file);die;
+        if (empty($file)) return parent::re_format("", "json", ['删除成功', '删除失败']);
+        $real_file = Yii::getAlias('@frontend/web/images/') . $file;
+
+        if (is_file($real_file)) {
+            if (unlink($real_file)) {
+                return ['success' => 1, 'message' => '删除成功', 'data' => ''];
+            } else return ['success' => 0, 'message' => '删除失败', 'data' => ''];
+        } else return ['success' => 0, 'message' => '删除失败', 'data' => ''];
+
     }
 
 
