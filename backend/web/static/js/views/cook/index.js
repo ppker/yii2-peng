@@ -209,7 +209,8 @@ window.PAGE_ACTION = function() {
 
         $('#fileupload').fileupload({
             url: "/backend/web/upload/upload",
-            disableImageResize: false,
+            //disableImageResize: false,
+            dataType: 'json',
             autoUpload: false,
             maxNumberOfFiles: 1,
             disableImageResize: /Android(?!.*Chrome)|Opera/.test(window.navigator.userAgent),

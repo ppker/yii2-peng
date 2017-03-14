@@ -166,6 +166,7 @@ $this->params['title_sub'] = '管理用户账号信息';
                                 <textarea name="mark" class="form-control" placeholder="餐厅简介" rows="5"></textarea>
                             </div>
                         </div>
+
                     </div>
                     <!--上传照片-->
 
@@ -178,7 +179,7 @@ $this->params['title_sub'] = '管理用户账号信息';
                                 <span class="btn green fileinput-button">
                                 <i class="fa fa-plus"></i>
                                 <span> 添加图片... </span>
-                                <input type="file" name="files[]" multiple=""> </span>
+                                <input type="file" name="imageFile"> </span>
                                 <!-- The global file processing state -->
                                 <span class="fileupload-process"> </span>
                             </div>
