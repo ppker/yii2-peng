@@ -84,50 +84,6 @@ window.PAGE_ACTION = function() {
         });
     };
 
-    btn_auth = function() { // 用户授权
-        $("table tr .btn-group li").on("click", "a[actionrule='auth']", function() {
-            var $id = $(this).attr("actionid");
-            if ($id) {
-                ZP.api.User_auth({
-                    data: {id: $id},
-                    successCallBack: function(result){
-                        $("#ruleModal div.mt-radio-list").empty();
-                        var $radio = '';
-                        if (ZP.utils.isObject(result.data)) {
-                            $.each(result.data.all, function(i, v) {
-                                if ($.inArray(v.name, [result.data.now[0]])> -1) {
-                                    $radio += '<label class="mt-radio mt-radio-outline"><input type="radio" name="param" value="' + v.name +  '" checked'  + '><span></span>' + v.name + '('+ v.description + ')' + '</label>';
-                                } else $radio += '<label class="mt-radio mt-radio-outline"><input type="radio" name="param" value="' + v.name + '"><span></span>' + v.name + '('+ v.description + ')' + '</label>';
-                            });
-                        }
-                        $("input#auth_user_id").val($id);
-                        $("#ruleModal div.mt-radio-list").append($radio);
-                        $("#ruleModal").modal('show');
-
-                        // 对表单事件进行监听
-                        var $form = null;
-                        $form = $("form#authForm");
-                        $form.submit(function(e){
-                            //表单验证
-                            if(ZP.utils.isPassForm($form)){
-                                $("#ruleModal").modal('hide');
-                                ZP.api.User_auth({
-                                    data: $form.serializeJson(),
-                                    successCallBack: function(result){
-                                        ZP.utils.alert_warning(result.message, true, true);
-                                    },
-                                    failCallBack: ZP.utils.failCallBack
-                                });
-                            }
-                            e.preventDefault();
-                        });
-                    },
-                    failCallBack: ZP.utils.failCallBack
-                });
-            }
-        });
-    };
-
 
     btn_edit = function() { // 编辑操作
         $("table tr .btn-group li").on("click", "a[actionrule='edit']", function() {
@@ -178,7 +134,7 @@ window.PAGE_ACTION = function() {
             //表单验证
             if(ZP.utils.isPassForm($form)){
                 $("#addModal").modal('hide');
-                ZP.api.User_add({
+                ZP.api.hotel_add({
                     data: $form.serializeJson(),
                     successCallBack: function(result){
                         ZP.utils.alert_warning(result.message, true);

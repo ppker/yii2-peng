@@ -211,6 +211,15 @@
         return ajax(options);
     };
 
+    /**
+     * hotel_add
+     */
+    self.hotel_add = function(options) {
+        options = options ? options : {};
+        options.url = "/api/web/cook/hotel_add";
+        return ajax(options);
+    };
+
 
 
 })(ZP, jQuery);

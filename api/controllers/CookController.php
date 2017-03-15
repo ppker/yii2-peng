@@ -48,6 +48,10 @@ class CookController extends BaseController {
 
     }
 
+    public function actionHotel_add() {
+
+
+    }
 
 
 
