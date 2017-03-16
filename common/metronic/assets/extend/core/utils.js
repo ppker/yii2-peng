@@ -1059,6 +1059,11 @@
             $table.find("input.select").each(function(){
                 this.checked = value;
             });
+			var checkedLen = $table.find("input.select:checked").length;
+			if (checkedLen >0 ) $("#btn_all_del").removeClass("disabled");
+			else $("#btn_all_del").addClass("disabled");
+
+
         });
 	};
 

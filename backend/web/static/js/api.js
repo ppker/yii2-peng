@@ -220,6 +220,24 @@
         return ajax(options);
     };
 
+	/**
+	 * hotel_del
+	 */
+	self.hotel_del = function(options) {
+		options = options ? options : {};
+		options.url = "/api/web/cook/hotel_del";
+		return ajax(options);
+	};
+
+    /**
+     * hotel_get
+     */
+    self.hotel_get = function(options) {
+        options = options ? options : {};
+        options.url = "/api/web/cook/hotel_get";
+        return ajax(options);
+    };
+
 
 
 })(ZP, jQuery);

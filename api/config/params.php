@@ -30,6 +30,9 @@ return [
     'api_rule_cook' => [
         'GET,POST index' => 'index',
         'GET,POST image_del' => 'image_del',
+        'GET,POST hotel_add' => 'hotel_add',
+        'GET,POST hotel_del' => 'hotel_del',
+        'GET,POST hotel_get' => 'hotel_get',
     ],
 
 ];

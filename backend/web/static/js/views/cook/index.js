@@ -16,8 +16,8 @@ window.PAGE_ACTION = function() {
     // btn_all_del = null, // 批量删除的按钮
         btn_edit = null,
         btn_reset = null,
-        btn_auth = null,
         image_del = null,
+        b_u_delete = null,
         btn_del = null; // 单个删除的按钮
 
     init_limit = function() {
@@ -66,9 +66,8 @@ window.PAGE_ACTION = function() {
                         btn_submit(); // 绑定提交的表单
                         btn_del();
                         btn_edit();
-                        btn_reset();
-                        btn_auth();
                         img_upload();
+                        b_u_delete();
                     });
 
 
@@ -89,18 +88,24 @@ window.PAGE_ACTION = function() {
         $("table tr .btn-group li").on("click", "a[actionrule='edit']", function() {
             var $id = $(this).attr("actionid");
             if ($id) {
-                ZP.api.User_get({
+                ZP.api.hotel_get({
                     data: {id: $id},
                     successCallBack: function(result){
-                        console.log(result.data);
-                        $("#addModal h4.modal-title").text('用户编辑');
-                        $("#addModal input[name='username']").val(result.data.username).after("<input type='hidden' name='id' value=" + $id + ">");
-                        $("#addModal select#role_id").val(result.data.status);
-                        $("#addModal label[for='user_pass']").parent().remove();
-                        var sex = result.data.sex;
-                        $("#addModal input[name='sex'][value=" + sex + "]").attr("checked", true);
-                        $("#addModal input[name='signature']").val(result.data.signature);
-                        $("#addModal input[name='email']").val(result.data.email);
+
+
+                        $("#addModal h4.modal-title").text('编辑餐厅');
+                        $("#addModal input[name='name']").val(result.data.name).after("<input type='hidden' name='id' value=" + $id + ">");
+                        $("#addModal input[name='phone']").val(result.data.phone);
+                        $("#addModal input[name='open_time']").val(result.data.open_time);
+                        $("#addModal input[name='close_time']").val(result.data.close_time);
+                        $("#addModal select#hotel_status").val(result.data.status);
+                        $("#addModal input[name='address']").val(result.data.address);
+                        $("#addModal input[name='star']").val(result.data.star);
+                        $("#addModal input[name='zan']").val(result.data.zan);
+                        $("#addModal textarea[name='mark']").val(result.data.mark);
+                        $("#addModal input[name='hotel_photo']").val(result.data.photo);
+                        $("#hotel_photo").attr("src", "http://" + window.location.host + "/frontend/web/images/" + result.data.photo);
+                        $("div.b-u-img-div").css("display", "block");
                         $("#addModal").modal('show');
                         // ZP.utils.alert_warning(result.message, true);
                     },
@@ -110,18 +115,19 @@ window.PAGE_ACTION = function() {
         });
     };
 
-    btn_reset = function() { // 重置密码的操作
-        $("table tr .btn-group li").on("click", "a[actionrule='reset']", function() {
-            var $id = $(this).attr("actionid");
-            if ($id) {
-                ZP.api.User_reset({
-                    data: {id: $id},
-                    successCallBack: function(result){
-                        ZP.utils.alert_warning(result.message, true);
-                    },
-                    failCallBack: ZP.utils.failCallBack
-                });
-            }
+    b_u_delete = function() {
+
+        $("a.b-u-delete").on("click", function() {
+            var imgpath = $("input#h_hotel_photo").val();
+            ZP.api.image_del({
+                data: {file: imgpath},
+                successCallBack: function(result){
+                    $("input#h_hotel_photo").val("");
+                    $("div.b-u-img-div").remove();
+                },
+                failCallBack: ZP.utils.failCallBack
+            });
+            e.preventDefault();
         });
     };
 
@@ -151,7 +157,7 @@ window.PAGE_ACTION = function() {
         $("table tr .btn-group li").on("click", "a[actionrule='del']", function() {
             var $id = $(this).attr("actionid");
             if ($id) {
-                ZP.api.User_del({
+                ZP.api.hotel_del({
                     data: {id: $id},
                     successCallBack: function(result){
                         ZP.utils.alert_warning(result.message, true);

@@ -109,7 +109,7 @@ $this->params['title_sub'] = '管理用户账号信息';
                         <div class="form-group">
                             <label for="open_time" class="control-label col-sm-4">开门时间</label>
                             <div class="col-sm-8">
-                                <input type="text" value="" placeholder="比如：08:30" class="form-control" name="opentime" />
+                                <input type="text" value="" placeholder="比如：08:30" class="form-control" name="open_time" />
                             </div>
                         </div>
                         <div class="form-group">
@@ -145,7 +145,8 @@ $this->params['title_sub'] = '管理用户账号信息';
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="zan" class="control-label col-sm-4">点赞次数</label>
+                            <label for="zan" class="control-label
+                            col-sm-4">点赞次数</label>
                             <div class="col-sm-8">
                                 <input type="text" value="" placeholder="默认0，可不填" class="form-control"  name="zan" pattern="^[\d]+" data-error="必须是数字" />
                             </div>
@@ -193,12 +194,21 @@ $this->params['title_sub'] = '管理用户账号信息';
                                 <div class="progress-extended"> &nbsp; </div>
                             </div>
                         </div>
+
                         <!-- The table listing the files available for upload/download -->
                         <table role="presentation" class="table table-striped clearfix table-image">
                             <tbody class="files"> </tbody>
                         </table>
                     </div>
-
+                    <div class="col-md-12 b-u-img-div" style="display: none;">
+                        <div class="form-group">
+                            <label for="mark" class="control-label col-sm-2">餐厅照片</label>
+                            <div class="col-md-10">
+                                <img src="" alt="餐厅图片" class="img-rounded" id="hotel_photo" height="120px;" width="100px;">
+                                <a class="btn red b-u-delete"><span>删除图片</span></a>
+                            </div>
+                        </div>
+                    </div>
 
                     <!--上传图片结束-->
 
@@ -276,39 +286,6 @@ $this->params['title_sub'] = '管理用户账号信息';
                             </tr> {% } %} </script>
 
 
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
-
-<div class="modal fade" id="ruleModal" tabindex="-1" role="dialog" aria-labelledby="ruleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                <h4 class="modal-title">用户授权</h4>
-            </div>
-            <div class="modal-body">
-                <form id="authForm" role="form" data-toggle="validator" class="form-horizontal">
-                    <input type="hidden" name="<?= Yii::$app->getRequest()->csrfParam; ?>" value="<?= Yii::$app->getRequest()->getCsrfToken(); ?>">
-                    <input type="hidden" name="user_id" id="auth_user_id">
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label for="user_param" class="control-label col-sm-3" style="padding-top: 0;">用户组</label>
-                            <div class="mt-radio-list col-sm-9">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-sm-12 col-md-12 text-center">
-                            <button type="button" class="btn default" data-dismiss="modal">关闭</button>
-                            <button type="submit" class="btn green" id="btn-auth-save">保存</button>
-                        </div>
-                    </div>
-                </form>
             </div>
         </div>
     </div>

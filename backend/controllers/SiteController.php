@@ -6,6 +6,8 @@ use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use common\models\LoginForm;
 use common\models\User;
+use common\models\Restaurant;
+
 
 /**
  * Site controller
@@ -26,7 +28,7 @@ class SiteController extends BaseController
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['logout', 'index', 'check_user', 'check_role'],
+                        'actions' => ['logout', 'index', 'check_user', 'check_role', 'check_hotel'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -181,7 +183,15 @@ class SiteController extends BaseController
         } else return json_encode(['state' => 1]);
     }
 
+    public function actionCheck_hotel() {
 
+        $hotelname = Yii::$app->request->getQueryParam('name');
+        $re = Restaurant::find()->where(['name' => $hotelname])->exists();
+        Yii::$app->response->statusCode = 200;
+        if ($re) {
+            return json_encode(['state' => 0]);
+        } else return json_encode(['state' => 1]);
+    }
 
 
 

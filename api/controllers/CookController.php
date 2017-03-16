@@ -11,6 +11,7 @@ namespace api\controllers;
 use yii\db\Query;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Url;
+use common\models\Restaurant;
 use Yii;
 
 class CookController extends BaseController {
@@ -50,8 +51,52 @@ class CookController extends BaseController {
 
     public function actionHotel_add() {
 
+        $data = Yii::$app->request->post();
+        $model = new Restaurant();
 
+        if (empty($data['id'])) { // 新增
+            unset($data['access-token'], $data['_csrf-backend']);
+            $data['photo'] = $data['hotel_photo'];
+            $model->load($data);
+            if ($model->load($data) && $model->save()) {
+                return ['success' => 1, 'message' => '添加成功！', 'data' => []];
+            } else return ['success' => 0, 'message' => '添加失败！', 'data' => []];
+        } else { // 修改
+            $menu = Menu::findOne((int)$data['id']);
+            if (!empty($menu)) {
+                unset($data['id'], $data['backend'], $data['access-token']);
+                $data['photo'] = $data['hotel_photo'];
+                if ($menu->load($data) && $menu->update()) {
+                    return ['success' => 1, 'message' => '更新成功！', 'data' => []];
+                } else return ['success' => 0, 'message' => '更新失败！', 'data' => []];
+            }
+        }
     }
+
+    public function actionHotel_del () {
+
+        $id = Yii::$app->getRequest()->post('id');
+        if (empty($id)) return ['success' => 0, 'message' => '缺少菜单ID参数！', 'data' => []];
+
+        if (is_array($id)) {
+            if (Restaurant::deleteAll(['in', 'id', $id])) {
+                return ['success' => 1, 'message' => '批量删除成功！', 'data' => []];
+            } else return ['success' => 0, 'message' => '批量删除失败！', 'data' => []];
+        }else {
+            if (Restaurant::findOne($id)->delete()) {
+                return ['success' => 1, 'message' => '删除成功！', 'data' => []];
+            } else return ['success' => 0, 'message' => '删除失败！', 'data' => []];
+        }
+    }
+
+    public function actionHotel_get() {
+
+        $id = Yii::$app->getRequest()->post('id');
+        if (empty($id)) return ['success' => 0, 'message' => '查询失败！', 'data' => []];
+        $data = (new Restaurant())->find()->where(['id' => (int)$id])->asArray()->one();
+        return parent::re_format($data);
+    }
+
 
 
 
