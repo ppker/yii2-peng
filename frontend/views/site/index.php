@@ -76,6 +76,14 @@ $this->params['title_sub'] = '点餐';
                     <div class="portlet-body">
                         <div class="mt-element-card mt-element-overlay">
                             <div class="row">
+                                <?php if (empty($data)) {
+                                    foreach ($data as $key => $vlaue) {
+                                        echo $this->render('_item', ['model' => $vlaue]);
+                                    }
+                                } else {
+                                    echo \Yii::t('app', '此处没有数据');
+                                } ?>
+
                                 <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                                     <div class="mt-card-item">
                                         <div class="mt-card-avatar mt-overlay-1">

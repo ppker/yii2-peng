@@ -12,6 +12,7 @@ use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
+use common\models\Restaurant;
 
 /**
  * Site controller
@@ -72,7 +73,8 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $data = Restaurant::find()->where(['status' => 0])->asArray()->all();
+        return $this->render('index', ['data' => $data]);
     }
 
     /**

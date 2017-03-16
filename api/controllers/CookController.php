@@ -62,11 +62,11 @@ class CookController extends BaseController {
                 return ['success' => 1, 'message' => '添加成功！', 'data' => []];
             } else return ['success' => 0, 'message' => '添加失败！', 'data' => []];
         } else { // 修改
-            $menu = Menu::findOne((int)$data['id']);
-            if (!empty($menu)) {
-                unset($data['id'], $data['backend'], $data['access-token']);
+            $hotel = Restaurant::findOne((int)$data['id']);
+            if (!empty($hotel)) {
+                unset($hotel['id'], $data['backend'], $data['access-token']);
                 $data['photo'] = $data['hotel_photo'];
-                if ($menu->load($data) && $menu->update()) {
+                if ($hotel->load($data) && $hotel->update()) {
                     return ['success' => 1, 'message' => '更新成功！', 'data' => []];
                 } else return ['success' => 0, 'message' => '更新失败！', 'data' => []];
             }

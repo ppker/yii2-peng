@@ -92,9 +92,8 @@ window.PAGE_ACTION = function() {
                     data: {id: $id},
                     successCallBack: function(result){
 
-
                         $("#addModal h4.modal-title").text('编辑餐厅');
-                        $("#addModal input[name='name']").val(result.data.name).after("<input type='hidden' name='id' value=" + $id + ">");
+                        $("#addModal input[name='name']").val(result.data.name).after("<input type='hidden' name='id' value=" + $id + ">").removeAttr('data-remote data-remote-error');
                         $("#addModal input[name='phone']").val(result.data.phone);
                         $("#addModal input[name='open_time']").val(result.data.open_time);
                         $("#addModal input[name='close_time']").val(result.data.close_time);
