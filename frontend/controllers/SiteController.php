@@ -73,7 +73,7 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $data = Restaurant::find()->where(['status' => 0])->asArray()->all();
+        $data = Restaurant::find()->where(['status' => 0])->all();
         return $this->render('index', ['data' => $data]);
     }
 

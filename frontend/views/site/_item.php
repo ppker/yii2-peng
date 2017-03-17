@@ -6,51 +6,58 @@
  * Project: Cat Visual
  */
 
-use Yii;
 use yii\helpers\Html;
-
+use yii\helpers\Url;
 ?>
 <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
     <div class="mt-card-item">
         <div class="mt-card-avatar mt-overlay-1">
-            <img src="<?= Yii::getAlias('@web/static/images/team2.jpg');?>" />
-            <div class="mt-overlay">
-                <ul class="mt-info">
-                    <li>
-                        <a class="btn default btn-outline" href="javascript:;">
-                            <i class="icon-magnifier"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="btn default btn-outline" href="javascript:;">
-                            <i class="icon-link"></i>
-                        </a>
-                    </li>
-                </ul>
-            </div>
+            <a href="<?= Url::to(['dishes/list', 'id' => $model->id]) ?>" class=""><img src="<?= Yii::getAlias('@web/images/' . $model->photo);?>" /></a>
         </div>
         <div class="mt-card-content">
-            <h3 class="mt-card-name">Mark Anthony</h3>
-            <p class="mt-card-desc font-grey-mint">Managing Director</p>
+            <h3 class="mt-card-name"><?= Html::encode($model->name); ?></h3>
+            <div class="hotel-star">
+                <span class="star-ranking clearfix">
+                    <!-- 5颗星60px长度，算此时星级的长度 -->
+                    <span class="star-score" style="width: 69px"></span>
+                </span>
+                <span class="score-num fl">4.7分</span>
+                <span class="total cc-lightred-new fr">月售200单</span>
+            </div>
+
             <div class="mt-card-social">
+                <?php
+                    $like = Html::a(
+                        Html::tag('i', '', ['class' => 'fa fa-thumbs-o-up']) . ' ' . Html::tag('span', $model->zan) . ' 个赞',
+                        '#',
+                        [
+                            'data-do' => 'zan',
+                            'data-id' => $model->id,
+                            // 'data-type' => $model->type,
+                            'class' => ($model->zan) ? 'active' : ''
+                        ]
+                    );
+                    $hate = Html::a(
+                        Html::tag('i', '', ['class' => 'fa fa-thumbs-o-down']) . ' ' . Html::tag('span', $model->hate) . ' 个踩',
+                        '#',
+                        [
+                            'data-do' => 'hate',
+                            'data-id' => $model->id,
+                            // 'data-type' => $model->type,
+                            'class' => ($model->hate) ? 'active' : ''
+                        ]
+                    );
+                ?>
                 <ul>
                     <li>
-                        <a href="javascript:;">
-                            <i class="icon-social-facebook"></i>
-                        </a>
+                        <?= $like; ?>
                     </li>
                     <li>
-                        <a href="javascript:;">
-                            <i class="icon-social-twitter"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="javascript:;">
-                            <i class="icon-social-dribbble"></i>
-                        </a>
+                        <?= $hate; ?>
                     </li>
                 </ul>
             </div>
+            <p class="mt-card-desc font-grey-mint"><?= Html::encode($model->address); ?></p>
         </div>
     </div>
 </div>

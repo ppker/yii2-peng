@@ -238,6 +238,15 @@
         return ajax(options);
     };
 
+    /**
+	 * dish_index
+     */
+    self.dish_index = function(options) {
+        options = options ? options : {};
+        options.url = "/api/web/dish/index";
+        return ajax(options);
+    };
+
 
 
 })(ZP, jQuery);

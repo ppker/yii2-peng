@@ -8,8 +8,8 @@
 
 use yii\helpers\Url;
 
-$this->title = '用户账号';
-$this->params['title_sub'] = '管理用户账号信息';
+$this->title = '点餐';
+$this->params['title_sub'] = '餐厅设置';
 
 // 加载页面级资源
 \backend\assets\UploadAsset::register($this);

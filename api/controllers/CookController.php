@@ -22,6 +22,7 @@ class CookController extends BaseController {
 
         $list = (new Query())->select("*")->from('restaurant')->where("status = :status", [":status" => parent::OK_STATUS])
         ->orderBy(['id' => SORT_DESC])->all();
+
         if (!empty($list) && is_array($list)) {
             foreach ($list as &$v) {
                 $v['status'] = $this->hotel_status[$v['status']];
