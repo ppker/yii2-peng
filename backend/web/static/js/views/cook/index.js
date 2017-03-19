@@ -58,7 +58,7 @@ window.PAGE_ACTION = function() {
                         });
                         // 全选
                         ZP.utils.init_page_module();
-                        ZP.utils.btn_all_del('User_del');
+                        ZP.utils.btn_all_del('hotel_del');
                         btn_add(); // 弹出模态框
                         btn_submit(); // 绑定提交的表单
                         btn_del();
@@ -92,6 +92,7 @@ window.PAGE_ACTION = function() {
                         $("#addModal h4.modal-title").text('编辑餐厅');
                         $("#addModal input[name='name']").val(result.data.name).after("<input type='hidden' name='id' value=" + $id + ">").removeAttr('data-remote data-remote-error');
                         $("#addModal input[name='phone']").val(result.data.phone);
+                        $("#addModal input[name='hate']").val(result.data.hate);
                         $("#addModal input[name='open_time']").val(result.data.open_time);
                         $("#addModal input[name='close_time']").val(result.data.close_time);
                         $("#addModal select#hotel_status").val(result.data.status);

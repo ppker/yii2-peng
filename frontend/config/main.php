@@ -41,7 +41,11 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                'dishes/<id:\d+>' => 'dishes/list'
             ],
+        ],
+        'errorHandler' => [
+            'errorAction' => 'site/error',
         ],
 
     ],

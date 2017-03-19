@@ -153,8 +153,8 @@ $this->params['title_sub'] = '管理菜单信息';
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label for="pid" class="control-label col-sm-4">上级菜单</label>
-                            <div class="col-sm-8">
+                            <label for="pid" class="control-label col-sm-2">上级菜单</label>
+                            <div class="col-sm-10">
                                 <select class="bs-select form-control" data-live-search="true"  name="pid" id="pid_id" data-size="8" required>
                                     
                                 </select>

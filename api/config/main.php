@@ -80,6 +80,10 @@ return [
                     'extraPatterns' => isset($params['api_rule_cook']) ? $params['api_rule_cook'] : [],
                     'pluralize' => false,
                 ],
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'dish',
+                    'extraPatterns' => isset($params['api_rule_dish']) ? $params['api_rule_dish'] : [],
+                    'pluralize' => false,
+                ],
             ],
         ],
         /*'urlManager' => [

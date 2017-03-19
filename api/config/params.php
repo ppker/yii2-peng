@@ -35,4 +35,13 @@ return [
         'GET,POST hotel_get' => 'hotel_get',
     ],
 
+    'api_rule_dish' => [
+        'GET,POST index' => 'index',
+        'GET,POST init_form' => 'init_form',
+        'GET,POST dish_get' => 'dish_get',
+        'GET,POST dish_add' => 'dish_add',
+        'GET,POST dish_del' => 'dish_del',
+    ],
+
+
 ];

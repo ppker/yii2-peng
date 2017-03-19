@@ -58,3 +58,7 @@ div .mt-card-social {
 .mt-element-card .mt-card-item .mt-card-content .mt-card-social>ul {
     margin-bottom: 4px;
 }
+
+.page-content {
+    padding: 0 0;
+}

@@ -56,9 +56,9 @@ class SiteController extends Controller
     public function actions()
     {
         return [
-            'error' => [
+            /*'error' => [
                 'class' => 'yii\web\ErrorAction',
-            ],
+            ],*/
             'captcha' => [
                 'class' => 'yii\captcha\CaptchaAction',
                 'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
@@ -73,7 +73,7 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $data = Restaurant::find()->where(['status' => 0])->all();
+        $data = Restaurant::find()->where(['status' => 1])->all();
         return $this->render('index', ['data' => $data]);
     }
 
@@ -109,6 +109,12 @@ class SiteController extends Controller
 
         return $this->goHome();
     }
+
+    public function actionError() {
+
+        return $this->render('404');
+    }
+
 
     /**
      * Displays contact page.

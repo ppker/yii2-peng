@@ -28,6 +28,7 @@ class CoreAsset extends AssetBundle {
         'global/plugins/bootstrap-sweetalert/sweetalert.css',
         'global/css/components-rounded.min.css', // 圆角组件样式
         'global/css/plugins.min.css',
+        'pages/css/error.min.css',
     ];
 
     public $js = [ // 全局js文件
