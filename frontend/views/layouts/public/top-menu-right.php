@@ -1,5 +1,19 @@
 <div class="top-menu">
     <ul class="nav navbar-nav pull-right">
+
+        <li class="">
+            <a href="javascript:;">
+                <i class="icon-user"></i>
+                <span class="badge badge-default">登录</span>
+            </a>
+        </li>
+
+        <li class="user-register">
+            <a href="javascript:;">
+                <i class="icon-users"></i>
+                <span class="badge badge-default">注册</span>
+            </a>
+        </li>
         <!-- BEGIN NOTIFICATION DROPDOWN -->
         <!-- DOC: Apply "dropdown-hoverable" class after "dropdown" and remove data-toggle="dropdown" data-hover="dropdown" data-close-others="true" attributes to enable hover dropdown mode -->
         <!-- DOC: Remove "dropdown-hoverable" and add data-toggle="dropdown" data-hover="dropdown" data-close-others="true" attributes to the below A element with dropdown-toggle class -->
@@ -288,6 +302,7 @@
                 </li>
             </ul>
         </li>
+
         <!-- END INBOX DROPDOWN -->
         <!-- BEGIN USER LOGIN DROPDOWN -->
         <li class="dropdown dropdown-user dropdown-dark">

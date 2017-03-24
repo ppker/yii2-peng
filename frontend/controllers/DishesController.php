@@ -25,7 +25,8 @@ class DishesController extends BaseController {
 
         if ("" == $id) $this->redirect("site/error");
         $hotel_info = Restaurant::findOne(['id' => $id, 'status' => 1]);
-
+        $dishes_info = CookBook::findAll(['res_id' => $id, 'status' => 1]);
+        return $this->render("dishes", ['hotel' => $hotel_info, 'dishes' => $dishes_info]);
     }
 
 }

@@ -13,6 +13,9 @@ class AppAsset extends AssetBundle
     public $css = [
     ];
     public $js = [
+        'extend/core/define.js',
+        'extend/core/utils.js',
+        '../../static/js/api.js',
     ];
     public $depends = [
         'frontend\assets\IeAsset',

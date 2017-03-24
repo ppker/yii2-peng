@@ -41,5 +41,12 @@ class EndAsset extends AssetBundle{
     ];
 
 
+    public static function addScript($view, $jsfile) {
 
+        $view->registerJsFile($jsfile, [AppAsset::className(), 'depends' => 'frontend\assets\EndAsset']);
+    }
+    public static function addCss($view, $cssfile) {
+
+        $view->registerCssFile($cssfile, [AppAsset::className(), 'depends' => 'frontend\assets\EndAsset']);
+    }
 }

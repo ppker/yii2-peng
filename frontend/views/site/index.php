@@ -1,8 +1,12 @@
 <?php
 
 use yii\helpers\Html;
+use frontend\assets\EndAsset;
+
 $this->title = '点餐首页';
 $this->params['title_sub'] = '点餐';
+
+EndAsset::addScript($this, Yii::getAlias("@web/static/js/views/site/index.js"));
 ?>
 
 <div class="c-layout-page">
@@ -94,39 +98,18 @@ $this->params['title_sub'] = '点餐';
     </div>
 </div>
 
-<?php $this->beginBlock('index'); ?>
-$(document).ready(function() {
-    App.init(); // init core
 
-    // init main slider
-    var slider = $('.c-layout-revo-slider .tp-banner');
-    var cont = $('.c-layout-revo-slider .tp-banner-container');
-    var api = slider.show().revolution({
-        delay: 15000,
-        startwidth:1170,
-        startheight: (App.getViewPort().width < App.getBreakpoint('md') ? 1024 : 620),
-        navigationType: "hide",
-        navigationArrows: "solo",
-        touchenabled: "on",
-        onHoverStop: "on",
-        keyboardNavigation: "off",
-        navigationStyle: "circle",
-        navigationHAlign: "center",
-        navigationVAlign: "center",
-        fullScreenAlignForce:"off",
-        shadow: 0,
-        fullWidth: "on",
-        fullScreen: "off",
-        spinner: "spinner2",
-        forceFullWidth: "on",
-        hideTimerBar:"on",
-        hideThumbsOnMobile: "on",
-        hideNavDelayOnMobile: 1500,
-        hideBulletsOnMobile: "on",
-        hideArrowsOnMobile: "on",
-        hideThumbsUnderResolution: 0,
-        videoJsPath: "rs-plugin/videojs/",
-    });
-});
-<?php $this->endBlock(); ?>
-<?php $this->registerJs($this->blocks['index'], \yii\web\View::POS_END); ?>
+<!--模态框-->
+<div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">用户注册</h4>
+            </div>
+            <div class="modal-body">
+
+            </div>
+        </div>
+    </div>
+</div>

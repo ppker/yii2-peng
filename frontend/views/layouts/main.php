@@ -144,7 +144,9 @@ $this->beginPage();
 <?php $this->endBody() ?>
 </body>
 
-
+<script type="text/javascript">
+    (window.PAGE_ACTION && $(window).ready(window.PAGE_ACTION().init));
+</script>
 
 </html>
 <?php $this->endPage() ?>
