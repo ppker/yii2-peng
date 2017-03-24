@@ -8,7 +8,8 @@ window.PAGE_ACTION = function() {
     "use strict";
 
     var init_first = null, // 默认条件页面
-        btn_submit = null;
+        user_register = null,
+        user_login = null;
 
     init_first = function() {
         $(function() {
@@ -45,9 +46,29 @@ window.PAGE_ACTION = function() {
         })
     };
 
+    user_register = function() {
+
+        $("li.user-register").on("click", function(e) {
+            $("#registerModal").modal('show');
+            // e.preventDefault();
+        });
+    };
+
+    user_login = function() {
+
+        $("li.user-login").on("click", function(e) {
+            $("#loginModal").modal('show');
+            // e.preventDefault();
+        });
+    };
+
+
+
     return {
         init: function (){
             init_first();
+            user_register(); // 用户注册
+            user_login(); // 用户登录
         }
     };
 }

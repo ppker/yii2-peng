@@ -188,3 +188,7 @@ button#clear {
     right: 26px;
     bottom: 5px;
 }
+
+div#loginModal div.checkbox label {
+    padding-left: 24px;
+}

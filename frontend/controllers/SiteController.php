@@ -7,6 +7,7 @@ use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
+use yii\web\Response;
 use common\models\LoginForm;
 use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
@@ -35,7 +36,7 @@ class SiteController extends Controller
                         'roles' => ['?'],
                     ],
                     [
-                        'actions' => ['logout', 'check_user', 'check_role'],
+                        'actions' => ['logout', 'check_user', 'check_role', 'index'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -71,10 +72,12 @@ class SiteController extends Controller
      *
      * @return mixed
      */
-    public function actionIndex()
-    {
+    public function actionIndex() {
+
+        $model = new SignupForm();
+        $login_model = new LoginForm();
         $data = Restaurant::find()->where(['status' => 1])->all();
-        return $this->render('index', ['data' => $data]);
+        return $this->render('index', ['data' => $data, 'model' => $model, 'login_model' => $login_model]);
     }
 
     /**
@@ -91,11 +94,11 @@ class SiteController extends Controller
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->goBack();
-        } else {
+        } /*else {
             return $this->render('login', [
                 'model' => $model,
             ]);
-        }
+        }*/
     }
 
     /**
@@ -103,10 +106,9 @@ class SiteController extends Controller
      *
      * @return mixed
      */
-    public function actionLogout()
-    {
-        Yii::$app->user->logout();
+    public function actionLogout() {
 
+        Yii::$app->user->logout();
         return $this->goHome();
     }
 
@@ -156,7 +158,9 @@ class SiteController extends Controller
      */
     public function actionSignup()
     {
+
         $model = new SignupForm();
+        $this->performAjaxValidation($model);
         if ($model->load(Yii::$app->request->post())) {
 
             if ($user = $model->signup()) {
@@ -166,10 +170,25 @@ class SiteController extends Controller
             }
         }
 
-        return $this->render('signup', [
+        /*return $this->render('signup', [
             'model' => $model,
-        ]);
+        ]);*/
     }
+
+
+    /**
+     * @param $model
+     * @throws \yii\base\ExitException
+     */
+    protected function performAjaxValidation($model) {
+
+        if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post())) {
+            Yii::$app->response->format = Response::FORMAT_JSON;
+            echo json_encode(\yii\widgets\ActiveForm::validate($model));
+            Yii::$app->end();
+        }
+    }
+
 
     /**
      * Requests password reset.
