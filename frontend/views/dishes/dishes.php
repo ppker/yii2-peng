@@ -8,7 +8,9 @@
 
 use yii\helpers\Html;
 use yii\helpers\Url;
-\frontend\assets\FlyAsset::register($this);
+use frontend\assets\EndAsset;
+
+EndAsset::addScript($this, Yii::getAlias("@web/static/js/views/dishes/list.js"));
 ?>
 
 <div class="container" style="padding: 20px 0;">
@@ -102,7 +104,7 @@ use yii\helpers\Url;
 
                                     <?php if (!empty($dishes)) {
                                         foreach ($dishes as $key => $value) {
-                                            echo $this->render('_item', ['model' => $value]);
+                                            echo $this->render('_item', ['model' => $value, 'hotel_id' => $hotel->id]);
                                         }
                                     } else {
                                         echo \Yii::t('app', '此处没有数据');
@@ -191,81 +193,3 @@ use yii\helpers\Url;
         </div>
     </div>
 </div>
-
-<?php $this->beginBlock("fly"); ?>
-$(function() {
-    $("div.buy a.buy_car").on("click", function() {
-        var in_car = $("button#qxd");
-        var imgtodrag = $(this).parent().parent().siblings().find("img").eq(0);
-        if (imgtodrag) {
-            var imgclone = imgtodrag.clone().offset({
-                top: imgtodrag.offset().top,
-                left: imgtodrag.offset().left
-            }).css({
-                'opacity': '0.5',
-                'position': 'absolute',
-                'height': '50px',
-                'width': '60px',
-                'z-index': '100'
-            }).appendTo($('body')).animate({
-                'top': in_car.offset().top + 10,
-                'left': in_car.offset().left + 10,
-                'width': 75,
-                'height': 75
-            }, 1000, 'easeInOutExpo');
-            setTimeout(function () {
-                in_car.effect('shake', { times: 2 }, 200);
-            }, 1500);
-            imgclone.animate({
-                'width': 0,
-                'height': 0
-            }, function () {
-                $(this).detach();
-            });
-        }
-    });
-
-    // 减去
-    $("span.item-minus").on("click", function() {
-        var input = $(this).next("input.item-count");
-        var num = input.val();
-        var total_num_f = $("span#total_num_f").text() - 0;
-        total_num_f --;
-        if (total_num_f < 0) total_num_f = 0;
-        num --;
-        if (0 == num) {
-            input.parent().parent().remove();
-        } else {
-            input.val(num);
-        }
-        $("span#total_num_f").text(total_num_f);
-        // 单价
-        var this_price =  $(this).parent().next().find("span.this_price").text() - 0;
-        // 总价
-        var all_price = $("span#total_price_f").text() - 0;
-        var end_money = all_price - this_price;
-        if (end_money <= 0) end_money = 0;
-        $("span#total_price_f").text(end_money);
-    });
-
-    // 加上
-    $("span.item-plus").on("click", function() {
-        var input = $(this).prev("input.item-count");
-        var num = input.val();
-        var total_num_f = $("span#total_num_f").text() - 0;
-        total_num_f ++;
-        num ++;
-        input.val(num);
-        $("span#total_num_f").text(total_num_f);
-        // 单价
-        var this_price =  $(this).parent().next().find("span.this_price").text() - 0;
-        // 总价
-        var all_price = $("span#total_price_f").text() - 0;
-        var end_money = all_price + this_price;
-        $("span#total_price_f").text(end_money);
-    });
-
-
-});
-<?php $this->endBlock(); ?>
-<?php $this->registerJs($this->blocks['fly'], \yii\web\View::POS_END); ?>

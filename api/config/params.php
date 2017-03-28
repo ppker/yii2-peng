@@ -43,5 +43,9 @@ return [
         'GET,POST dish_del' => 'dish_del',
     ],
 
+    'api_rule_frontend' => [
+        'GET,POST add_shoppingcar' => 'add_shoppingcar',
+    ],
+
 
 ];

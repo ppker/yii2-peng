@@ -70,14 +70,12 @@
 
 	///////////////////////////////////////////////////////////////////////
 
-    // 用户账号信息
-	self.user_index = function(options) {
+	// add_shopping_car
+    self.add_shopping_car = function(options) {
         options = options ? options : {};
-        options.url = "/api/web/user/index";
+        options.url = "/api/web/frontend/add_shoppingcar";
         return ajax(options);
-	};
-
-
+    };
 
 
 })(ZP, jQuery);

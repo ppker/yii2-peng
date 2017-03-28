@@ -33,7 +33,8 @@ class EndAsset extends AssetBundle{
         "layouts/layout3/scripts/layout.min.js",
         "layouts/layout3/scripts/demo.min.js",
         "layouts/global/scripts/quick-sidebar.min.js",
-        "layouts/global/scripts/quick-nav.min.js"
+        "layouts/global/scripts/quick-nav.min.js",
+        'extend/plugins/fly/jquery.ui.js',
 
     ];
     public $depends = [

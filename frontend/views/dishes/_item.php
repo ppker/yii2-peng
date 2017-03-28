@@ -60,7 +60,7 @@ use yii\helpers\Url;
             </div>
             <div class="buy clearfix">
                 <span class="label label-info" style="margin-left: 14px;">¥<?= Html::encode($model->price); ?>/份</span>
-                <a class="btn btn-danger btn-sm pull-right buy_car" style="margin-top: -6px;margin-right: 14px;" href="javascript:;">购买</a>
+                <a class="btn btn-danger btn-sm pull-right buy_car" data-hotel="<?= $hotel_id; ?>" data-dish="<?= $model->id;?>" style="margin-top: -6px;margin-right: 14px;" href="javascript:;">购买</a>
             </div>
         </div>
     </div>

@@ -77,8 +77,8 @@ create table if not exists `restaurant` (
 
 
 
-CREATE TABLE `shopping_car` (
-`id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+/*CREATE TABLE `shopping_car` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int(11) unsigned NOT NULL COMMENT '用户id',
   `hotel_id` int(11) unsigned NOT NULL COMMENT '餐厅id',
   `dish_id` int(11) unsigned NOT NULL COMMENT '菜肴id',
@@ -89,11 +89,11 @@ CREATE TABLE `shopping_car` (
   KEY `user_id` (`user_id`),
   KEY `hotel_id` (`hotel_id`),
   KEY `dish_id` (`dish_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='购物车表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='购物车表';*/
 
 
-CREATE TABLE `user_order` (
-`id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+/*CREATE TABLE `user_order` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int(11) unsigned NOT NULL COMMENT '用户id',
   `hotel_id` int(11) unsigned NOT NULL COMMENT '餐厅id',
   `dish_id` int(11) unsigned NOT NULL COMMENT '菜肴id',
@@ -104,5 +104,5 @@ CREATE TABLE `user_order` (
   KEY `user_id` (`user_id`),
   KEY `hotel_id` (`hotel_id`),
   KEY `dish_id` (`dish_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户订单表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户订单表';*/
 

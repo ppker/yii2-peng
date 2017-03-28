@@ -93,6 +93,10 @@ class SiteController extends Controller
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
+
+            $username = Yii::$app->session->has('username');
+            if ($username) Yii::$app->session->remove('username');
+            else Yii::$app->session->set('username', Yii::$app->request->post('LoginForm')['username']);
             return $this->goBack();
         } /*else {
             return $this->render('login', [
