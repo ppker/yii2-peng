@@ -139,35 +139,12 @@ EndAsset::addScript($this, Yii::getAlias("@web/static/js/views/dishes/list.js"))
                                                             <th>价格</th>
                                                         </tr>
                                                     </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>招牌腐竹</td>
-                                                            <td class="item-count clearfix">
-                                                                <span class="item-minus"  type="button"></span><input class="item-count" disabled type="input" value="3"><span class="item-plus" type="button"></span>
-                                                            </td>
+                                                    <tbody class="shopping_car_tbody">
 
-                                                            <td>¥<span class="this_price">10</span></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>招牌腐竹</td>
-                                                            <td class="item-count clearfix">
-                                                                <span class="item-minus"  type="button"></span><input class="item-count" disabled type="input" value="3"><span class="item-plus" type="button"></span>
-                                                            </td>
-
-                                                            <td>¥<span class="this_price">10</span></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>招牌腐竹</td>
-                                                            <td class="item-count clearfix">
-                                                                <span class="item-minus"  type="button"></span><input class="item-count" disabled type="input" value="3"><span class="item-plus" type="button"></span>
-                                                            </td>
-
-                                                            <td>¥<span class="this_price">10</span></td>
-                                                        </tr>
                                                         <tr class="success">
                                                             <td>合计</td>
-                                                            <td><span id="total_num_f">5</span>份</td>
-                                                            <td>¥<span id="total_price_f">1000</span></td>
+                                                            <td><span id="total_num_f">0</span>份</td>
+                                                            <td>¥<span id="total_price_f">0</span></td>
                                                         </tr>
                                                     </tbody>
                                                 </table>

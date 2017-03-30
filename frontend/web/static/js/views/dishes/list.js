@@ -37,15 +37,30 @@ window.PAGE_ACTION = function() {
                     }, 1500);
 
                     // 添加订单
+                    console.log($(this).data());
                     ZP.api.add_shopping_car({
                         data: $(this).data(),
                         successCallBack: function(result){
-
+                            // 新增的订单dom
+                            console.log(result.data);
+                            if ([] != result.data && "" != result.data) {
+                                if (1 == result.data.num) {
+                                    console.log(result.data.num);
+                                    var tmp = "<tr><td>" +  result.data.name  + "</td>" +
+                                        "<td class='item-count clearfix'>" +
+                                        '<span class="item-minus" data-dish_id="' + result.data.dish_id  +  '" type="button"></span><input class="item-count" disabled type="input" value="' + result.data.num   + '"><span class="item-plus" type="button"></span>' +
+                                        "</td>" +
+                                        '<td>¥<span class="this_price">'+ result.data.price + '</span></td>' +
+                                        "</tr>";
+                                    $("tbody.shopping_car_tbody tr.success").before(tmp);
+                                } else if(1 < result.data.num){
+                                    var dish_id = result.data.dish_id;
+                                    $("tbody.shopping_car_tbody tr td span[data-dish_id='" + dish_id + "'").next().val(result.data.num);
+                                }
+                            }
                         },
                         failCallBack: ZP.utils.failCallBack
                     });
-
-
 
 
                     imgclone.animate({
