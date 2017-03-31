@@ -14,6 +14,7 @@ use yii\helpers\ArrayHelper;
 use yii\helpers\Url;
 use common\models\Restaurant;
 use common\models\ShoppingCar;
+use common\models\UserOrder;
 use common\models\User;
 use Yii;
 
@@ -52,4 +53,61 @@ class FrontendController extends BaseController {
 
 
     }
+
+    public function actionMinus_shopping_car() {
+
+        $data = Yii::$app->getRequest()->post();
+        $user = User::findByUsername($data['access-token']);
+        if (!$user || empty($data) || empty($data['dish_id'])) return ['success' => 0, 'message' => '抱歉，数据异常', 'data' => []];
+        $shoppingcar = ShoppingCar::findOne(['user_id' => $user->id, 'dish_id' => $data['dish_id']]);
+        if ($shoppingcar->updateCounters(['num' => -1])) {
+            return ['success' => 1, 'message' => '删除成功！', 'data' => $data['dish_id']];
+        } else return ['success' => 0, 'message' => '删除失败！', 'data' => []];
+    }
+
+    public function actionPlus_shopping_car() {
+
+        $data = Yii::$app->getRequest()->post();
+        $user = User::findByUsername($data['access-token']);
+        if (!$user || empty($data) || empty($data['dish_id'])) return ['success' => 0, 'message' => '抱歉，数据异常', 'data' => []];
+        $shoppingcar = ShoppingCar::findOne(['user_id' => $user->id, 'dish_id' => $data['dish_id']]);
+        if ($shoppingcar->updateCounters(['num' => 1])) {
+            return ['success' => 1, 'message' => '添加成功！', 'data' => $data['dish_id']];
+        } else return ['success' => 0, 'message' => '添加失败！', 'data' => []];
+    }
+
+    public function actionClear_shopping_car() {
+
+        $data = Yii::$app->getRequest()->post();
+        $user = User::findByUsername($data['access-token']);
+        if (!$user || empty($data) || empty($data['access-token'])) return ['success' => 0, 'message' => '抱歉，数据异常', 'data' => []];
+        if (ShoppingCar::deleteAll(['user_id' => $user->id])) {
+            return ['success' => 1, 'message' => '清空购物车成功！', 'data' => true];
+        } else return ['success' => 0, 'message' => '清空购物车失败！', 'data' => false];
+
+    }
+
+    public function actionQxd_shopping_car() {
+
+        $data = Yii::$app->getRequest()->post();
+        $user = User::findByUsername($data['access-token']);
+        if (!$user || empty($data) || empty($data['access-token'])) return ['success' => 0, 'message' => '抱歉，数据异常', 'data' => []];
+        $car = ShoppingCar::find()->where(['user_id' => $user->id])->andWhere([">", "num", "0"])->asArray()->all();
+
+        if (!empty($car) && count($car)) {
+            $insert_data = [];
+            foreach($car as $v) {
+                $insert_data[] = [$v['user_id'], $v['hotel_id'], $v['dish_id'], $v['num'], time(), time()];
+            }
+
+            $re = Yii::$app->db->createCommand()->batchInsert(UserOrder::tableName(), ['user_id', 'hotel_id', 'dish_id', 'num', 'created_at', 'updated_at'], $insert_data)->execute();
+            if ($re) {
+                ShoppingCar::deleteAll(['user_id' => $user->id]);
+                return ['success' => 1, 'message' => '下单成功。', 'data' => []];
+            } else return ['success' => 0, 'message' => '抱歉，下单失败。', 'data' => []];
+        } else return ['success' => 0, 'message' => '抱歉，购物车是空的', 'data' => false];
+    }
+
+
+
 }

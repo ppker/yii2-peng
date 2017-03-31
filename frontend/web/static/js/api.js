@@ -70,10 +70,48 @@
 
 	///////////////////////////////////////////////////////////////////////
 
-	// add_shopping_car
+	/**
+	 * add_shopping_car
+     */
     self.add_shopping_car = function(options) {
         options = options ? options : {};
         options.url = "/api/web/frontend/add_shoppingcar";
+        return ajax(options);
+    };
+
+	/**
+	 * minus_shopping_car
+	 */
+	self.minus_shopping_car = function(options) {
+		options = options ? options : {};
+		options.url = "/api/web/frontend/minus_shopping_car";
+		return ajax(options);
+	};
+
+    /**
+     * plus_shopping_car
+     */
+    self.plus_shopping_car = function(options) {
+        options = options ? options : {};
+        options.url = "/api/web/frontend/plus_shopping_car";
+        return ajax(options);
+    };
+
+    /**
+     * clear_shopping_car
+     */
+    self.clear_shopping_car = function(options) {
+        options = options ? options : {};
+        options.url = "/api/web/frontend/clear_shopping_car";
+        return ajax(options);
+    };
+
+    /**
+     * qxd_shopping_car
+     */
+    self.qxd_shopping_car = function(options) {
+        options = options ? options : {};
+        options.url = "/api/web/frontend/qxd_shopping_car";
         return ajax(options);
     };
 

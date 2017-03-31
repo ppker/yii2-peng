@@ -140,11 +140,23 @@ EndAsset::addScript($this, Yii::getAlias("@web/static/js/views/dishes/list.js"))
                                                         </tr>
                                                     </thead>
                                                     <tbody class="shopping_car_tbody">
-
+                                                        <?php if (!empty($car_list)): ?>
+                                                            <?php foreach ($car_list as $k => $v): ?>
+                                                                <tr class="menu_dish">
+                                                                    <td><?= $v['name'] ?></td>
+                                                                    <td class="item-count clearfix">
+                                                                        <span class="item-minus" data-dish_id="<?= $v['dish_id'] ?>" type="button"></span>
+                                                                        <input class="item-count" disabled type="input" value="<?= $v['num'] ?>">
+                                                                        <span class="item-plus" data-dish_id="<?= $v['dish_id'] ?>" type="button"></span>
+                                                                    </td>
+                                                                    <td>¥<span class="this_price"><?= $v['price'] ?></span></td>
+                                                                </tr>
+                                                            <?php endforeach; ?>
+                                                        <?php endif; ?>
                                                         <tr class="success">
                                                             <td>合计</td>
-                                                            <td><span id="total_num_f">0</span>份</td>
-                                                            <td>¥<span id="total_price_f">0</span></td>
+                                                            <td><span id="total_num_f"><?= $car_total['car_total_num'] ?></span>份</td>
+                                                            <td>¥<span id="total_price_f"><?= $car_total['car_total_price'] ?></span></td>
                                                         </tr>
                                                     </tbody>
                                                 </table>

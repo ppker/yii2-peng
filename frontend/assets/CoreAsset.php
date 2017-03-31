@@ -19,7 +19,7 @@ class CoreAsset extends AssetBundle {
 
     public $css = [ // 全局css文件
         // 字体库
-        'global/css/google_font.css',
+        // 'global/css/google_font.css',
         'global/plugins/font-awesome/css/font-awesome.min.css',
         'global/plugins/simple-line-icons/simple-line-icons.min.css',
         // bootstrap

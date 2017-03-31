@@ -45,6 +45,10 @@ return [
 
     'api_rule_frontend' => [
         'GET,POST add_shoppingcar' => 'add_shoppingcar',
+        'GET,POST minus_shopping_car' => 'minus_shopping_car',
+        'GET,POST plus_shopping_car' => 'plus_shopping_car',
+        'GET,POST clear_shopping_car' => 'clear_shopping_car',
+        'GET,POST qxd_shopping_car' => 'qxd_shopping_car',
     ],
 
 
