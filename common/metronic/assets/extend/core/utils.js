@@ -1127,6 +1127,7 @@
      * 默认dataTable 添加按钮的监听添加表单
      */
     self.default_btn_add_submit = function(url_add) {
+
         var $form = null;
         $form = $("form#addForm");
         $form.submit(function(e){

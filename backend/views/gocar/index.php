@@ -86,7 +86,7 @@ $this->params['title_sub'] = '管理用户购物车信息';
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                <h4 class="modal-title">新增菜单</h4>
+                <h4 class="modal-title">新增购物车记录</h4>
             </div>
             <div class="modal-body">
                 <form id="addForm" role="form" data-toggle="validator" class="form-horizontal">
@@ -94,65 +94,36 @@ $this->params['title_sub'] = '管理用户购物车信息';
                     <input type="hidden" name="id" value="" >
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="title" class="control-label col-sm-3">名称</label>
+                            <label for="user_id" class="control-label col-sm-3">姓名</label>
                             <div class="col-sm-9">
-                                <input type="text" value="" placeholder="请输入菜单名" class="form-control" name="title" minlength="1" required />
+                                <select class="bs-select form-control" data-live-search="true"  name="user_id" id="select_user_id" data-size="8" required>
+
+                                </select>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="sort" class="control-label col-sm-3">排序</label>
+                            <label for="hotel_id" class="control-label col-sm-3">餐厅</label>
                             <div class="col-sm-9">
-                                <input type="text" value="" placeholder="请输入排序" class="form-control" name="sort" required />
+                                <select class="bs-select form-control" data-live-search="true"  name="hotel_id" id="select_hotel_id" data-size="8" required>
+
+                                </select>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="hide" class="control-label col-sm-3">隐藏</label>
-                            <div class="col-sm-9 text-center" style="margin-top: 7px;">
-                                <label class="mt-radio radio-inline">
-                                    <input type="radio" name="hide" value="0" checked />显示
-                                    <span></span>
-                                </label>
-                                <label class="mt-radio radio-inline">
-                                    <input type="radio" name="hide" value="1" />隐藏
-                                    <span></span>
-                                </label>
-                            </div>
-                        </div>
+
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="url" class="control-label col-sm-3">URL</label>
+                            <label for="dish_id" class="control-label col-sm-3">菜肴</label>
                             <div class="col-sm-9">
-                                <input type="text" value="" placeholder="请输入URL" class="form-control" name="url" required >
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="group" class="control-label col-sm-3">分组</label>
-                            <div class="col-sm-9">
-                                <input type="text" value="" placeholder="请输入分组" class="form-control" name="group" >
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="status" class="control-label col-sm-3">状态</label>
-                            <div class="col-sm-9 text-center" style="margin-top: 7px;">
-                                <label class="mt-radio radio-inline">
-                                    <input type="radio" name="status" value="1" checked />正常
-                                    <span></span>
-                                </label>
-                                <label class="mt-radio radio-inline">
-                                    <input type="radio" name="status" value="0" />禁用
-                                    <span></span>
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label for="pid" class="control-label col-sm-4">上级菜单</label>
-                            <div class="col-sm-8">
-                                <select class="bs-select form-control" data-live-search="true"  name="pid" id="pid_id" data-size="8" required>
+                                <select class="bs-select form-control" data-live-search="true"  name="dish_id" id="select_dish_id" data-size="8" required>
 
                                 </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="num" class="control-label col-sm-3">份数</label>
+                            <div class="col-sm-9">
+                                <input type="text" value="" placeholder="请输入份数" class="form-control" pattern="^[\d]{1,6}" data-error="请填写数字" name="num" required >
                             </div>
                         </div>
                     </div>
