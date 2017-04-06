@@ -3,7 +3,7 @@
  * Created by PhpStorm.
  * User: ZhiPeng
  * Github: https://github.com/ppker
- * Date: 2017/3/15
+ * Date: 2017/3/18
  */
 
 namespace common\models;
@@ -12,7 +12,7 @@ use Yii;
 use common\components\db\ActiveRecord;
 use yii\behaviors\TimestampBehavior;
 
-class Restaurant extends ActiveRecord {
+class CookBook extends ActiveRecord {
 
     public function behaviors() {
 
@@ -23,16 +23,15 @@ class Restaurant extends ActiveRecord {
 
     public static function tableName() {
 
-        return '{{%restaurant}}';
+        return '{{%cookbook}}';
     }
 
     public function rules() {
 
         return [
-            [['id', 'star', 'zan', 'hate', 'status', 'created_at', 'updated_at'], 'integer'],
-            [['open_time', 'close_time'], 'string', 'max' => 5],
-            [['address', 'photo', 'mark'], 'string', 'max' => 255],
-            [['name', 'phone'], 'string', 'max' => 60]
+            [['id', 'res_id', 'price', 'zan', 'hate', 'star', 'status', 'created_at', 'updated_at'], 'integer'],
+            [['mark', 'photo'], 'string', 'max' => 255],
+            [['name', 'photo'], 'string', 'max' => 60]
         ];
     }
 
@@ -40,19 +39,17 @@ class Restaurant extends ActiveRecord {
 
         return [
             'id' => 'ID',
+            'res_id' => 'Res_id',
             'name' => 'Name',
-            'address' => 'Address',
-            'phone' => 'Phone',
-            'star' => 'Star',
+            'price' => 'Price',
+            'mark' => 'Mark',
             'zan' => 'Zan',
             'hate' => 'Hate',
-            'photo' => 'photo',
-            'open_time' => 'open_time',
-            'close_time' => 'close_time',
-            'mark' => 'mark',
-            'status' => 'status',
-            'created_at' => 'created_at',
-            'updated_at' => 'updated_at'
+            'photo' => 'Photo',
+            'star' => 'Star',
+            'status' => 'Status',
+            'created_at' => 'Created_at',
+            'updated_at' => 'Updated_at'
         ];
     }
 

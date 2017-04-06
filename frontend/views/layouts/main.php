@@ -57,9 +57,9 @@ $this->beginPage();
                     <!-- BEGIN PAGE CONTENT BODY -->
                     <!-- BEGIN PAGE CONTENT BODY -->
                     <div class="page-content">
-                        <div class="container">
+                        <!--<div class="container">-->
                             <!-- BEGIN PAGE BREADCRUMBS -->
-                            <ul class="page-breadcrumb breadcrumb">
+                            <!--<ul class="page-breadcrumb breadcrumb">
                                 <li>
                                     <a href="index.html">Home</a>
                                     <i class="fa fa-circle"></i>
@@ -67,10 +67,10 @@ $this->beginPage();
                                 <li>
                                     <span>Dashboard</span>
                                 </li>
-                            </ul>
+                            </ul>-->
                             <!-- END PAGE BREADCRUMBS -->
                             <!-- BEGIN PAGE CONTENT INNER -->
-                        </div>
+                        <!--</div>-->
                         <?= $content ?>
 
                             <!-- END PAGE CONTENT INNER -->
@@ -144,7 +144,10 @@ $this->beginPage();
 <?php $this->endBody() ?>
 </body>
 
-
+<script type="text/javascript">
+    var g_username = "<?= Yii::$app->session->get('username') ?>";
+    (window.PAGE_ACTION && $(window).ready(window.PAGE_ACTION().init));
+</script>
 
 </html>
 <?php $this->endPage() ?>

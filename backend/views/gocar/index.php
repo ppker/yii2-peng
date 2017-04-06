@@ -10,7 +10,7 @@ use yii\widgets\ActiveForm;
 use \yii\helpers\Url;
 
 $this->title = '购物车管理';
-$this->params['title_sub'] = '管理菜单信息';
+$this->params['title_sub'] = '管理用户购物车信息';
 ?>
 
 <div class="row">
@@ -20,17 +20,17 @@ $this->params['title_sub'] = '管理菜单信息';
             <div class="portlet-title">
                 <div class="caption">
                     <i class="icon-settings font-green"></i>
-                    <span class="caption-subject font-green sbold uppercase">管理菜单信息</span>
+                    <span class="caption-subject font-green sbold uppercase">用户购物车管理</span>
                 </div>
                 <div class="actions">
                     <div class="btn-group btn-group-devided" data-toggle="buttons">
                         <a class="btn blue btn-outline btn-circle" href="javascript:;" id="btn_add">
                             <i class="fa fa-plus"></i>
-                            <span class="hidden-xs"> 新增菜单</span>
+                            <span class="hidden-xs"> 新增购物车订单</span>
                         </a>
                         <a class="btn red btn-outline btn-circle" href="javascript:;" actionrule="delete" id="btn_all_del">
                             <i class="fa fa-remove"></i>
-                            <span class="hidden-xs"> 删除菜单</span>
+                            <span class="hidden-xs"> 删除购物车记录</span>
                         </a>
                     </div>
 
@@ -61,11 +61,6 @@ $this->params['title_sub'] = '管理菜单信息';
                             <li>
                                 <a href="javascript:;" data-action="4" class="tool-action">
                                     <i class="icon-cloud-upload"></i> CSV</a>
-                            </li>
-                            <li class="divider"> </li>
-                            <li>
-                                <a href="javascript:;" data-action="5" class="tool-action">
-                                    <i class="icon-refresh"></i> 刷新</a>
                             </li>
                             </li>
                         </ul>
@@ -167,39 +162,6 @@ $this->params['title_sub'] = '管理菜单信息';
                         <div class="col-sm-12 col-md-12 text-center">
                             <button type="button" class="btn default" data-dismiss="modal">关闭</button>
                             <button type="submit" class="btn green" id="btn-save">添加</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
-
-<div class="modal fade" id="ruleModal" tabindex="-1" role="dialog" aria-labelledby="ruleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                <h4 class="modal-title">用户授权</h4>
-            </div>
-            <div class="modal-body">
-                <form id="authForm" role="form" data-toggle="validator" class="form-horizontal">
-                    <input type="hidden" name="<?= Yii::$app->getRequest()->csrfParam; ?>" value="<?= Yii::$app->getRequest()->getCsrfToken(); ?>">
-                    <input type="hidden" name="user_id" id="auth_user_id">
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label for="user_param" class="control-label col-sm-3" style="padding-top: 0;">用户组</label>
-                            <div class="mt-radio-list col-sm-9">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-sm-12 col-md-12 text-center">
-                            <button type="button" class="btn default" data-dismiss="modal">关闭</button>
-                            <button type="submit" class="btn green" id="btn-auth-save">保存</button>
                         </div>
                     </div>
                 </form>

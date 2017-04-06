@@ -247,6 +247,58 @@
         return ajax(options);
     };
 
+	/**
+	 * dish_del
+	 */
+	self.dish_del = function(options) {
+		options = options ? options : {};
+		options.url = "/api/web/dish/dish_del";
+		return ajax(options);
+	};
+
+    /**
+     * dish_add
+     */
+    self.dish_add = function(options) {
+        options = options ? options : {};
+        options.url = "/api/web/dish/dish_add";
+        return ajax(options);
+    };
+    /**
+     * dish_init_form
+     */
+    self.dish_init_form = function(options) {
+        options = options ? options : {};
+        options.url = "/api/web/dish/init_form";
+        return ajax(options);
+    };
+
+    /**
+     * dish_get
+     */
+    self.dish_get = function(options) {
+        options = options ? options : {};
+        options.url = "/api/web/dish/dish_get";
+        return ajax(options);
+    };
+
+    /**
+     * gocar_list
+     */
+    self.gocar_list = function(options) {
+        options = options ? options : {};
+        options.url = "/api/web/gocar/gocar_list";
+        return ajax(options);
+    };
+
+    /**
+     * gocar_add
+     */
+    self.gocar_add = function(options) {
+        options = options ? options : {};
+        options.url = "/api/web/gocar/gocar_add";
+        return ajax(options);
+    };
 
 
 })(ZP, jQuery);

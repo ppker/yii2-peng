@@ -1,3 +1,6 @@
+<?php
+use yii\helpers\Url;
+?>
 <!-- BEGIN HEADER SEARCH BOX -->
 <form class="search-form" action="page_general_search.html" method="GET">
     <div class="input-group">
@@ -16,27 +19,9 @@
 <div class="hor-menu">
     <ul class="nav navbar-nav">
         <li class="menu-dropdown classic-menu-dropdown active">
-            <a href="javascript:;"> Dashboard
+            <a href="<?= Url::home(); ?>"> 加班点餐
                 <span class="arrow"></span>
             </a>
-            <ul class="dropdown-menu pull-left">
-                <li class=" active">
-                    <a href="index.html" class="nav-link  active">
-                        <i class="icon-bar-chart"></i> Default Dashboard
-                        <span class="badge badge-success">1</span>
-                    </a>
-                </li>
-                <li class=" ">
-                    <a href="dashboard_2.html" class="nav-link  ">
-                        <i class="icon-bulb"></i> Dashboard 2 </a>
-                </li>
-                <li class=" ">
-                    <a href="dashboard_3.html" class="nav-link  ">
-                        <i class="icon-graph"></i> Dashboard 3
-                        <span class="badge badge-danger">3</span>
-                    </a>
-                </li>
-            </ul>
         </li>
         <li class="menu-dropdown mega-menu-dropdown  ">
             <a href="javascript:;"> UI Features

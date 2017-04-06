@@ -16,8 +16,8 @@ use Yii;
 
 class BaseController extends ActiveController {
 
-    const OK_STATUS = 0;
-    const NO_STATUS = 1;
+    const OK_STATUS = 1;
+    const NO_STATUS = 0;
 
     public $modelClass = 'common\models\User';
 
@@ -78,7 +78,7 @@ class BaseController extends ActiveController {
 
         if ('json' == $type) {
             if (!empty($data)) return ['success' => 1, 'message' => $message[0], 'data' => $data];
-            else return ['success' => 0, 'message' => $message[1], 'data' => []];
+            else return ['success' => 1, 'message' => $message[1], 'data' => []];
         }
     }
 

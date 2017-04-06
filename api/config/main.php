@@ -80,6 +80,19 @@ return [
                     'extraPatterns' => isset($params['api_rule_cook']) ? $params['api_rule_cook'] : [],
                     'pluralize' => false,
                 ],
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'dish',
+                    'extraPatterns' => isset($params['api_rule_dish']) ? $params['api_rule_dish'] : [],
+                    'pluralize' => false,
+                ],
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'frontend',
+                    'extraPatterns' => isset($params['api_rule_frontend']) ? $params['api_rule_frontend'] : [],
+                    'pluralize' => false,
+                ],
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'gocar',
+                    'extraPatterns' => isset($params['api_rule_gocar']) ? $params['api_rule_gocar'] : [],
+                    'pluralize' => false,
+                ],
+
             ],
         ],
         /*'urlManager' => [
@@ -97,7 +110,7 @@ return [
      */
     'as rbac' => [
         'class' => 'api\behaviors\RbacBehavior',
-        'allowActions' => ['app-api/site/error'],
+        'allowActions' => ['site/error', 'frontend/*'],
     ],
 
     'params' => $params,

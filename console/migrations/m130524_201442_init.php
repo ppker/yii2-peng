@@ -76,8 +76,13 @@ create table if not exists `restaurant` (
 
 
 
+<<<<<<< .mine
 /*CREATE TABLE `shopping_car` (
 `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+=======
+/*CREATE TABLE `shopping_car` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+>>>>>>> .theirs
   `user_id` int(11) unsigned NOT NULL COMMENT '用户id',
   `hotel_id` int(11) unsigned NOT NULL COMMENT '餐厅id',
   `dish_id` int(11) unsigned NOT NULL COMMENT '菜肴id',
@@ -91,8 +96,13 @@ create table if not exists `restaurant` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='购物车表';*/
 
 
+<<<<<<< .mine
 /*CREATE TABLE `user_order` (
 `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+=======
+/*CREATE TABLE `user_order` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+>>>>>>> .theirs
   `user_id` int(11) unsigned NOT NULL COMMENT '用户id',
   `hotel_id` int(11) unsigned NOT NULL COMMENT '餐厅id',
   `dish_id` int(11) unsigned NOT NULL COMMENT '菜肴id',

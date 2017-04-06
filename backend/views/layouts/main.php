@@ -108,7 +108,7 @@ $this->beginPage();
     <!-- END FOOTER -->
 </div>
 <!-- BEGIN QUICK NAV -->
-<?= $this->render('@app/views/layouts/public/quick_nav.php', ['data' => '']) ?>
+<!-- <?= $this->render('@app/views/layouts/public/quick_nav.php', ['data' => '']) ?> -->
 <!-- END QUICK NAV -->
 <div class="quick-nav-overlay"></div>
 

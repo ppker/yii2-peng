@@ -29,8 +29,9 @@ class UploadForm extends Model{
 
         if ($this->validate()) {
             $base_path = Yii::getAlias("@frontend/web/images/");
-            $re = $this->imageFile->saveAs($base_path . $this->save_path . $this->imageFile->baseName . "." . $this->imageFile->extension);
-            if ($re) return $this->save_path . $this->imageFile->baseName . "." . $this->imageFile->extension;
+            $real_file = $this->save_path . $this->imageFile->baseName . "_" . uniqid() . "." . $this->imageFile->extension;
+            $re = $this->imageFile->saveAs($base_path . $real_file);
+            if ($re) return $real_file;
             else return false;
         } else return false;
     }

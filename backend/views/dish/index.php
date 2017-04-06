@@ -94,37 +94,25 @@ $this->params['title_sub'] = '菜肴设置';
                     <input type="hidden" name="<?= Yii::$app->getRequest()->csrfParam; ?>" value="<?= Yii::$app->getRequest()->getCsrfToken(); ?>">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="name" class="control-label col-sm-4">餐厅名称</label>
+                            <label for="name" class="control-label col-sm-4">菜肴名称</label>
                             <div class="col-sm-8">
-                                <input type="text" value="" placeholder="请输入餐厅名称" class="form-control" name="name" minlength="3" data-remote="<?= Url::toRoute(['site/check_hotel']) ?>" data-remote-error="餐厅名称已被注册" required />
+                                <input type="text" value="" placeholder="请输入菜肴名称" class="form-control" name="name" minlength="3" data-remote="<?= Url::toRoute(['site/check_dish']) ?>" data-remote-error="菜肴名称已被添加" required />
                                 <div class="help-block with-errors"></div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="phone" class="control-label col-sm-4">餐厅电话</label>
+                            <label for="price" class="control-label col-sm-4">价格</label>
                             <div class="col-sm-8">
-                                <input type="text" value="" placeholder="请输入餐厅电话" class="form-control" name="phone" minlength="6" required />
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="open_time" class="control-label col-sm-4">开门时间</label>
-                            <div class="col-sm-8">
-                                <input type="text" value="" placeholder="比如：08:30" class="form-control" name="open_time" />
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="close_time" class="control-label col-sm-4">打烊时间</label>
-                            <div class="col-sm-8">
-                                <input type="text" value="" placeholder="比如：02:00" class="form-control" name="close_time" />
+                                <input type="text" value="" placeholder="请输入价格(元)" class="form-control" name="price" pattern="^[\d]{1,6}" data-error="请填写数字" required />
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="status" class="control-label col-sm-4">餐厅状态</label>
+                            <label for="status" class="control-label col-sm-4">菜肴状态</label>
                             <div class="col-sm-8">
-                                <select class="form-control"  name="status" id="hotel_status" required>
-                                    <option value="1" selected>营业</option>
-                                    <option value="0">停业整改</option>
+                                <select class="form-control"  name="status" id="dish_status" required>
+                                    <option value="1" selected>在售</option>
+                                    <option value="0">下架</option>
                                 </select>
                             </div>
                         </div>
@@ -132,12 +120,6 @@ $this->params['title_sub'] = '菜肴设置';
 
                     <div class="col-md-6">
 
-                        <div class="form-group">
-                            <label for="address" class="control-label col-sm-4">餐厅地址</label>
-                            <div class="col-sm-8">
-                                <input type="text" value="" placeholder="请输入餐厅地址" class="form-control"  name="address" />
-                            </div>
-                        </div>
                         <div class="form-group">
                             <label for="star" class="control-label col-sm-4">推荐星数</label>
                             <div class="col-sm-8">
@@ -162,14 +144,27 @@ $this->params['title_sub'] = '菜肴设置';
 
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label for="mark" class="control-label col-sm-2">备注</label>
+                            <label for="mark" class="control-label col-sm-2">菜肴简介</label>
                             <div class="col-sm-10">
-                                <textarea name="mark" class="form-control" placeholder="餐厅简介" rows="5"></textarea>
+                                <textarea name="mark" class="form-control" placeholder="菜肴简介" rows="5"></textarea>
                             </div>
-                            <input type="hidden" name="hotel_photo" id="h_hotel_photo" value="">
+                            <input type="hidden" name="photo" id="h_dish_photo" value="">
                         </div>
 
                     </div>
+
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="res_id" class="control-label col-sm-2">所属餐厅</label>
+                            <div class="col-sm-10">
+                                <select class="bs-select form-control" data-live-search="true"  name="res_id" id="dish_hotel" data-size="8" required>
+                                </select>
+                            </div>
+                        </div>
+
+                    </div>
+
+
                     <!--上传照片-->
                     <div id="fileupload">
                         <label for="mark" class="control-label col-sm-2">上传照片</label>
@@ -202,9 +197,9 @@ $this->params['title_sub'] = '菜肴设置';
                     </div>
                     <div class="col-md-12 b-u-img-div" style="display: none;">
                         <div class="form-group">
-                            <label for="mark" class="control-label col-sm-2">餐厅照片</label>
+                            <label for="photo" class="control-label col-sm-2">菜肴图片</label>
                             <div class="col-md-10">
-                                <img src="" alt="餐厅图片" class="img-rounded" id="hotel_photo" height="120px;" width="100px;">
+                                <img src="" alt="菜肴图片" class="img-rounded" id="dish_photo" height="120px;" width="100px;">
                                 <a class="btn red b-u-delete"><span>删除图片</span></a>
                             </div>
                         </div>

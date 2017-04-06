@@ -1175,6 +1175,10 @@
                         if ('undefined' != typeof cfg_data.add_api) self.default_btn_add_submit(cfg_data.add_api);
                         if ('undefined' != typeof cfg_data.btn_edit && "" != cfg_data.btn_edit) cfg_data.btn_edit();
                         if ('undefined' != typeof cfg_data.btn_del && "" != cfg_data.btn_del) cfg_data.btn_del();
+                        if ('undefined' != typeof cfg_data.btn_default_del) self.btn_default_del(cfg_data.btn_default_del);
+                        if ('undefined' != typeof cfg_data.image_upload && "" !== cfg_data.image_upload) self.iamge_upload(cfg_data.image_upload);
+                        if ('undefined' != typeof cfg_data.image_bind_del && "" != cfg_data.image_bind_del) self.image_bind_del(cfg_data.image_bind_del);
+
                     });
                 }
             },
@@ -1182,6 +1186,24 @@
         });
     };
 
+	/**
+	 * 默认的删除按钮的操作
+	 */
+    self.btn_default_del = function(api_url) {
+
+        $("table tr .btn-group li").on("click", "a[actionrule='del']", function() {
+            var $id = $(this).attr("actionid");
+            if ($id) {
+                ZP.api[api_url]({
+                    data: {id: $id},
+                    successCallBack: function(result){
+                        ZP.utils.alert_warning(result.message, true);
+                    },
+                    failCallBack: ZP.utils.failCallBack
+                });
+            }
+        });
+    };
 
 
 
@@ -1232,6 +1254,96 @@
 
 		});
 	};
+
+    /**
+     * 图片上传
+     */
+    self.iamge_upload = function(cfg) {
+
+        var fileupload_config = {
+            maxNumberOfFiles: 1,
+            // disableImageResize: false,
+            autoUpload: false,
+            disableImageResize: /Android(?!.*Chrome)|Opera/.test(window.navigator.userAgent),
+            maxFileSize: 5000000,
+            acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
+            url: '/backend/web/upload/upload',
+            // Uncomment the following to send cross-domain cookies:
+            //xhrFields: {withCredentials: true},
+            done: function (e, data) {
+                $("input#h_hotel_photo").val(data.result.data);
+                $("button.b-delete").removeAttr("disabled");
+            },
+            always: function (e, data) {
+                $("#fileupload").removeClass('fileupload-processing');
+            },
+            send: function (e, data) {
+                $('#fileupload').addClass('fileupload-processing');
+            }
+        };
+
+
+
+        $('#fileupload').fileupload($.extend(true, {}, fileupload_config, cfg));
+
+        // Enable iframe cross-domain access via redirect option:
+        $('#fileupload').fileupload(
+            'option',
+            'redirect',
+            window.location.href.replace(
+                /\/[^\/]*$/,
+                '/cors/result.html?%s'
+            )
+        );
+
+        // Upload server status check for browsers with CORS support:
+        if ($.support.cors) {
+            $.ajax({
+                type: 'HEAD'
+            }).fail(function () {
+                $('<div class="alert alert-danger"/>')
+                    .text('Upload server currently unavailable - ' +
+                        new Date())
+                    .appendTo('#fileupload');
+            });
+        }
+    };
+
+
+    self.image_bind_del = function(input_id) {
+
+        $("table.table-image").on('click', "button.b-delete", function(e) {
+            var imgpath = $("input#" + input_id).val();
+            var $this = $(this);
+            ZP.api.image_del({
+                data: {file: imgpath},
+                successCallBack: function(result){
+                    $("input#" + input_id).val("");
+                    $this.parent().parent().remove();
+                },
+                failCallBack: ZP.utils.failCallBack
+            });
+            e.preventDefault();
+        });
+
+        $("a.b-u-delete").on("click", function(e) {
+            var imgpath = $("input#" + input_id).val();
+            ZP.api.image_del({
+                data: {file: imgpath},
+                successCallBack: function(result){
+                    $("input#" + input_id).val("");
+                    $("div.b-u-img-div").remove();
+                },
+                failCallBack: ZP.utils.failCallBack
+            });
+            e.preventDefault();
+        });
+
+
+
+    };
+
+
 
     /**
 	 * 操作类alert的提示

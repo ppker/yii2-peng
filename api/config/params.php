@@ -35,4 +35,25 @@ return [
         'GET,POST hotel_get' => 'hotel_get',
     ],
 
+    'api_rule_dish' => [
+        'GET,POST index' => 'index',
+        'GET,POST init_form' => 'init_form',
+        'GET,POST dish_get' => 'dish_get',
+        'GET,POST dish_add' => 'dish_add',
+        'GET,POST dish_del' => 'dish_del',
+    ],
+
+    'api_rule_frontend' => [
+        'GET,POST add_shoppingcar' => 'add_shoppingcar',
+        'GET,POST minus_shopping_car' => 'minus_shopping_car',
+        'GET,POST plus_shopping_car' => 'plus_shopping_car',
+        'GET,POST clear_shopping_car' => 'clear_shopping_car',
+        'GET,POST qxd_shopping_car' => 'qxd_shopping_car',
+    ],
+
+    'api_rule_gocar' => [
+        'GET,POST gocar_list' => 'gocar_list',
+        'GET,POST gocar_add' => 'gocar_add',
+    ],
+
 ];

@@ -18,7 +18,15 @@ use common\models\User;
 
 class RbacBehavior extends Behavior {
 
-    public $allowActions = [];
+    /**
+     * 已登录用户的公共api
+     * @var array
+     */
+    public $allowActions = []; // ['site/login', 'site/*']
+
+    public $guestActions = []; //
+
+
     public function events() {
 
         return [
@@ -28,25 +36,34 @@ class RbacBehavior extends Behavior {
 
     public function rbacAction($event) {
 
+
         $access_token = Yii::$app->request->post((new QueryParamAuth)->tokenParam);
         $user = User::findOne(['username' => $access_token]);
 
+        $base_rule = $event->action->getUniqueId();
+        $rule = Yii::$app->id . "/" . $base_rule;
+
         if (!empty($access_token) && !empty($user)) {
             $event->isValid = true; // 继续执行
+            $allowActions = array_unique(array_merge($this->allowActions, $this->guestActions));
 
-
-            $rule = $event->action->getUniqueId();
-
-            $rule = Yii::$app->id . "/" . $rule;
-            foreach ($this->allowActions as $allow) {
+            foreach ($allowActions as $allow) {
                 if ('*' == substr($allow, -1)) {
-                    if (0 === strpos($rule, rtrim($allow, '*'))) return true;
+                    if (0 === strpos($base_rule, rtrim($allow, '*'))) return true;
                 } else {
-                    if ($rule == $allow) return true;
+                    if ($base_rule == $allow) return true;
                 }
             }
             if (Menu::checkRule($rule, $user)){
                 return true;
+            }
+        } else {
+            foreach($this->guestActions as $allow) {
+                if ('*' == substr($allow, -1)) {
+                    if (0 === strpos($base_rule, rtrim($allow, '*'))) return true;
+                } else {
+                    if ($base_rule == $allow) return true;
+                }
             }
         }
         $event->isValid = false;
