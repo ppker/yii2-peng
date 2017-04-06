@@ -282,7 +282,23 @@
         return ajax(options);
     };
 
+    /**
+     * gocar_list
+     */
+    self.gocar_list = function(options) {
+        options = options ? options : {};
+        options.url = "/api/web/gocar/gocar_list";
+        return ajax(options);
+    };
 
+    /**
+     * gocar_add
+     */
+    self.gocar_add = function(options) {
+        options = options ? options : {};
+        options.url = "/api/web/gocar/gocar_add";
+        return ajax(options);
+    };
 
 
 })(ZP, jQuery);

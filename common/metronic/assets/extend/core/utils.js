@@ -1175,6 +1175,7 @@
                         if ('undefined' != typeof cfg_data.add_api) self.default_btn_add_submit(cfg_data.add_api);
                         if ('undefined' != typeof cfg_data.btn_edit && "" != cfg_data.btn_edit) cfg_data.btn_edit();
                         if ('undefined' != typeof cfg_data.btn_del && "" != cfg_data.btn_del) cfg_data.btn_del();
+                        if ('undefined' != typeof cfg_data.btn_default_del) self.btn_default_del(cfg_data.btn_default_del);
                         if ('undefined' != typeof cfg_data.image_upload && "" !== cfg_data.image_upload) self.iamge_upload(cfg_data.image_upload);
                         if ('undefined' != typeof cfg_data.image_bind_del && "" != cfg_data.image_bind_del) self.image_bind_del(cfg_data.image_bind_del);
 
@@ -1185,6 +1186,24 @@
         });
     };
 
+	/**
+	 * 默认的删除按钮的操作
+	 */
+    self.btn_default_del = function(api_url) {
+
+        $("table tr .btn-group li").on("click", "a[actionrule='del']", function() {
+            var $id = $(this).attr("actionid");
+            if ($id) {
+                ZP.api[api_url]({
+                    data: {id: $id},
+                    successCallBack: function(result){
+                        ZP.utils.alert_warning(result.message, true);
+                    },
+                    failCallBack: ZP.utils.failCallBack
+                });
+            }
+        });
+    };
 
 
 

@@ -88,6 +88,10 @@ return [
                     'extraPatterns' => isset($params['api_rule_frontend']) ? $params['api_rule_frontend'] : [],
                     'pluralize' => false,
                 ],
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'gocar',
+                    'extraPatterns' => isset($params['api_rule_gocar']) ? $params['api_rule_gocar'] : [],
+                    'pluralize' => false,
+                ],
 
             ],
         ],

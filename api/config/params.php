@@ -51,5 +51,9 @@ return [
         'GET,POST qxd_shopping_car' => 'qxd_shopping_car',
     ],
 
+    'api_rule_gocar' => [
+        'GET,POST gocar_list' => 'gocar_list',
+        'GET,POST gocar_add' => 'gocar_add',
+    ],
 
 ];

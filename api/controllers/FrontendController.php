@@ -100,11 +100,17 @@ class FrontendController extends BaseController {
                 $insert_data[] = [$v['user_id'], $v['hotel_id'], $v['dish_id'], $v['num'], time(), time()];
             }
 
-            $re = Yii::$app->db->createCommand()->batchInsert(UserOrder::tableName(), ['user_id', 'hotel_id', 'dish_id', 'num', 'created_at', 'updated_at'], $insert_data)->execute();
-            if ($re) {
-                ShoppingCar::deleteAll(['user_id' => $user->id]);
+            $db = Yii::$app->db;
+            $transaction = $db->beginTransaction();
+            try {
+                $re1 = $db->createCommand()->batchInsert(UserOrder::tableName(), ['user_id', 'hotel_id', 'dish_id', 'num', 'created_at', 'updated_at'], $insert_data)->execute();
+                $re2 = ShoppingCar::deleteAll(['user_id' => $user->id]);
+                $transaction->commit();
                 return ['success' => 1, 'message' => '下单成功。', 'data' => []];
-            } else return ['success' => 0, 'message' => '抱歉，下单失败。', 'data' => []];
+            } catch (\Exception $e) {
+                $transaction->rollBack();
+                return ['success' => 0, 'message' => '抱歉，下单失败。', 'data' => []];
+            }
         } else return ['success' => 0, 'message' => '抱歉，购物车是空的', 'data' => false];
     }
 
