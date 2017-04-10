@@ -61,4 +61,11 @@ return [
         'GET,POST gocar_del' => 'gocar_del',
     ],
 
+    'api_rule_order' => [
+        'GET,POST order_list' => 'order_list',
+        'GET,POST order_add' => 'order_add',
+        'GET,POST order_del' => 'order_del',
+        'GET,POST order_get' => 'order_get',
+    ],
+
 ];
