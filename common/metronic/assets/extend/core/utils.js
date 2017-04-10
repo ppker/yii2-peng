@@ -792,17 +792,16 @@
         var $select = $("select#"+id);
         $.each(list, function(){
             var option = document.createElement("option");
-
             option.value = this.id;
             option.innerHTML = this.name;
 			option.selected = selectedValue == this.id ? true : false;
             $select.append(option);
         });
 
-        $('.bs-select').selectpicker({
-            iconBase: 'fa',
-            tickIcon: 'fa-check'
-        });
+        //$('.bs-select').selectpicker({
+        //    iconBase: 'fa',
+        //    tickIcon: 'fa-check'
+        //});
 
     };
     /**初始化顶部导航（top）*/
@@ -1109,10 +1108,40 @@
             data: null,
             successCallBack: function(result){
                 self.selectInit(result.data, cfg.id);
+                $('.bs-select').selectpicker({
+                    iconBase: 'fa',
+                    tickIcon: 'fa-check'
+                });
             },
             failCallBack: ZP.utils.failCallBack
         });
     };
+
+    /**
+     * 优化 填充多个 multiple selected
+     */
+    self.add_selectsInit = function (cfg) {
+
+        if (self.isArray(cfg)) { // 多个用foreach
+            $.each(cfg, function(i,v) {
+                ZP.api[v.api]({
+                    data: null,
+                    successCallBack: function(result) {
+                        self.selectInit(result.data, v.id);
+                    },
+                    failCallBack: ZP.utils.failCallBack
+                });
+            });
+
+            $('.bs-select').selectpicker({
+                iconBase: 'fa',
+                tickIcon: 'fa-check'
+            });
+        }
+    };
+
+
+
 
     /**
      * 默认dataTable 的添加按钮
@@ -1172,6 +1201,7 @@
                         self.init_page_module();
                         if ('undefined' != typeof cfg_data.all_del_api) self.btn_all_del(cfg_data.all_del_api);
                         if ('undefined' != typeof cfg_data.init_form_api) self.add_selectInit(cfg_data.init_form_api); // 默认add  modal 的 selected init
+                        if ('undefined' != typeof cfg_data.init_form_html_data) self.add_selectsInit(cfg_data.init_form_html_data.select); // 初始化所有的select组件
                         self.default_btn_add();
                         if ('undefined' != typeof cfg_data.add_api) self.default_btn_add_submit(cfg_data.add_api);
                         if ('undefined' != typeof cfg_data.btn_edit && "" != cfg_data.btn_edit) cfg_data.btn_edit();

@@ -58,7 +58,7 @@ class CookController extends BaseController {
         if (empty($data['id'])) { // 新增
             unset($data['access-token'], $data['_csrf-backend']);
             $data['photo'] = $data['hotel_photo'];
-            $model->load($data);
+            // $model->load($data);
             if ($model->load($data) && $model->save()) {
                 return ['success' => 1, 'message' => '添加成功！', 'data' => []];
             } else return ['success' => 0, 'message' => '添加失败！', 'data' => []];

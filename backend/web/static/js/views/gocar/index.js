@@ -16,24 +16,16 @@ window.PAGE_ACTION = function() {
         $("table tr .btn-group li").on("click", "a[actionrule='edit']", function() {
             var $id = $(this).attr("actionid");
             if ($id) {
-                ZP.api.system_menu_get({
+                ZP.api.gocar_get({
                     data: {id: $id},
                     successCallBack: function(result){
 
-                        $("#addModal h4.modal-title").text('菜单编辑');
+                        $("#addModal h4.modal-title").text('编辑购物车记录');
                         $("#addModal input[name='id']").val(result.data.id);
-                        $("#addModal input[name='title']").val(result.data.title);
-                        $("#addModal input[name='sort']").val(result.data.sort);
-                        var hide = result.data.hide;
-                        $("#addModal input[name='hide'][value=" + hide + "]").attr("checked", true);
-                        $("#addModal input[name='url']").val(result.data.url);
-                        $("#addModal input[name='group']").val(result.data.group);
-                        var status = result.data.status;
-                        $("#addModal input[name='status'][value=" + status + "]").attr("checked", true);
-                        var pid = result.data.pid;
-                        $('.bs-select').selectpicker('val', pid); // 设置select的选中
-                        // console.log($("#addModal select[name='pid']").find("option[value=4]").attr("selected", true));
-                        // $("#addModal select[name='pid']").find("option[value="+ pid +"]").attr("selected", true);
+                        $("select#select_user_id").selectpicker('val', result.data.user_id);
+                        $("select#select_hotel_id").selectpicker('val', result.data.hotel_id);
+                        $("select#select_dish_id").selectpicker('val', result.data.dish_id);
+                        $("#addModal input[name='num']").val(result.data.num);
                         $("#addModal").modal('show');
                     },
                     failCallBack: ZP.utils.failCallBack
@@ -47,11 +39,11 @@ window.PAGE_ACTION = function() {
             'api_url': 'gocar_list', // list的api
             'template_path': 'gocar/gocar_index.html',
             'dataTable': $.extend(true, {}, ZP.utils.default_dataTable_list, {}),
-            'all_del_api': 'system_menu_del',
+            'all_del_api': 'gocar_del',
             'add_api': 'gocar_add',
-            // 'init_form_api': {'api': 'init_form_api', 'id': 'pid_id'}, // 需要对表单进行数据初始化操作
+            'init_form_html_data': {'select': [{api:'select_users_api', id: 'select_user_id'}, {api:'select_dishes_api', id: 'select_dish_id'}, {api:'select_hotels_api', id: 'select_hotel_id'}]}, // 对表单的html数据进行页面级初始化
             'btn_edit': btn_edit,
-            // 'btn_del': btn_del,
+            // 'btn_del': btn_del, 已废弃
             'btn_default_del': "gocar_del",
         });
     };
