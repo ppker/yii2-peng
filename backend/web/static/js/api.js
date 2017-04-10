@@ -320,7 +320,32 @@
         return ajax(options);
     };
 
+    /**
+     * order_del
+     */
+    self.order_del = function(options) {
+        options = options ? options : {};
+        options.url = "/api/web/order/order_del";
+        return ajax(options);
+    };
 
+    /**
+     * order_add
+     */
+    self.order_add = function(options) {
+        options = options ? options : {};
+        options.url = "/api/web/order/order_add";
+        return ajax(options);
+    };
+
+    /**
+     * order_get
+     */
+    self.order_get = function(options) {
+        options = options ? options : {};
+        options.url = "/api/web/order/order_get";
+        return ajax(options);
+    };
 
     /**
      * Select_users_api
@@ -355,6 +380,14 @@
         return ajax(options);
     };
 
+    /**
+     * dishOrder_list
+     */
+    self.dishOrder_list = function(options) {
+        options = options ? options : {};
+        options.url = "/api/web/order/order_list";
+        return ajax(options);
+    };
 
 
 })(ZP, jQuery);

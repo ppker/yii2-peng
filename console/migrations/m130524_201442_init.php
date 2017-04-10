@@ -55,7 +55,6 @@ create table if not exists `restaurant` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 comment '饭店表';*/
 
 
-
 /*create table if not exists `cookbook` (
 `id` int(11) unsigned not null auto_increment,
 	`res_id` int(11) unsigned not null comment '所属饭店id',

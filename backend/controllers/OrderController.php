@@ -12,7 +12,7 @@ use Yii;
 use yii\web\NotFoundHttpException;
 use yii\helpers\Url;
 
-class GocarController extends BaseController {
+class OrderController extends BaseController {
 
     public function init() {
 
