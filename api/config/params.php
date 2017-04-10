@@ -25,6 +25,9 @@ return [
         'GET,POST init_form_api' => 'init_form_api', // 获取网站菜单项的下拉菜单
         'GET,POST menu_get' => 'menu_get',
         'GET,POST menu_del' => 'menu_del',
+        'GET,POST select_users_api' => 'select_users_api', // 获取用户的 real_name,id
+        'GET,POST select_dishes_api' => 'select_dishes_api', // 获取所有餐厅的菜肴 和 id
+        'GET,POST select_hotels_api' => 'select_hotels_api', // 获取所有餐厅的 name, id
     ],
 
     'api_rule_cook' => [
@@ -54,6 +57,8 @@ return [
     'api_rule_gocar' => [
         'GET,POST gocar_list' => 'gocar_list',
         'GET,POST gocar_add' => 'gocar_add',
+        'GET,POST gocar_get' => 'gocar_get',
+        'GET,POST gocar_del' => 'gocar_del',
     ],
 
 ];

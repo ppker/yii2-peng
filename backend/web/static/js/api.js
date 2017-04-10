@@ -283,6 +283,17 @@
     };
 
     /**
+     * gocar_get
+     * 获取指定购物车信息
+     */
+    self.gocar_get = function(options) {
+        options = options ? options : {};
+        options.url = "/api/web/gocar/gocar_get";
+        return ajax(options);
+    };
+
+
+    /**
      * gocar_list
      */
     self.gocar_list = function(options) {
@@ -299,6 +310,51 @@
         options.url = "/api/web/gocar/gocar_add";
         return ajax(options);
     };
+
+    /**
+     * gocar_del
+     */
+    self.gocar_del = function(options) {
+        options = options ? options : {};
+        options.url = "/api/web/gocar/gocar_del";
+        return ajax(options);
+    };
+
+
+
+    /**
+     * Select_users_api
+     * 获取所有用户的real_name, id
+     */
+    self.select_users_api = function(options) {
+        options.async = false;
+        options = options ? options : {};
+        options.url = "/api/web/system/select_users_api";
+        return ajax(options);
+    };
+
+    /**
+     * select_dishes_api
+     * 获取所有餐厅的菜肴
+     */
+    self.select_dishes_api = function(options) {
+        options.async = false;
+        options = options ? options : {};
+        options.url = "/api/web/system/select_dishes_api";
+        return ajax(options);
+    };
+
+    /**
+     * select_hotels_api
+     * 获取所有的餐厅
+     */
+    self.select_hotels_api = function(options) {
+        options.async = false;
+        options = options ? options : {};
+        options.url = "/api/web/system/select_hotels_api";
+        return ajax(options);
+    };
+
 
 
 })(ZP, jQuery);

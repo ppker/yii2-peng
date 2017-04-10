@@ -12,6 +12,10 @@ use Yii;
 use yii\db\Query;
 use yii\helpers\Url;
 use backend\models\Menu;
+use common\models\User;
+use common\models\CookBook;
+use common\models\Restaurant;
+
 
 class SystemController extends BaseController {
 
@@ -57,6 +61,37 @@ class SystemController extends BaseController {
         $data = Menu::find()->select(['id', 'name' => 'title'])->orderBy(['pid' => SORT_ASC, 'sort' => SORT_ASC])->asArray()->all();
         return parent::re_format($data);
     }
+
+    /**
+     * 获取所有用户的真实姓名,id
+     * @return array
+     */
+    public function actionSelect_users_api() {
+
+        $data = User::find()->select(["id", 'name' => 'realname'])->asArray()->all();
+        return parent::re_format($data);
+    }
+
+    /**
+     * 获取所有餐厅的菜肴 name, id
+     * @return array
+     */
+    public function actionSelect_dishes_api() {
+
+        $data = CookBook::find()->select(["id", "name"])->asArray()->all();
+        return parent::re_format($data);
+    }
+
+    /**
+     * 获取所有餐厅的 name, id
+     * @return array
+     */
+    public function actionSelect_hotels_api() {
+
+        $data = Restaurant::find()->select(["id", "name"])->asArray()->all();
+        return parent::re_format($data);
+    }
+
 
     public function actionMenu_get() {
 
