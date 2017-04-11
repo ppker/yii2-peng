@@ -49,15 +49,10 @@
                         </ul>
                     </div>
                     <div class="col-md-3 col-sm-6 col-xs-12 footer-block">
-                        <h2>贡献者</h2>
+                        <h2>管理员</h2>
                         <div class="label-block">
-                            <span class="label label-success">Success</span>
-                            <span class="label label-success">Success</span>
-                            <span class="label label-success">Success</span>
-                            <span class="label label-success">Success</span>
-                            <span class="label label-success">Success</span>
-                            <span class="label label-success">Success</span>
-                            <span class="label label-success">Success</span>
+                            <span class="label label-success">ABCDEFG</span>
+                            <span class="label label-success">ABCDEFG</span>
                         </div>
                     </div>
                 </div>
@@ -66,11 +61,11 @@
         <!-- END PRE-FOOTER -->
         <!-- BEGIN INNER FOOTER -->
         <div class="page-footer page-footer-end">
-            <div class="container"> 2017 &copy;  上海裕乾金融信息服务有限公司 &nbsp;All Rights Reserved | 沪ICP备14035976号-1
+            <div class="container" style="text-align: center;"> 2017 &copy;  上海裕乾金融信息服务有限公司 &nbsp;All Rights Reserved | 沪ICP备14035976号-1
             </div>
         </div>
         <div class="scroll-to-top">
-            <i class="icon-arrow-up"></i>
+            <i class="icon-arrow-up" style="opacity: 1;color: #89939e;font-size: 42px;font-weight: 300"></i>
         </div>
         <!-- END INNER FOOTER -->
         <!-- END FOOTER -->

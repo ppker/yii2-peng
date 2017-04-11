@@ -9,6 +9,7 @@
 use yii\helpers\Html;
 use yii\helpers\Url;
 use frontend\assets\EndAsset;
+use common\widgets\Toastr;
 
 EndAsset::register($this);
 
@@ -71,6 +72,7 @@ $this->beginPage();
                             <!-- END PAGE BREADCRUMBS -->
                             <!-- BEGIN PAGE CONTENT INNER -->
                         <!--</div>-->
+                        <?= Toastr::widget(); ?>
                         <?= $content ?>
 
                             <!-- END PAGE CONTENT INNER -->
@@ -110,26 +112,20 @@ $this->beginPage();
     </a>
     <ul>
         <li>
-            <a href="https://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes" target="_blank" class="active">
-                <span>Purchase Metronic</span>
-                <i class="icon-basket"></i>
+            <a href="javascript:;" target="_blank">
+                <span>小宠物</span>
+                <i class="icon-ghost"></i>
             </a>
         </li>
         <li>
-            <a href="https://themeforest.net/item/metronic-responsive-admin-dashboard-template/reviews/4021469?ref=keenthemes" target="_blank">
-                <span>Customer Reviews</span>
-                <i class="icon-users"></i>
+            <a href="javascript:;" target="_blank">
+                <span>引导</span>
+                <i class="icon-compass"></i>
             </a>
         </li>
         <li>
-            <a href="http://keenthemes.com/showcast/" target="_blank">
-                <span>Showcase</span>
-                <i class="icon-user"></i>
-            </a>
-        </li>
-        <li>
-            <a href="http://keenthemes.com/metronic-theme/changelog/" target="_blank">
-                <span>Changelog</span>
+            <a href="javascript:;" target="_blank">
+                <span>更新日志</span>
                 <i class="icon-graph"></i>
             </a>
         </li>
@@ -137,7 +133,6 @@ $this->beginPage();
     <span aria-hidden="true" class="quick-nav-bg"></span>
 </nav>
 <div class="quick-nav-overlay"></div>
-
 
 
 <!-- END THEME LAYOUT SCRIPTS -->

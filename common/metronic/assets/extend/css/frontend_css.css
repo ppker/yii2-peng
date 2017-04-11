@@ -192,3 +192,14 @@ button#clear {
 div#loginModal div.checkbox label {
     padding-left: 24px;
 }
+
+.scroll-to-top > i {
+    opacity: 1;
+    color: #89939e;
+    font-size: 42px;
+    font-weight: 300;
+}
+
+.mt-card-item div.mt-card-avatar a img {
+    height: 171px;
+}

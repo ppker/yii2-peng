@@ -24,6 +24,11 @@ class DishesController extends BaseController {
 
     public function actionList($id) {
 
+        if (Yii::$app->user->isGuest) {
+            // return $this->flash('抱歉,请先登录!', 'error');
+            return $this->success(['message' => '恭喜你操作成功!', 'type' => 'success', 'url' => '/']);
+            // return $this->goHome();
+        }
         if ("" == $id) $this->redirect("site/error");
         $hotel_info = Restaurant::findOne(['id' => $id, 'status' => 1]);
         $dishes_info = CookBook::findAll(['res_id' => $id, 'status' => 1]);
@@ -39,6 +44,7 @@ class DishesController extends BaseController {
         }
 
         return $this->render("dishes", ['hotel' => $hotel_info, 'dishes' => $dishes_info, 'car_list' => $car_list, 'car_total' => ['car_total_num' => $car_total_num, 'car_total_price' => $car_total_price]]);
+
     }
 
 

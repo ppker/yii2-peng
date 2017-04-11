@@ -17,7 +17,8 @@ class BaseController extends Controller {
     public function success($data = []) {
         Yii::$app->session->set('zp_alert', $data);
         if (isset($data['url']) && !empty($data['url'])) {
-            Yii::$app->end(0, $this->redirect($data['url']));
+            return $this->redirect($data['url']);
+            // return Yii::$app->end(0, $this->redirect($data['url']));
         }
     }
 
