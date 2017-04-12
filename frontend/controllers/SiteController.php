@@ -20,6 +20,7 @@ use common\models\Restaurant;
  */
 class SiteController extends Controller
 {
+
     /**
      * @inheritdoc
      */

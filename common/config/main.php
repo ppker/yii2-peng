@@ -18,7 +18,7 @@ return [
                     'sourcePath' => null,
                     'js' => [],
                     'depends' => [
-                        'backend\assets\AppAsset'
+                        // 'backend\assets\AppAsset' 切记切记 自己定制的话 就不要在这里加依赖了 因为全局不要加这种配置 否则会污染
                     ],
                 ],
                 'yii\bootstrap\BootstrapAsset' => [

@@ -600,7 +600,7 @@
 	self.webSuccess = function (data) {
         toastr.options = {
             closeButton: true,
-            positionClass: 'toast-top-left',
+            positionClass: 'undefined' != typeof data.place ? data.place : 'toast-top-left',
             onclick: function () {},
             showDuration: 0,
             hideDuration: 0,

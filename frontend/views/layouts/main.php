@@ -72,12 +72,9 @@ $this->beginPage();
                             <!-- END PAGE BREADCRUMBS -->
                             <!-- BEGIN PAGE CONTENT INNER -->
                         <!--</div>-->
-                        <?= Toastr::widget(); ?>
+                        <?= Toastr::widget(['app' => 'frontend']); ?>
                         <?= $content ?>
-
                             <!-- END PAGE CONTENT INNER -->
-
-
 
                     </div>
                     <!-- END PAGE CONTENT BODY -->
@@ -87,10 +84,8 @@ $this->beginPage();
                 <!-- BEGIN QUICK SIDEBAR -->
 
 
-
-
                 <!-- BEGIN QUICK SIDEBAR -->
-                <?= $this->render('@app/views/layouts/public/quick_sidebar.php', ['data' => '']); ?>
+                <?php // $this->render('@app/views/layouts/public/quick_sidebar.php', ['data' => '']); ?>
                 <!-- END QUICK SIDEBAR -->
 
 

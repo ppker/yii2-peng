@@ -22,13 +22,13 @@ class AppAsset extends AssetBundle
         'frontend\assets\CoreAsset'
     ];
 
-    public static function addScript($view, $jsfile) {
+    /*public static function addScript($view, $jsfile) {
 
         $view->registerJsFile($jsfile, [AppAsset::className(), 'depends' => 'frontend\assets\AppAsset']);
     }
     public static function addCss($view, $cssfile) {
 
         $view->registerCssFile($cssfile, [AppAsset::className(), 'depends' => 'frontend\assets\AppAsset']);
-    }
+    }*/
 
 }

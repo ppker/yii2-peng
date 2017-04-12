@@ -8,8 +8,11 @@
 
 use yii\helpers\Html;
 use backend\assets\ToastrAsset;
+use frontend\assets\ToastrAsset as FtoastrAsset;
 
-ToastrAsset::register($this);
+if ('' != $app) FtoastrAsset::register($this);
+else ToastrAsset::register($this);
+
 $str = json_encode($data);
 $js = "ZP.utils.webSuccess(JSON.parse('" . $str . "'))";
 $this->registerJs($js);
