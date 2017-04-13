@@ -34,8 +34,8 @@ use yii\helpers\Url;
                     [
                         'data-do' => 'zan',
                         'data-id' => $model->id,
-                        // 'data-type' => $model->type,
-                        'class' => ($model->zan) ? 'active' : ''
+                        'data-type' => 'dish',
+                        'class' => 'zan_hate' . ($model->zan) ? 'active' : ''
                     ]
                 );
                 $hate = Html::a(
@@ -44,8 +44,8 @@ use yii\helpers\Url;
                     [
                         'data-do' => 'hate',
                         'data-id' => $model->id,
-                        // 'data-type' => $model->type,
-                        'class' => ($model->hate) ? 'active' : ''
+                        'data-type' => 'dish',
+                        'class' => 'zan_hate' . ($model->hate) ? 'active' : ''
                     ]
                 );
                 ?>

@@ -73,7 +73,9 @@ class RbacBehavior extends Behavior {
 
     protected function denyAccess() {
 
-        throw new ForbiddenHttpException(Yii::t('yii', 'you are not allowed to perform this action.'));
+        echo json_encode(['success' => 0, 'message' => '您还没有登录', 'data' => '']);
+        return;
+        // throw new ForbiddenHttpException(Yii::t('yii', 'you are not allowed to perform this action.'));
     }
 
 }

@@ -105,3 +105,14 @@ create table if not exists `restaurant` (
   KEY `dish_id` (`dish_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户订单表';*/
 
+/*CREATE TABLE `user_log` (
+`id` int(13) unsigned NOT NULL,
+  `user_id` int(11) unsigned NOT NULL COMMENT '用户id',
+  `action` varchar(50) NOT NULL DEFAULT '' COMMENT 'action方法',
+  `controller` varchar(50) NOT NULL DEFAULT '' COMMENT '控制器',
+  `value` varchar(80) NOT NULL DEFAULT '' COMMENT '操作类型值',
+  `created_at` int(11) unsigned NOT NULL,
+  `updated_at` int(11) unsigned NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `user_id` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户操作记录表';*/

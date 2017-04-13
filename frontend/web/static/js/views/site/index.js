@@ -8,6 +8,7 @@ window.PAGE_ACTION = function() {
     "use strict";
 
     var init_first = null, // 默认条件页面
+        like_hate = null, // 赞和踩
         user_register = null,
         user_login = null;
 
@@ -46,6 +47,20 @@ window.PAGE_ACTION = function() {
         })
     };
 
+    like_hate = function() {
+        $("a.zan_hate").on('click',function() {
+            var _this = $(this);
+            var data = {"data-do": _this.data('do'), "data-id": _this.data('id'), "data-type": _this.data('type')};
+            ZP.api.like_hate({
+                'data': data,
+                successCallBack: function(result){
+                    ZP.utils.alert_warning(result.message, true);
+                },
+                failCallBack: ZP.utils.failCallBack
+            });
+        });
+    };
+
     user_register = function() {
 
         $("li.user-register").on("click", function(e) {
@@ -69,6 +84,7 @@ window.PAGE_ACTION = function() {
             init_first();
             user_register(); // 用户注册
             user_login(); // 用户登录
+            like_hate(); // 赞和踩
         }
     };
 }

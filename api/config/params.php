@@ -52,6 +52,7 @@ return [
         'GET,POST plus_shopping_car' => 'plus_shopping_car',
         'GET,POST clear_shopping_car' => 'clear_shopping_car',
         'GET,POST qxd_shopping_car' => 'qxd_shopping_car',
+        'GET,POST like_hate' => 'like_hate',
     ],
 
     'api_rule_gocar' => [

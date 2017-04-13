@@ -115,5 +115,15 @@
         return ajax(options);
     };
 
+	/**
+	 * like_hate
+	 */
+	self.like_hate = function(options) {
+		options = options ? options : {};
+		options.url = "/api/web/frontend/like_hate";
+		return ajax(options);
+	};
+
+
 
 })(ZP, jQuery);

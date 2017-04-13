@@ -16,6 +16,7 @@ use common\models\Restaurant;
 use common\models\ShoppingCar;
 use common\models\UserOrder;
 use common\models\User;
+use common\models\UserLog;
 use Yii;
 
 class FrontendController extends BaseController {
@@ -114,6 +115,33 @@ class FrontendController extends BaseController {
         } else return ['success' => 0, 'message' => '抱歉，购物车是空的', 'data' => false];
     }
 
+    /**
+     * 饭店点赞和踩
+     */
+    public function actionLike_hate() {
+
+        $data = Yii::$app->getRequest()->post();
+        $user_id = Yii::$app->getUser()->identity->id;
+        if (empty($data)) return ['success' => 0, 'message' => '抱歉，参数异常', 'data' => ''];
+        switch($data['data-type']) {
+            case 'hotel':
+                $hotel = Restaurant::findOne($data['data-id']);
+                if ($hotel) {
+                    // 用户今天的操作记录
+                    $user_log = UserLog::find()->where(['user_id' => $user_id, 'action' => 'zan', 'controller' => 'frontend'])
+                        ->andWhere(['>=', 'created_at' => strtotime(date('Y-m-d'))])->one();
+
+                    if ('zan' == $data['data-do']) {
+                        $re = $hotel->updateCounters(['zan' => 1]);
+                        if ($re) { // 更新用户操作-点赞记录
+                            (new UserLog())->load(['']);
+                        }
+                    }
+                }
+
+
+        }
+    }
 
 
 }
