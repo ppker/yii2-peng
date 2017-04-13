@@ -30,22 +30,22 @@ use yii\helpers\Url;
                 <?php
                 $like = Html::a(
                     Html::tag('i', '', ['class' => 'fa fa-thumbs-o-up']) . ' ' . Html::tag('span', $model->zan) . ' 个赞',
-                    '#',
+                    'javascript:;',
                     [
                         'data-do' => 'zan',
                         'data-id' => $model->id,
                         'data-type' => 'dish',
-                        'class' => 'zan_hate' . ($model->zan) ? 'active' : ''
+                        'class' => 'zan_hate ' . (($model->zan) ? 'active' : '')
                     ]
                 );
                 $hate = Html::a(
                     Html::tag('i', '', ['class' => 'fa fa-thumbs-o-down']) . ' ' . Html::tag('span', $model->hate) . ' 个踩',
-                    '#',
+                    'javascript:;',
                     [
                         'data-do' => 'hate',
                         'data-id' => $model->id,
                         'data-type' => 'dish',
-                        'class' => 'zan_hate' . ($model->hate) ? 'active' : ''
+                        'class' => 'zan_hate ' . (($model->hate) ? 'active' : '')
                     ]
                 );
                 ?>

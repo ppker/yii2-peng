@@ -48,6 +48,22 @@ return [
 
         ],
 
+        'assetManager' => [
+            'bundles' => [
+                'yii\web\JqueryAsset' => [
+                    'sourcePath' => null,
+                    'js' => [],
+                    'depends' => [
+                        'backend\assets\AppAsset'
+                    ],
+                ],
+                'yii\bootstrap\BootstrapAsset' => [
+                    'css' => []
+                ]
+            ],
+        ],
+
+
     ],
     'params' => $params,
 

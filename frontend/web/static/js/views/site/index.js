@@ -54,7 +54,15 @@ window.PAGE_ACTION = function() {
             ZP.api.like_hate({
                 'data': data,
                 successCallBack: function(result){
-                    ZP.utils.alert_warning(result.message, true);
+                    if ('1' == result.data) {
+                        var num = parseInt(_this.find("span").text()) + 1;
+                        _this.find("span").text(num);
+                    }else if ('-1' == result.data) {
+                        var num = parseInt(_this.find("span").text()) - 1;
+                        if (0 > num) num = 0;
+                        _this.find("span").text(num);
+                    }
+                    // ZP.utils.alert_warning(result.message, true);
                 },
                 failCallBack: ZP.utils.failCallBack
             });

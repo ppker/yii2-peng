@@ -17,6 +17,7 @@ use common\models\ShoppingCar;
 use common\models\UserOrder;
 use common\models\User;
 use common\models\UserLog;
+use common\models\CookBook;
 use Yii;
 
 class FrontendController extends BaseController {
@@ -51,7 +52,6 @@ class FrontendController extends BaseController {
                 return ['success' => 1, 'message' => '添加成功！', 'data' => $one_data];
             } else return ['success' => 0, 'message' => '添加失败！', 'data' => []];
         }
-
 
     }
 
@@ -123,25 +123,101 @@ class FrontendController extends BaseController {
         $data = Yii::$app->getRequest()->post();
         $user_id = Yii::$app->getUser()->identity->id;
         if (empty($data)) return ['success' => 0, 'message' => '抱歉，参数异常', 'data' => ''];
+        $model_log = new UserLog();
         switch($data['data-type']) {
             case 'hotel':
                 $hotel = Restaurant::findOne($data['data-id']);
                 if ($hotel) {
                     // 用户今天的操作记录
                     $user_log = UserLog::find()->where(['user_id' => $user_id, 'action' => 'zan', 'controller' => 'frontend'])
-                        ->andWhere(['>=', 'created_at' => strtotime(date('Y-m-d'))])->one();
+                        ->andWhere(['>=', 'created_at', strtotime(date('Y-m-d'))])->one();
+
+                    $user_log_hate = UserLog::find()->where(['user_id' => $user_id, 'action' => 'hate', 'controller' => 'frontend'])
+                        ->andWhere(['>=', 'created_at', strtotime(date('Y-m-d'))])->one();
 
                     if ('zan' == $data['data-do']) {
-                        $re = $hotel->updateCounters(['zan' => 1]);
-                        if ($re) { // 更新用户操作-点赞记录
-                            (new UserLog())->load(['']);
+                        if (empty($user_log)) { // 还没有进行点赞
+                            $re = $hotel->updateCounters(['zan' => 1]);
+                            if ($re) { // 更新用户操作-点赞记录
+                                if ($model_log->load(['user_id' => $user_id, 'action' => 'zan', 'controller' => 'frontend']) && $model_log->save()) {}
+                                return ['success' => 1, 'message' => '点赞成功', 'data' => 1];
+                            }
+                        } else { // 已经进行点赞
+                            $re = $hotel->updateCounters(['zan' => -1]);
+                            if ($re) { // 更新用户操作-点赞记录
+                                UserLog::deleteAll('user_id = :user_id and action = :action and controller = :controller and created_at >= :created_at', [':user_id' => $user_id,
+                                    ':action' => 'zan', ':controller' => 'frontend', ':created_at' => strtotime(date('Y-m-d'))]);
+                                return ['success' => 1, 'message' => '取消点赞', 'data' => -1];
+                            }
+                        }
+                    } elseif ('hate' == $data['data-do']) {
+                        if (empty($user_log_hate)) { // 还没有进行踩
+                            $re = $hotel->updateCounters(['hate' => 1]);
+                            if ($re) { // 更新用户操作-点赞记录
+                                if ($model_log->load(['user_id' => $user_id, 'action' => 'hate', 'controller' => 'frontend']) && $model_log->save()) {}
+                                return ['success' => 1, 'message' => '点踩成功', 'data' => 1];
+                            }
+                        } else { // 踩过了
+                            $re = $hotel->updateCounters(['hate' => -1]);
+                            if ($re) { // 更新用户操作-点赞记录
+                                UserLog::deleteAll('user_id = :user_id and action = :action and controller = :controller and created_at >= :created_at', [':user_id' => $user_id,
+                                    ':action' => 'hate', ':controller' => 'frontend', ':created_at' => strtotime(date('Y-m-d'))]);
+                                return ['success' => 1, 'message' => '取消踩', 'data' => -1];
+                            }
                         }
                     }
                 }
+                break;
 
+            case 'dish':
+                $dish = CookBook::findOne($data['data-id']);
+                if ($dish) {
+                    // 用户今天的操作记录
+                    $user_log = UserLog::find()->where(['user_id' => $user_id, 'action' => 'zan', 'controller' => 'dish'])
+                        ->andWhere(['>=', 'created_at', strtotime(date('Y-m-d'))])->one();
 
+                    $user_log_hate = UserLog::find()->where(['user_id' => $user_id, 'action' => 'hate', 'controller' => 'dish'])
+                        ->andWhere(['>=', 'created_at', strtotime(date('Y-m-d'))])->one();
+
+                    if ('zan' == $data['data-do']) {
+                        if (empty($user_log)) { // 还没有进行点赞
+                            $re = $dish->updateCounters(['zan' => 1]);
+                            if ($re) { // 更新用户操作-点赞记录
+                                if ($model_log->load(['user_id' => $user_id, 'action' => 'zan', 'controller' => 'dish']) && $model_log->save()) {}
+                                return ['success' => 1, 'message' => '点赞成功', 'data' => 1];
+                            }
+                        } else { // 已经进行点赞
+                            $re = $dish->updateCounters(['zan' => -1]);
+                            if ($re) { // 更新用户操作-点赞记录
+                                UserLog::deleteAll('user_id = :user_id and action = :action and controller = :controller and created_at >= :created_at', [':user_id' => $user_id,
+                                    ':action' => 'zan', ':controller' => 'dish', ':created_at' => strtotime(date('Y-m-d'))]);
+                                return ['success' => 1, 'message' => '取消点赞', 'data' => -1];
+                            }
+                        }
+                    } elseif ('hate' == $data['data-do']) {
+                        if (empty($user_log_hate)) { // 还没有进行踩
+                            $re = $dish->updateCounters(['hate' => 1]);
+                            if ($re) { // 更新用户操作-点赞记录
+                                if ($model_log->load(['user_id' => $user_id, 'action' => 'hate', 'controller' => 'dish']) && $model_log->save()) {}
+                                return ['success' => 1, 'message' => '点踩成功', 'data' => 1];
+                            }
+                        } else { // 踩过了
+                            $re = $dish->updateCounters(['hate' => -1]);
+                            if ($re) { // 更新用户操作-点赞记录
+                                UserLog::deleteAll('user_id = :user_id and action = :action and controller = :controller and created_at >= :created_at', [':user_id' => $user_id,
+                                    ':action' => 'hate', ':controller' => 'dish', ':created_at' => strtotime(date('Y-m-d'))]);
+                                return ['success' => 1, 'message' => '取消踩', 'data' => -1];
+                            }
+                        }
+                    }
+                }
+                break;
+            default:
+                break;
         }
     }
+
+
 
 
 }

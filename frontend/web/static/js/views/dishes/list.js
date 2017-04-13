@@ -12,6 +12,7 @@ window.PAGE_ACTION = function() {
         qxd = null,
         clear_car = null,
         plus_us = null, // 加上
+        like_hate = null, // 赞和踩
         min_us = null; // 减去
 
     init_first = function() {
@@ -143,6 +144,32 @@ window.PAGE_ACTION = function() {
         });
     };
 
+    like_hate = function() {
+        $("a.zan_hate").on('click',function() {
+            var _this = $(this);
+            var data = {"data-do": _this.data('do'), "data-id": _this.data('id'), "data-type": _this.data('type')};
+            ZP.api.like_hate({
+                'data': data,
+                successCallBack: function(result){
+                    if ('1' == result.data) {
+                        var num = parseInt(_this.find("span").text()) + 1;
+                        _this.find("span").text(num);
+                    }else if ('-1' == result.data) {
+                        var num = parseInt(_this.find("span").text()) - 1;
+                        if (0 > num) num = 0;
+                        _this.find("span").text(num);
+                    }
+                    // ZP.utils.alert_warning(result.message, true);
+                },
+                failCallBack: ZP.utils.failCallBack
+            });
+        });
+    };
+
+
+
+
+
     clear_car = function() {
         $("div button#clear").on("click", function() {
             ZP.api.clear_shopping_car({
@@ -179,6 +206,7 @@ window.PAGE_ACTION = function() {
             plus_us();
             clear_car();
             qxd();
+            like_hate();
         }
     };
 }

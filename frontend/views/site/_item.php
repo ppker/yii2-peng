@@ -29,7 +29,7 @@ use yii\helpers\Url;
                 <?php
                     $like = Html::a(
                         Html::tag('i', '', ['class' => 'fa fa-thumbs-o-up']) . ' ' . Html::tag('span', $model->zan) . ' 个赞',
-                        '#',
+                        'javascript:;',
                         [
                             'data-do' => 'zan',
                             'data-id' => $model->id,
@@ -39,7 +39,7 @@ use yii\helpers\Url;
                     );
                     $hate = Html::a(
                         Html::tag('i', '', ['class' => 'fa fa-thumbs-o-down']) . ' ' . Html::tag('span', $model->hate) . ' 个踩',
-                        '#',
+                        'javascript:;',
                         [
                             'data-do' => 'hate',
                             'data-id' => $model->id,
