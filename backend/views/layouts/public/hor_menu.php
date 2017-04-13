@@ -11,17 +11,6 @@
                 </li>
             <?php endforeach; ?>
         <?php endif; ?>
-
-        <li class="classic-menu-dropdown">
-            <a href="javascript:;" data-hover="megamenu-dropdown" data-close-others="true">
-                学习
-                <i class="fa fa-angle-down"></i>
-            </a>
-            <ul class="dropdown-menu pull-left">
-                <li>
-                    <a href="javascript:;"><i class="fa fa-bookmark-o"></i> just to do </a>
-                </li>
-            </ul>
-        </li>
+        
     </ul>
 </div>
