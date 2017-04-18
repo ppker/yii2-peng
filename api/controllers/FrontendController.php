@@ -218,6 +218,20 @@ class FrontendController extends BaseController {
     }
 
 
+    public function actionOrder_log() {
+
+        $now_time = (int)strtotime(date('Y-m-d'));
+        $list = (new Query())->select("user_order.*, user.realname, restaurant.name as hotel_name, cookbook.name, cookbook.price, (user_order.num * cookbook.price) as cook_total")->from("user_order")->leftJoin("user", 'user.id = user_order.user_id')
+            ->leftJoin('restaurant', 'restaurant.id = user_order.hotel_id')->leftJoin('cookbook', 'cookbook.id = user_order.dish_id')->where('user_order.created_at >= :now_time', [':now_time' => $now_time])->orderBy(['user_order.created_at' => SORT_DESC])->all();
+
+        if (!empty($list) && is_array($list)) {
+            foreach ($list as &$v) {
+                $v['created_at'] = date('Y-m-d H:i:s', $v['created_at']);
+            }
+        }
+        return parent::re_format($list);
+    }
+
 
 
 }

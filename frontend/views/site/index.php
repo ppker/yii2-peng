@@ -116,6 +116,7 @@ EndAsset::addScript($this, Yii::getAlias("@web/static/js/views/site/index.js"));
                 ]); ?>
                 <?= $form->field($model, 'username'); ?>
                 <?= $form->field($model, 'email'); ?>
+                <?= $form->field($model, 'realname') ?>
                 <?= $form->field($model, 'password')->passwordInput(); ?>
                 <div class="form-group">
                     <?= Html::submitButton('注册', ['class' => 'btn btn-primary', 'name' => 'signup-button']); ?>

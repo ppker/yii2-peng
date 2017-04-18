@@ -124,6 +124,15 @@
 		return ajax(options);
 	};
 
+    /**
+     * order_log
+     */
+    self.order_log = function(options) {
+        options = options ? options : {};
+        options.url = "/api/web/frontend/order_log";
+        return ajax(options);
+    };
+
 
 
 })(ZP, jQuery);

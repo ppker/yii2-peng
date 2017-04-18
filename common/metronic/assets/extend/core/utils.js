@@ -55,9 +55,14 @@
 			result = "",
 			html = "",
 			key = "";
-		
-		url = templateUrl.charAt(1) === "/" ?  templateUrl : "/" + templateUrl;
-		url = MAIN.define.templatesDir + url;
+		if ("@" === templateUrl.charAt(0)) {
+            templateUrl = templateUrl.slice(1);
+            url = templateUrl.charAt(1) === "/" ?  templateUrl : "/" + templateUrl;
+            url = MAIN.define.frontend_templates_dir + url;
+        } else {
+            url = templateUrl.charAt(1) === "/" ?  templateUrl : "/" + templateUrl;
+            url = MAIN.define.templatesDir + url;
+        }
 		key = md5(url);
 		
 		if(MAIN.define.isCacheTemplate && (key in templateCache) ){
@@ -804,6 +809,20 @@
         //});
 
     };
+
+    self.menu_top = function() {
+        var url = window.location.href;
+        var tem_url = url.split("/").shift();
+        var end_url = tem_url.join("/");
+        var $nav = $("ul.navbar-nav").find('a[href="'+end_url+'"]');
+        if ($nav.length > 0) {
+            $nav.closest('li').addClass('active open');
+            $nav.parent().parent().parent().addClass('active open');
+        }
+    };
+
+
+
     /**初始化顶部导航（top）*/
     self.topMenuInit = function(tabName){
         ZP.api.getMenuList({
@@ -1186,6 +1205,7 @@
 
                 if(ZP.utils.isArray(result.data)){
 
+					if (0 == result.success) ZP.utils.alert_warning(result.message, true);
                     ZP.utils.render(cfg_data.template_path, {
                         list: result.data
                     },function(html){

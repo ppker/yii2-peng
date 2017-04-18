@@ -28,6 +28,7 @@
 	self.cookieDay = 60;
 	
 	self.templatesDir = "/backend/web/static/templates";
+	self.frontend_templates_dir = "/frontend/web/static/templates";
 	self.isCacheTemplate = true;
 
 	self.reportIcons = [

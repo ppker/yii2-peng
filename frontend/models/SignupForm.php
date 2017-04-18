@@ -12,6 +12,7 @@ class SignupForm extends Model
     public $username;
     public $email;
     public $password;
+    public $realname;
 
 
     /**
@@ -25,6 +26,9 @@ class SignupForm extends Model
             ['username', 'match', 'pattern' => '/^[a-z][A-Z]*$/i', 'message' => '{attribute}是你邮箱@前面的字母'],
             ['username', 'unique', 'targetClass' => '\common\models\User', 'message' => '此{attribute}已经被使用'],
             ['username', 'string', 'min' => 2, 'max' => 255],
+
+            ['realname', 'required'],
+            ['realname', 'string', 'min' => 2, 'max' => 6],
 
             ['email', 'trim'],
             ['email', 'required'],
@@ -41,6 +45,7 @@ class SignupForm extends Model
 
         return [
             'username' => '用户名',
+            'realname' => '真实姓名',
             'password' => '密码',
             'email' => '企业邮箱'
         ];
@@ -57,10 +62,10 @@ class SignupForm extends Model
         if (!$this->validate()) {
             return null;
         }
-        
         $user = new User();
         $user->username = $this->username;
         $user->email = $this->email;
+        $user->realname = $this->realname;
         $user->setPassword($this->password);
         $user->generateAuthKey();
         

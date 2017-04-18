@@ -18,7 +18,7 @@ use yii\helpers\Url;
 <!-- DOC: Remove data-hover="dropdown" and data-close-others="true" attributes below to disable the dropdown opening on mouse hover -->
 <div class="hor-menu">
     <ul class="nav navbar-nav">
-        <li class="menu-dropdown classic-menu-dropdown active">
+        <li class="menu-dropdown classic-menu-dropdown">
             <a href="<?= Url::home(); ?>">
                 <i class="icon-screen-desktop"></i>&nbsp;&nbsp;加班点餐
                 <span class="arrow"></span>
@@ -31,7 +31,14 @@ use yii\helpers\Url;
                 <span class="arrow"></span>
             </a>
             <ul class="dropdown-menu pull-left">
-                <li class=" ">
+                <li class="order_log">
+                    <?php if(\Yii::$app->user->isGuest): ?>
+                    <?php else: ?>
+                        <a href="<?= Url::to(['order/log']); ?>" class="nav-link  "><i class="icon-notebook"></i>&nbsp;&nbsp;&nbsp;今日点餐记录</a>
+                    <?php endif;?>
+
+                </li>
+                <!--<li class=" ">
                     <a href="javascript:;" class="nav-link  "><i class="icon-speedometer"></i>&nbsp;&nbsp;&nbsp;晚八点</a>
                 </li>
                 <li class=" ">
@@ -45,7 +52,7 @@ use yii\helpers\Url;
                 </li>
                 <li class=" ">
                     <a href="javascript:;" class="nav-link  "><i class="icon-size-actual"></i>&nbsp;&nbsp;&nbsp;探索发现...</a>
-                </li>
+                </li>-->
             </ul>
         </li>
 
