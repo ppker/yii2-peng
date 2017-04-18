@@ -22,7 +22,7 @@ class UserController extends BaseController {
 
     public function actionIndex() {
 
-        $list = (new Query())->select('id, username, email, status, created_at')->from('user')->orderBy(['created_at' => SORT_DESC])->all();
+        $list = (new Query())->select('id, username, realname, email, status, created_at')->from('user')->orderBy(['created_at' => SORT_DESC])->all();
         if (!empty($list) && is_array($list)) {
             foreach ($list as &$v) {
                 $v['status'] = $this->account_status[$v['status']];

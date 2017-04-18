@@ -19,7 +19,7 @@ class OrderController extends BaseController {
 
     public function actionOrder_list() {
 
-        $list = (new Query())->select("user_order.*, user.realname, restaurant.name as hotel_name, cookbook.name")->from("user_order")->leftJoin("user", 'user.id = user_order.user_id')
+        $list = (new Query())->select("user_order.*, user.realname, restaurant.name as hotel_name, cookbook.name, cookbook.price, (user_order.num * cookbook.price) as cook_total")->from("user_order")->leftJoin("user", 'user.id = user_order.user_id')
             ->leftJoin('restaurant', 'restaurant.id = user_order.hotel_id')->leftJoin('cookbook', 'cookbook.id = user_order.dish_id')->orderBy(['user_order.created_at' => SORT_DESC])->all();
 
         if (!empty($list) && is_array($list)) {
